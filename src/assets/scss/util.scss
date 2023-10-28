@@ -1,0 +1,78 @@
+@use 'variables' as variables;
+
+.fade {
+  &-enter-active,
+  &-leave-active {
+    transition: 0.5s;
+  }
+  &-enter,
+  &-leave-to {
+    opacity: 0;
+  }
+}
+
+.mt-0 {
+  margin-top: 0 !important;
+}
+.mt-20 {
+  margin-top: 20px !important;
+}
+.mt-24 {
+  margin-top: 24px !important;
+}
+
+.mb-0 {
+  margin-bottom: 0 !important;
+}
+.mb-20 {
+  margin-bottom: 20px !important;
+}
+.mb-32 {
+  margin-bottom: 32px !important;
+}
+.mb-48 {
+  margin-bottom: 48px !important;
+}
+.mb-64 {
+  margin-bottom: 64px !important;
+}
+
+.hidden {
+  font-size: 0 !important;
+  position: absolute !important;
+  z-index: -1 !important;
+}
+
+.shadow {
+  box-shadow: 0 0 4px rgba(variables.$COLOR_BLACK, 0.2);
+}
+
+.Profile {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0 0 24px;
+}
+.Profile_name {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0;
+}
+.Profile_desc {
+  font-size: 16px;
+  margin: 0;
+}
+.Profile_icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 16px 0 0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.Profile_img {
+  display: block;
+}
+.PostContent .Profile p {
+  margin: 0;
+}

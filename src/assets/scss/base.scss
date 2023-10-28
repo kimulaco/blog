@@ -1,0 +1,31 @@
+@use 'variables' as variables;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: variables.$COLOR_WHITE;
+  font-family: variables.$FONT_FAMILY;
+  font-size: 16px;
+  line-height: 1.6;
+  color: variables.$COLOR_BLACK;
+}
+
+body {
+  background: variables.$COLOR_WHITE;
+}
+
+a {
+  color: variables.$COLOR_BLUE;
+  text-decoration: none;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
