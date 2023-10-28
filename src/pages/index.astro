@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import ArticleLink from '../components/modules/ArticleLink/index.vue'
 import { getAllArticles } from '../core/domains/article'
 
 const articles = await getAllArticles()
@@ -12,9 +13,9 @@ const articles = await getAllArticles()
     {
       articles.map((article) => {
         return (
-          <div>
-            <h2>{article.title}</h2>
-          </div>
+          <>
+            <ArticleLink article={article} />
+          </>
         )
       })
     }

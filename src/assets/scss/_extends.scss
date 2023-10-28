@@ -1,6 +1,8 @@
+@use 'variables' as variables;
+
 %layout-inner {
-  min-width: $CONTENT_MIN_WIDTH;
-  max-width: $CONTENT_MAX_WIDTH;
+  min-width: variables.$CONTENT_MIN_WIDTH;
+  max-width: variables.$CONTENT_MAX_WIDTH;
   padding: 0 10px;
   margin: 0 auto;
   @include media() {

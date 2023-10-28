@@ -1,4 +1,6 @@
-@mixin media($min-width: $BREAK_POINT) {
+@use 'variables' as variables;
+
+@mixin media($min-width: variables.$BREAK_POINT) {
   @media screen and (min-width: $min-width) {
     @content;
   }
