@@ -1,10 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import { getAllArticles } from '../core/domains/article'
+
+const articles = await getAllArticles()
 ---
 
 <Layout title="@kimulaco/blog">
   <main>
     <h1>@kimulaco/blog</h1>
-    <p>welcome</p>
+
+    {
+      articles.map((article) => {
+        return (
+          <div>
+            <h2>{article.title}</h2>
+          </div>
+        )
+      })
+    }
   </main>
 </Layout>

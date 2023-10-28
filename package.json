@@ -27,6 +27,7 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-astro": "^0.29.1",
     "husky": "^8.0.3",
+    "microcms-js-sdk": "^2.7.0",
     "prettier": "^3.0.3",
     "prettier-plugin-astro": "^0.12.1"
   }
