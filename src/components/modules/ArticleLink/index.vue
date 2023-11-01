@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import ArticleTags from '../ArticleTags/index.vue'
-import Timestamp from '../Timestamp/index.vue'
+import ArticleTimestamp from '../ArticleTimestamp/index.vue'
 import type { Article } from '../../../core/domains/article'
 
 type Props = {
@@ -19,7 +19,7 @@ defineProps<Props>()
         </a>
       </h3>
       <div class="ArticleLink_meta">
-        <Timestamp
+        <ArticleTimestamp
           :created-at="article.created_at"
           :updated-at="article.updated_at"
           class="ArticleLink_timestamp"

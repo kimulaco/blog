@@ -6,7 +6,7 @@ import ArticleContent from '../../components/modules/ArticleContent/index.vue'
 import ArticleLink from '../../components/modules/ArticleLink/index.vue'
 import ArticleShare from '../../components/modules/ArticleShare/index.vue'
 import ArticleTags from '../../components/modules/ArticleTags/index.vue'
-import Timestamp from '../../components/modules/Timestamp/index.vue'
+import ArticleTimestamp from '../../components/modules/ArticleTimestamp/index.vue'
 import { getArticleDetail, getAllArticles } from '../../core/domains/article'
 import { APP_CONFIG } from '../../core/domains/app'
 
@@ -31,7 +31,7 @@ export const getStaticPaths = async () => {
       <article class="PostDetail">
         <div class="PostDetail_head">
           <h1 class="PostDetail_heading">{article.title}</h1>
-          <Timestamp
+          <ArticleTimestamp
             created-at={article.created_at}
             updated-at={article.updated_at}
             class="PostDetail_timestamp"
