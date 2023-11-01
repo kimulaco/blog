@@ -6,10 +6,8 @@ import { getAllArticles } from '../core/domains/article'
 const articles = await getAllArticles()
 ---
 
-<Layout title="@kimulaco/blog">
+<Layout title="@kimulaco/blog" currentPath="/">
   <main>
-    <h1>@kimulaco/blog</h1>
-
     {
       articles.map((article) => {
         return (
