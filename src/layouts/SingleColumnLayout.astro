@@ -1,0 +1,36 @@
+---
+import '../assets/global-style'
+import LayoutHeader from '../components/layouts/LayoutHeader/index.vue'
+import LayoutColumn from '../components/layouts/LayoutColumn/index.vue'
+import LayoutMain from '../components/layouts/LayoutMain/index.vue'
+import LayoutFooter from '../components/layouts/LayoutFooter/index.vue'
+
+interface Props {
+  title: string
+  currentPath: string
+}
+
+const { title, currentPath } = Astro.props
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <LayoutHeader currentPath={currentPath} />
+
+    <LayoutColumn>
+      <LayoutMain slot="main">
+        <slot />
+      </LayoutMain>
+    </LayoutColumn>
+
+    <LayoutFooter />
+  </body>
+</html>

@@ -1,0 +1,11 @@
+---
+import SingleColumnLayout from '../layouts/SingleColumnLayout.astro'
+import PageTitle from '../components/modules/PageTitle/index.vue'
+import AppLinkButton from '../components/modules/AppLinkButton/index.vue'
+---
+
+<SingleColumnLayout title="404 - @kimulaco/blog" currentPath="/404">
+  <PageTitle>ページが見つかりませんでした。</PageTitle>
+  <p class="mb-32">記事が削除、またはURLが変更されている可能性があります。</p>
+  <AppLinkButton href="/">トップページへ</AppLinkButton>
+</SingleColumnLayout>

@@ -1,12 +1,12 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import MultiColumnLayout from '../layouts/MultiColumnLayout.astro'
 import ArticleLink from '../components/modules/ArticleLink/index.vue'
 import { getAllArticles } from '../core/domains/article'
 
 const articles = await getAllArticles()
 ---
 
-<Layout title="@kimulaco/blog" currentPath="/">
+<MultiColumnLayout title="@kimulaco/blog" currentPath="/">
   <main>
     {
       articles.map((article) => {
@@ -18,4 +18,4 @@ const articles = await getAllArticles()
       })
     }
   </main>
-</Layout>
+</MultiColumnLayout>

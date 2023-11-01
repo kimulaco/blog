@@ -1,5 +1,5 @@
 ---
-import Layout from '../../layouts/Layout.astro'
+import MultiColumnLayout from '../../layouts/MultiColumnLayout.astro'
 import AppHeading from '../../components/modules/AppHeading/index.vue'
 import AppLinkText from '../../components/modules/AppLinkText/index.vue'
 import ArticleContent from '../../components/modules/ArticleContent/index.vue'
@@ -25,7 +25,7 @@ export const getStaticPaths = async () => {
 }
 ---
 
-<Layout title="@kimulaco/blog" currentPath={`/article/${id}`}>
+<MultiColumnLayout title="@kimulaco/blog" currentPath={`/article/${id}`}>
   <div class="PagePostDetail">
     <article class="PostDetail">
       <div class="PostDetail_head">
@@ -85,7 +85,7 @@ export const getStaticPaths = async () => {
       </div>
     </aside>
   </div>
-</Layout>
+</MultiColumnLayout>
 
 <style scoped lang="scss">
   @use '../../assets/scss/variables.scss' as variables;
