@@ -26,64 +26,65 @@ export const getStaticPaths = async () => {
 ---
 
 <Layout title="@kimulaco/blog" currentPath={`/article/${id}`}>
-  <main>
-    <div class="PagePostDetail">
-      <article class="PostDetail">
-        <div class="PostDetail_head">
-          <h1 class="PostDetail_heading">{article.title}</h1>
-          <ArticleTimestamp
-            created-at={article.created_at}
-            updated-at={article.updated_at}
-            class="PostDetail_timestamp"
-          />
+  <div class="PagePostDetail">
+    <article class="PostDetail">
+      <div class="PostDetail_head">
+        <h1 class="PostDetail_heading">{article.title}</h1>
+        <ArticleTimestamp
+          createdAt={article.created_at}
+          updatedAt={article.updated_at}
+        />
 
-          {
-            (article.tag ?? []).length > 0 && (
-              <ArticleTags tags={article.tag} class="PostDetail_tags" />
-            )
-          }
+        {
+          (article.tag ?? []).length > 0 && (
+            <div class="PostDetail_tags">
+              <ArticleTags tags={article.tag} />
+            </div>
+          )
+        }
 
-          {
-            article.image && (
-              <img src={article.image.url} class="PostDetail_image" alt="" />
-            )
-          }
+        {
+          article.image && (
+            <img src={article.image.url} class="PostDetail_image" alt="" />
+          )
+        }
 
-          <ArticleShare
-            title={article.title}
-            description={article.description}
-            url={shareUrl}
-          />
-        </div>
+        <ArticleShare
+          title={article.title}
+          description={article.description}
+          url={shareUrl}
+        />
+      </div>
 
+      <div class="PostDetail_content">
         <!-- eslint-disable vue/no-v-html -->
-        <ArticleContent class="PostDetail_content" content={article.content} />
+        <ArticleContent content={article.content} />
         <!-- eslint-enable vue/no-v-html -->
+      </div>
 
-        <div class="PostDetail_foot">
-          <ArticleShare
-            title={article.title}
-            description={article.description}
-            url={shareUrl}
-          />
-          <AppLinkText to="/" class="PostDetail_back -back">
-            記事一覧に戻る
-          </AppLinkText>
+      <div class="PostDetail_foot">
+        <ArticleShare
+          title={article.title}
+          description={article.description}
+          url={shareUrl}
+        />
+        <div class="PostDetail_back -back">
+          <AppLinkText to="/">記事一覧に戻る</AppLinkText>
         </div>
-      </article>
+      </div>
+    </article>
 
-      <aside v-if="article.related_posts.length > 0">
-        <AppHeading>関連記事</AppHeading>
-        <div>
-          {
-            article.related_posts.map((relatedArticle) => {
-              return <ArticleLink article={relatedArticle} />
-            })
-          }
-        </div>
-      </aside>
-    </div>
-  </main>
+    <aside v-if="article.related_posts.length > 0">
+      <AppHeading>関連記事</AppHeading>
+      <div>
+        {
+          article.related_posts.map((relatedArticle) => {
+            return <ArticleLink article={relatedArticle} />
+          })
+        }
+      </div>
+    </aside>
+  </div>
 </Layout>
 
 <style scoped lang="scss">
