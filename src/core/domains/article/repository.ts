@@ -1,4 +1,4 @@
-import { microcms } from '../../repositories/microcms'
+import { microcms } from '@/core/repositories/microcms'
 import type { Article, ArticleTag } from './type'
 
 const GET_ALL_ARTICLES_PER_PAGE = 20

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import AppCard from '../../modules/AppCard/index.vue'
+import AppCard from '@/components/modules/AppCard/index.vue'
 
 type Props = {
   description: string
@@ -80,8 +80,8 @@ const descriptions = computed<string[]>(() => {
 </template>
 
 <style lang="scss" scoped>
-@use '../../../assets/scss/variables' as variables;
-@use '../../../assets/scss/mixins' as mixins;
+@use '@/assets/scss/variables' as variables;
+@use '@/assets/scss/mixins' as mixins;
 
 .AboutWidget {
   color: variables.$COLOR_WHITE;

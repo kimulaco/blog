@@ -13,7 +13,7 @@ defineProps<Props>()
 </template>
 
 <style scoped lang="scss">
-@use '../../../assets/scss/variables' as variables;
+@use '@/assets/scss/variables' as variables;
 
 .LinkButton {
   display: inline-block;

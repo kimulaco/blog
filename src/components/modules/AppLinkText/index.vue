@@ -17,7 +17,7 @@ withDefaults(defineProps<Props>(), {
 </template>
 
 <style lang="scss" scoped>
-@use '../../../assets/scss/mixins' as mixins;
+@use '@/assets/scss/mixins' as mixins;
 
 .LinkText {
   font-size: 15px;

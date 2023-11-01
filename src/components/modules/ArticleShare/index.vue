@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { copyToClipboard } from '../../../core/utilities/clipboard'
-import { APP_CONFIG } from '../../../core/domains/app'
+import { copyToClipboard } from '@/core/utilities/clipboard'
+import { APP_CONFIG } from '@/core/domains/app'
 
 type Props = {
   title: string
@@ -132,8 +132,8 @@ const handleCopyToClipbord = async () => {
 </template>
 
 <style lang="scss" scoped>
-@use '../../../assets/scss/variables' as variables;
-@use '../../../assets/scss/mixins' as mixins;
+@use '@/assets/scss/variables' as variables;
+@use '@/assets/scss/mixins' as mixins;
 
 .Share {
   margin: 0;

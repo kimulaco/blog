@@ -23,7 +23,7 @@ defineProps<Props>()
 </template>
 
 <style lang="scss" scoped>
-@use '../../../assets/scss/variables' as variables;
+@use '@/assets/scss/variables' as variables;
 
 $margin-top: 5px;
 $margin-left: 10px;

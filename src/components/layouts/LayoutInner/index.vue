@@ -5,8 +5,8 @@
 </template>
 
 <style lang="scss" scoped>
-@use '../../../assets/scss/extends';
-@use '../../../assets/scss/mixins' as mixins;
+@use '@/assets/scss/extends';
+@use '@/assets/scss/mixins' as mixins;
 
 .SiteInner {
   @extend %layout-inner;

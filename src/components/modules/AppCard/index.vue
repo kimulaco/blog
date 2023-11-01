@@ -24,8 +24,8 @@ const innerTagName = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@use '../../../assets/scss/variables' as variables;
-@use '../../../assets/scss/mixins' as mixins;
+@use '@/assets/scss/variables' as variables;
+@use '@/assets/scss/mixins' as mixins;
 
 .Card {
   background: variables.$COLOR_WHITE;

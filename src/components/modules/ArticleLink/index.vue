@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import ArticleTags from '../ArticleTags/index.vue'
-import ArticleTimestamp from '../ArticleTimestamp/index.vue'
-import type { Article } from '../../../core/domains/article'
+import ArticleTags from '@/components/modules/ArticleTags/index.vue'
+import ArticleTimestamp from '@/components/modules/ArticleTimestamp/index.vue'
+import type { Article } from '@/core/domains/article'
 
 type Props = {
   article: Article
@@ -36,8 +36,8 @@ defineProps<Props>()
 </template>
 
 <style lang="scss" scoped>
-@use '../../../assets/scss/variables' as variables;
-@use '../../../assets/scss/mixins' as mixins;
+@use '@/assets/scss/variables' as variables;
+@use '@/assets/scss/mixins' as mixins;
 
 .ArticleLink {
   border-bottom: 1px solid variables.$COLOR_LIGHTGRAY;

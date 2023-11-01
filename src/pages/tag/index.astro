@@ -1,8 +1,8 @@
 ---
-import MultiColumnLayout from '../../layouts/MultiColumnLayout.astro'
-import PageTitle from '../../components/modules/PageTitle/index.vue'
-import ArticleTagList from '../../components/modules/ArticleTagList/index.vue'
-import { getUsedAllTags } from '../../core/domains/article'
+import MultiColumnLayout from '@/layouts/MultiColumnLayout.astro'
+import PageTitle from '@/components/modules/PageTitle/index.vue'
+import ArticleTagList from '@/components/modules/ArticleTagList/index.vue'
+import { getUsedAllTags } from '@/core/domains/article'
 
 const tags = await getUsedAllTags()
 ---

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import LayoutInner from '../LayoutInner/index.vue'
-import { APP_CONFIG } from '../../../core/domains/app'
+import LayoutInner from '@/components/layouts/LayoutInner/index.vue'
+import { APP_CONFIG } from '@/core/domains/app'
 
 type Props = {
   currentPath?: string
@@ -71,8 +71,8 @@ const siteUrl = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@use '../../../assets/scss/variables' as variables;
-@use '../../../assets/scss/mixins' as mixins;
+@use '@/assets/scss/variables' as variables;
+@use '@/assets/scss/mixins' as mixins;
 
 .SiteHeader {
   background: variables.$COLOR_WHITE;

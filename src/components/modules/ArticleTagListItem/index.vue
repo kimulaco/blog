@@ -17,8 +17,8 @@ const rootTagName = computed(() => (props.href ? 'a' : 'span'))
 </template>
 
 <style scoped lang="scss">
-@use '../../../assets/scss/variables' as variables;
-@use '../../../assets/scss/mixins' as mixins;
+@use '@/assets/scss/variables' as variables;
+@use '@/assets/scss/mixins' as mixins;
 
 .Tag {
   display: block;

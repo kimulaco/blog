@@ -11,8 +11,8 @@ defineProps<Props>()
 </template>
 
 <style lang="scss">
-@use '../../../assets/scss/variables' as variables;
-@use '../../../assets/scss/mixins' as mixins;
+@use '@/assets/scss/variables' as variables;
+@use '@/assets/scss/mixins' as mixins;
 
 .PostContent {
   line-height: 1.8;

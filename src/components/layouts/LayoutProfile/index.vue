@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import LayoutInner from '../LayoutInner/index.vue'
+import LayoutInner from '@/components/layouts/LayoutInner/index.vue'
 </script>
 
 <template>
@@ -11,7 +11,7 @@ import LayoutInner from '../LayoutInner/index.vue'
 </template>
 
 <style lang="scss" scoped>
-@use '../../../assets/scss/mixins' as mixins;
+@use '@/assets/scss/mixins' as mixins;
 
 .SiteProfile {
   padding: 32px 0 24px;

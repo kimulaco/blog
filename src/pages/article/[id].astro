@@ -1,14 +1,14 @@
 ---
-import MultiColumnLayout from '../../layouts/MultiColumnLayout.astro'
-import AppHeading from '../../components/modules/AppHeading/index.vue'
-import AppLinkText from '../../components/modules/AppLinkText/index.vue'
-import ArticleContent from '../../components/modules/ArticleContent/index.vue'
-import ArticleLink from '../../components/modules/ArticleLink/index.vue'
-import ArticleShare from '../../components/modules/ArticleShare/index.vue'
-import ArticleTags from '../../components/modules/ArticleTags/index.vue'
-import ArticleTimestamp from '../../components/modules/ArticleTimestamp/index.vue'
-import { getArticleDetail, getAllArticles } from '../../core/domains/article'
-import { APP_CONFIG } from '../../core/domains/app'
+import MultiColumnLayout from '@/layouts/MultiColumnLayout.astro'
+import AppHeading from '@/components/modules/AppHeading/index.vue'
+import AppLinkText from '@/components/modules/AppLinkText/index.vue'
+import ArticleContent from '@/components/modules/ArticleContent/index.vue'
+import ArticleLink from '@/components/modules/ArticleLink/index.vue'
+import ArticleShare from '@/components/modules/ArticleShare/index.vue'
+import ArticleTags from '@/components/modules/ArticleTags/index.vue'
+import ArticleTimestamp from '@/components/modules/ArticleTimestamp/index.vue'
+import { getArticleDetail, getAllArticles } from '@/core/domains/article'
+import { APP_CONFIG } from '@/core/domains/app'
 
 const { id } = Astro.params
 

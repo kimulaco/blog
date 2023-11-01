@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ArticleTag } from '../../../core/domains/article/index'
+import type { ArticleTag } from '@/core/domains/article/index'
 
 type Props = {
   tags: ArticleTag[]
@@ -24,8 +24,8 @@ withDefaults(defineProps<Props>(), {
 </template>
 
 <style lang="scss" scoped>
-@use '../../../assets/scss/variables' as variables;
-@use '../../../assets/scss/mixins' as mixins;
+@use '@/assets/scss/variables' as variables;
+@use '@/assets/scss/mixins' as mixins;
 
 $margin-top: 5px;
 $margin-left: 8px;

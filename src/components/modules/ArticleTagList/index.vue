@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ArticleTagListItem from '../ArticleTagListItem/index.vue'
-import type { ArticleTag } from '../../../core/domains/article'
+import ArticleTagListItem from '@/components/modules/ArticleTagListItem/index.vue'
+import type { ArticleTag } from '@/core/domains/article'
 
 type Props = {
   tags: ArticleTag[]

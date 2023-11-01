@@ -1,4 +1,4 @@
-import { microcms } from '../../repositories/microcms'
+import { microcms } from '@/core/repositories/microcms'
 
 const ENDPOINT = 'about'
 

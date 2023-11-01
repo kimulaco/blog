@@ -1,13 +1,13 @@
 ---
-import MultiColumnLayout from '../../layouts/MultiColumnLayout.astro'
-import AppLinkButton from '../../components/modules/AppLinkButton/index.vue'
-import PageTitle from '../../components/modules/PageTitle/index.vue'
-import ArticleLink from '../../components/modules/ArticleLink/index.vue'
+import MultiColumnLayout from '@/layouts/MultiColumnLayout.astro'
+import AppLinkButton from '@/components/modules/AppLinkButton/index.vue'
+import PageTitle from '@/components/modules/PageTitle/index.vue'
+import ArticleLink from '@/components/modules/ArticleLink/index.vue'
 import {
   getUsedAllTags,
   getTagDetail,
   getAllArticles,
-} from '../../core/domains/article'
+} from '@/core/domains/article'
 
 const { id } = Astro.params
 

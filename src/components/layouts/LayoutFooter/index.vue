@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import LayoutInner from '../LayoutInner/index.vue'
-import { APP_CONFIG } from '../../../core/domains/app'
+import LayoutInner from '@/components/layouts/LayoutInner/index.vue'
+import { APP_CONFIG } from '@/core/domains/app'
 
 const feedUrl = computed(() => {
   return APP_CONFIG.FEED_URL
@@ -29,7 +29,7 @@ const feedUrl = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@use '../../../assets/scss/mixins' as mixins;
+@use '@/assets/scss/mixins' as mixins;
 
 .SiteFooter {
   padding: 16px 0 24px;
