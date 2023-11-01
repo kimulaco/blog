@@ -1,8 +1,11 @@
 import { microcms } from '../../repositories/microcms'
-import type { Article } from './type'
+import type { Article, ArticleTag } from './type'
 
 const GET_ALL_ARTICLES_PER_PAGE = 20
 const GET_ALL_ARTICLES_LOOP_MAX_COUNT = 10
+
+const ARTICLE_ENDPOINT = 'post'
+const TAG_ENDPOINT = 'tag'
 
 export type GetArticleListRequest = {
   filters?: string
@@ -19,7 +22,7 @@ export const getAllArticles = async (
 
   while (!isFinish) {
     const { contents: articles, totalCount } = await microcms.getList<Article>({
-      endpoint: 'post',
+      endpoint: ARTICLE_ENDPOINT,
       queries: {
         limit: GET_ALL_ARTICLES_PER_PAGE,
         offset: articleCount,
@@ -47,7 +50,33 @@ export const getAllArticles = async (
 
 export const getArticleDetail = async (id: string): Promise<Article> => {
   const content = await microcms.getListDetail<Article>({
-    endpoint: 'post',
+    endpoint: ARTICLE_ENDPOINT,
+    contentId: id,
+  })
+
+  return content
+}
+
+export const getUsedAllTags = async (): Promise<ArticleTag[]> => {
+  const articles = await getAllArticles()
+  const tags: ArticleTag[] = []
+
+  for (const article of articles) {
+    for (const articleTag of article.tag) {
+      const hasTag = tags.find((tag) => tag.id === articleTag.id)
+
+      if (!hasTag) {
+        tags.push(articleTag)
+      }
+    }
+  }
+
+  return tags
+}
+
+export const getTagDetail = async (id: string): Promise<ArticleTag> => {
+  const content = await microcms.getListDetail<ArticleTag>({
+    endpoint: TAG_ENDPOINT,
     contentId: id,
   })
 

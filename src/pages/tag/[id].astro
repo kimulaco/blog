@@ -1,0 +1,61 @@
+---
+import MultiColumnLayout from '../../layouts/MultiColumnLayout.astro'
+import AppLinkButton from '../../components/modules/AppLinkButton/index.vue'
+import PageTitle from '../../components/modules/PageTitle/index.vue'
+import ArticleLink from '../../components/modules/ArticleLink/index.vue'
+import {
+  getUsedAllTags,
+  getTagDetail,
+  getAllArticles,
+} from '../../core/domains/article'
+
+const { id } = Astro.params
+
+if (!id) {
+  return {
+    redirect: '/404',
+  }
+}
+
+const tag = await getTagDetail(id)
+const articles = await getAllArticles({
+  filters: `tag[contains]${id}`,
+})
+const hasArticles = articles.length > 0
+
+export const getStaticPaths = async () => {
+  const allTags = await getUsedAllTags()
+
+  return allTags
+    .filter((tag) => !!tag.id)
+    .map((tag) => ({ params: { id: tag.id } }))
+}
+---
+
+<MultiColumnLayout
+  title={`"${tag.name}"のタグを持つ記事 - @kimulaco/blog`}
+  currentPath={`/tag/${tag.id}`}
+>
+  <PageTitle>"{tag.name}"のタグを持つ記事</PageTitle>
+
+  {
+    hasArticles && (
+      <div>
+        {articles.map((article) => {
+          return <ArticleLink article={article} />
+        })}
+      </div>
+    )
+  }
+
+  {
+    !hasArticles && (
+      <>
+        <p class="mb-32">
+          <b>"{tag.name}"</b>のタグを持つ記事はありません。
+        </p>
+        <AppLinkButton href="/">トップページへ</AppLinkButton>
+      </>
+    )
+  }
+</MultiColumnLayout>

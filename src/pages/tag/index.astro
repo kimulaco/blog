@@ -1,0 +1,15 @@
+---
+import MultiColumnLayout from '../../layouts/MultiColumnLayout.astro'
+import PageTitle from '../../components/modules/PageTitle/index.vue'
+import ArticleTagList from '../../components/modules/ArticleTagList/index.vue'
+import { getUsedAllTags } from '../../core/domains/article'
+
+const tags = await getUsedAllTags()
+---
+
+<MultiColumnLayout title="タグ一覧 - @kimulaco/blog" currentPath="/tag">
+  <div class="PageTag">
+    <PageTitle>タグ一覧</PageTitle>
+    <ArticleTagList tags={tags} />
+  </div>
+</MultiColumnLayout>

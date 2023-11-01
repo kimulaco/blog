@@ -28,5 +28,4 @@ export type ArticleTag = {
   name: string
   createdAt?: string
   updatedAt?: string
-  count: number
 }
