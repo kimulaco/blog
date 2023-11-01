@@ -4,6 +4,8 @@ import LayoutHeader from '../components/layouts/LayoutHeader/index.vue'
 import LayoutColumn from '../components/layouts/LayoutColumn/index.vue'
 import LayoutMain from '../components/layouts/LayoutMain/index.vue'
 import LayoutFooter from '../components/layouts/LayoutFooter/index.vue'
+import AboutWidget from '../components/widgets/AboutWidget/index.vue'
+import { getAbout } from '../core/domains/about'
 
 interface Props {
   title: string
@@ -11,6 +13,7 @@ interface Props {
 }
 
 const { title, currentPath } = Astro.props
+const about = await getAbout()
 ---
 
 <!doctype html>
@@ -31,7 +34,7 @@ const { title, currentPath } = Astro.props
       </LayoutMain>
 
       <aside slot="sub">
-        <p>aside</p>
+        <AboutWidget description={about.about_widget} />
       </aside>
     </LayoutColumn>
 
