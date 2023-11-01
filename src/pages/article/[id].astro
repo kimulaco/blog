@@ -1,0 +1,178 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import AppHeading from '../../components/modules/AppHeading/index.vue'
+import AppLinkText from '../../components/modules/AppLinkText/index.vue'
+import ArticleContent from '../../components/modules/ArticleContent/index.vue'
+import ArticleLink from '../../components/modules/ArticleLink/index.vue'
+import ArticleShare from '../../components/modules/ArticleShare/index.vue'
+import ArticleTags from '../../components/modules/ArticleTags/index.vue'
+import Timestamp from '../../components/modules/Timestamp/index.vue'
+import { getArticleDetail, getAllArticles } from '../../core/domains/article'
+import { APP_CONFIG } from '../../core/domains/app'
+
+const { id } = Astro.params
+
+if (!id) {
+  return Astro.redirect('/404')
+}
+
+const shareUrl = `${APP_CONFIG.ORIGIN}/article/${id}`
+const article = await getArticleDetail(id)
+
+export const getStaticPaths = async () => {
+  const articles = await getAllArticles()
+  return articles.map((article) => ({ params: { id: article.id } }))
+}
+---
+
+<Layout title="@kimulaco/blog">
+  <main>
+    <div class="PagePostDetail">
+      <article class="PostDetail">
+        <div class="PostDetail_head">
+          <h1 class="PostDetail_heading">{article.title}</h1>
+          <Timestamp
+            created-at={article.created_at}
+            updated-at={article.updated_at}
+            class="PostDetail_timestamp"
+          />
+
+          {
+            (article.tag ?? []).length > 0 && (
+              <ArticleTags tags={article.tag} class="PostDetail_tags" />
+            )
+          }
+
+          {
+            article.image && (
+              <img src={article.image.url} class="PostDetail_image" alt="" />
+            )
+          }
+
+          <ArticleShare
+            title={article.title}
+            description={article.description}
+            url={shareUrl}
+          />
+        </div>
+
+        <!-- eslint-disable vue/no-v-html -->
+        <ArticleContent class="PostDetail_content" content={article.content} />
+        <!-- eslint-enable vue/no-v-html -->
+
+        <div class="PostDetail_foot">
+          <ArticleShare
+            title={article.title}
+            description={article.description}
+            url={shareUrl}
+          />
+          <AppLinkText to="/" class="PostDetail_back -back">
+            記事一覧に戻る
+          </AppLinkText>
+        </div>
+      </article>
+
+      <aside v-if="article.related_posts.length > 0">
+        <AppHeading>関連記事</AppHeading>
+        <div>
+          {
+            article.related_posts.map((relatedArticle) => {
+              return <ArticleLink article={relatedArticle} />
+            })
+          }
+        </div>
+      </aside>
+    </div>
+  </main>
+</Layout>
+
+<style scoped lang="scss">
+  @use '../../assets/scss/variables.scss' as variables;
+  @use '../../assets/scss/mixins.scss' as mixins;
+
+  .PostDetail {
+    padding: 0 10px;
+    position: relative;
+  }
+
+  .PostDetail_head {
+    padding: 0 0 16px;
+
+    @include mixins.media() {
+      padding: 0 0 32px;
+    }
+  }
+
+  .PostDetail_heading {
+    font-size: 28px;
+    padding: 5px 0;
+    margin: 0 0 8px;
+    line-height: 1.4;
+
+    @include mixins.media() {
+      font-size: 32px;
+    }
+  }
+
+  .PostDetail_category {
+    margin: 0 16px 16px 0;
+  }
+
+  .PostDetail_tags {
+    margin: 0 0 16px;
+
+    @include mixins.media() {
+      margin: 0 0 32px;
+    }
+  }
+
+  .PostDetail_image {
+    margin: 0 0 16px;
+
+    @include mixins.media() {
+      margin: 0 0 32px;
+    }
+  }
+
+  .PostDetail_content {
+    margin: 0;
+    padding: 20px 0;
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      background: variables.$COLOR_LIGHTGRAY;
+      width: calc(100% + 20px);
+      height: 1px;
+      position: absolute;
+      top: 0;
+      left: -10px;
+    }
+
+    @include mixins.media() {
+      padding: 32px 0;
+    }
+  }
+
+  .PostDetail_foot {
+    margin: 0;
+    padding: 32px 0 0;
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      background: variables.$COLOR_LIGHTGRAY;
+      width: calc(100% + 32px);
+      height: 1px;
+      position: absolute;
+      top: 0;
+      left: -16px;
+    }
+  }
+
+  .PostDetail_back.LinkText {
+    margin: 32px 0 0;
+  }
+</style>

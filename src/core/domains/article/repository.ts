@@ -44,3 +44,12 @@ export const getAllArticles = async (
 
   return allArticles
 }
+
+export const getArticleDetail = async (id: string): Promise<Article> => {
+  const content = await microcms.getListDetail<Article>({
+    endpoint: 'post',
+    contentId: id,
+  })
+
+  return content
+}
