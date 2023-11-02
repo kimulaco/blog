@@ -14,7 +14,7 @@ defineProps<Props>()
   <section class="ArticleLink">
     <div class="ArticleLink_inner">
       <h3 class="ArticleLink_heading">
-        <a :href="`/post/${article.id}/`" class="ArticleLink_heading-link">
+        <a :href="`/article/${article.id}/`" class="ArticleLink_heading-link">
           {{ article.title }}
         </a>
       </h3>
