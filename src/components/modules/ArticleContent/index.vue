@@ -1,13 +1,18 @@
 <script setup lang="ts">
+import { convertMdToHtml } from '@/core/utilities/markdown'
+import { computed } from 'vue'
+
 type Props = {
   content: string
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
+
+const html = computed(() => convertMdToHtml(props.content))
 </script>
 
 <template>
-  <div class="PostContent" v-html="content" />
+  <div class="PostContent" v-html="html" />
 </template>
 
 <style lang="scss">
