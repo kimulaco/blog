@@ -1,22 +1,49 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { format, isValid } from 'date-fns'
+
 type Props = {
   createdAt: string
   updatedAt?: string
 }
 
-defineProps<Props>()
+const props = defineProps<Props>()
+
+const formatedCreatedAt = computed(() => {
+  const date = new Date(props.createdAt)
+
+  if (isValid(date)) {
+    return format(date, 'yyyy/MM/dd')
+  }
+
+  return ''
+})
+
+const formatedUpdatedAt = computed(() => {
+  if (!props.updatedAt) {
+    return ''
+  }
+
+  const date = new Date(props.updatedAt)
+
+  if (isValid(date)) {
+    return format(date, 'yyyy/MM/dd')
+  }
+
+  return ''
+})
 </script>
 
 <template>
   <div class="Timestamp">
     <dl class="Timestamp_list">
       <div class="Timestamp_item">
-        <dt class="Timestamp_title">Publish:</dt>
-        <dd class="Timestamp_date">{{ createdAt }}</dd>
+        <dt class="Timestamp_title">投稿日:</dt>
+        <dd class="Timestamp_date">{{ formatedCreatedAt }}</dd>
       </div>
       <div v-if="updatedAt" class="Timestamp_item">
-        <dt class="Timestamp_title">Update:</dt>
-        <dd class="Timestamp_date">{{ updatedAt }}</dd>
+        <dt class="Timestamp_title">更新日:</dt>
+        <dd class="Timestamp_date">{{ formatedUpdatedAt }}</dd>
       </div>
     </dl>
   </div>

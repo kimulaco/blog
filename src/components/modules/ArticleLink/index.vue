@@ -69,12 +69,11 @@ defineProps<Props>()
     }
   }
 }
-.ArticleLink_meta {
-  display: flex;
-  flex-wrap: wrap;
-}
 .ArticleLink_timestamp {
   margin: 0 16px 0 0;
+}
+.ArticleLink_tags {
+  margin: 2px 0 0;
 }
 .ArticleLink_description {
   font-size: 15px;

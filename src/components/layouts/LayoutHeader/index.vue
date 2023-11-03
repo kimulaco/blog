@@ -35,11 +35,6 @@ const siteUrl = computed(() => {
           :href="titleTextHref"
           class="SiteHeader_title-text"
         >
-          <img
-            class="SiteHeader_title-icon"
-            src="../../../assets/img/icon-logo.png"
-            alt=""
-          />
           @kimulaco/blog
         </component>
       </component>
@@ -99,12 +94,8 @@ const siteUrl = computed(() => {
 .SiteHeader_title-text {
   display: flex;
   align-items: center;
+  font-size: 18px;
   color: variables.$COLOR_BLACK;
-}
-.SiteHeader_title-icon {
-  display: block;
-  width: 24px;
-  margin: 0 8px 0 0;
 }
 .SiteHeader_menu {
   display: flex;

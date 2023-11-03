@@ -12,7 +12,6 @@ withDefaults(defineProps<Props>(), {
 
 <template>
   <div class="ArticleTags">
-    <b class="ArticleTags_heading">Tags: </b>
     <ul class="ArticleTags_list">
       <li v-for="tag in tags" :key="tag.id" class="ArticleTags_item">
         <a :href="`/tag/${tag.id}/`" class="ArticleTags_link">
