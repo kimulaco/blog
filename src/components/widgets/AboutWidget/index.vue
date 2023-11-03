@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import TwitterIcon from '@/assets/img/icon-twitter.svg?component'
+import GitHubIcon from '@/assets/img/icon-github.svg?component'
 import AppCard from '@/components/modules/AppCard/index.vue'
 
 type Props = {
@@ -51,11 +53,7 @@ const descriptions = computed<string[]>(() => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
-              src="../../../assets/img/icon-twitter.svg"
-              alt=""
-              class="AboutWidget_link-icon"
-            />
+            <TwitterIcon class="AboutWidget_link-icon" />
             <span class="AboutWidget_link-text">Twitter</span>
           </a>
         </li>
@@ -66,11 +64,7 @@ const descriptions = computed<string[]>(() => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img
-              src="../../../assets/img/icon-github.svg"
-              alt=""
-              class="AboutWidget_link-icon"
-            />
+            <GitHubIcon class="AboutWidget_link-icon" />
             <span class="AboutWidget_link-text">GitHub</span>
           </a>
         </li>

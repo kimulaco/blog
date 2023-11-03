@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import InfoIcon from '@/assets/img/icon-info.svg?component'
+import InfoFeed from '@/assets/img/icon-feed.svg?component'
 import LayoutInner from '@/components/layouts/LayoutInner/index.vue'
 import { APP_CONFIG } from '@/core/domains/app'
 
@@ -42,21 +44,13 @@ const siteUrl = computed(() => {
       <ul class="SiteHeader_menu">
         <li class="SiteHeader_menu-item">
           <a class="SiteHeader_menu-anchor" href="/about/">
-            <img
-              class="SiteHeader_menu-icon"
-              src="../../../assets/img/icon-info.svg"
-              alt=""
-            />
+            <InfoIcon class="SiteHeader_menu-icon" />
             <span class="hidden">About</span>
           </a>
         </li>
         <li class="SiteHeader_menu-item">
           <a class="SiteHeader_menu-anchor" :href="`${siteUrl}/feed/post.xml`">
-            <img
-              class="SiteHeader_menu-icon"
-              src="../../../assets/img/icon-feed.svg"
-              alt=""
-            />
+            <InfoFeed class="SiteHeader_menu-icon" />
             <span class="hidden">Feed</span>
           </a>
         </li>

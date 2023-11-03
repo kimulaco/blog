@@ -1,14 +1,11 @@
 ---
 import MultiColumnLayout from '@/layouts/MultiColumnLayout.astro'
 import AppHeading from '@/components/modules/AppHeading/index.vue'
-import AppLinkText from '@/components/modules/AppLinkText/index.vue'
 import ArticleContent from '@/components/modules/ArticleContent/index.vue'
 import ArticleLink from '@/components/modules/ArticleLink/index.vue'
-import ArticleShare from '@/components/modules/ArticleShare/index.vue'
 import ArticleTags from '@/components/modules/ArticleTags/index.vue'
 import ArticleTimestamp from '@/components/modules/ArticleTimestamp/index.vue'
 import { getArticleDetail, getAllArticles } from '@/core/domains/article'
-import { APP_CONFIG } from '@/core/domains/app'
 
 const { id } = Astro.params
 
@@ -16,7 +13,6 @@ if (!id) {
   return Astro.redirect('/404')
 }
 
-const shareUrl = `${APP_CONFIG.ORIGIN}/article/${id}`
 const article = await getArticleDetail(id)
 
 export const getStaticPaths = async () => {
@@ -48,12 +44,6 @@ export const getStaticPaths = async () => {
             <img src={article.image.url} class="PostDetail_image" alt="" />
           )
         }
-
-        <ArticleShare
-          title={article.title}
-          description={article.description}
-          url={shareUrl}
-        />
       </div>
 
       <div class="PostDetail_content">
@@ -61,20 +51,9 @@ export const getStaticPaths = async () => {
         <ArticleContent content={article.content} />
         <!-- eslint-enable vue/no-v-html -->
       </div>
-
-      <div class="PostDetail_foot">
-        <ArticleShare
-          title={article.title}
-          description={article.description}
-          url={shareUrl}
-        />
-        <div class="PostDetail_back -back">
-          <AppLinkText to="/">記事一覧に戻る</AppLinkText>
-        </div>
-      </div>
     </article>
 
-    <aside v-if="article.related_posts.length > 0">
+    <aside v-if="article.related_posts.length > 0" class="PostDetail_related">
       <AppHeading>関連記事</AppHeading>
       <div>
         {
@@ -98,10 +77,6 @@ export const getStaticPaths = async () => {
 
   .PostDetail_head {
     padding: 0 0 16px;
-
-    @include mixins.media() {
-      padding: 0 0 32px;
-    }
   }
 
   .PostDetail_heading {
@@ -119,14 +94,6 @@ export const getStaticPaths = async () => {
     margin: 0 16px 16px 0;
   }
 
-  .PostDetail_tags {
-    margin: 0 0 16px;
-
-    @include mixins.media() {
-      margin: 0 0 32px;
-    }
-  }
-
   .PostDetail_image {
     margin: 0 0 16px;
 
@@ -137,43 +104,14 @@ export const getStaticPaths = async () => {
 
   .PostDetail_content {
     margin: 0;
-    padding: 20px 0;
-    position: relative;
-
-    &::before {
-      content: '';
-      display: block;
-      background: variables.$COLOR_LIGHTGRAY;
-      width: calc(100% + 20px);
-      height: 1px;
-      position: absolute;
-      top: 0;
-      left: -10px;
-    }
+    padding: 16px 0 20px;
 
     @include mixins.media() {
-      padding: 32px 0;
+      padding: 16px 0 32px;
     }
   }
 
-  .PostDetail_foot {
-    margin: 0;
-    padding: 32px 0 0;
-    position: relative;
-
-    &::before {
-      content: '';
-      display: block;
-      background: variables.$COLOR_LIGHTGRAY;
-      width: calc(100% + 32px);
-      height: 1px;
-      position: absolute;
-      top: 0;
-      left: -16px;
-    }
-  }
-
-  .PostDetail_back.LinkText {
-    margin: 32px 0 0;
+  .PostDetail_related {
+    padding: 0 10px;
   }
 </style>
