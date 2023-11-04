@@ -1,0 +1,20 @@
+---
+import SingleColumnLayout from '@/layouts/SingleColumnLayout.astro'
+import PageTitle from '@/components/modules/PageTitle/index.vue'
+import ArticleContent from '@/components/modules/ArticleContent/index.vue'
+import { getAbout } from '@/core/domains/about'
+
+const { about, contact } = await getAbout()
+const aboutContent = about ?? ''
+const contectContent = contact ?? ''
+---
+
+<SingleColumnLayout title="About - @kimulaco/blog" currentPath="/about">
+  <div class="PageAbout">
+    <PageTitle>About</PageTitle>
+    <ArticleContent content={aboutContent} />
+
+    <h2 id="content"></h2>
+    <ArticleContent content={contectContent} />
+  </div>
+</SingleColumnLayout>
