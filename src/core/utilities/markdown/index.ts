@@ -9,7 +9,11 @@ import 'prismjs/components/prism-bash'
 
 const renderer = new marked.Renderer()
 
-renderer.code = (code, language = 'plain-text') => {
+renderer.code = (code, language) => {
+  if (!language) {
+    return `<pre class="language-plain-text"><code>${code}</code></pre>`
+  }
+
   const highlightedCode = prism.highlight(
     code,
     prism.languages[language],
