@@ -27,6 +27,7 @@ const about = await getAbout()
     <meta name="generator" content={Astro.generator} />
     {!isProdBuild && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={APP_CONFIG.URL.CANONICAL} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
     <title>{title}</title>
   </head>
   <body data-build={BUILD_ENV}>
