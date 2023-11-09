@@ -24,7 +24,7 @@ const titleTextHref = computed(() => {
 })
 
 const feedUrl = computed(() => {
-  return APP_CONFIG.FEED_URL
+  return APP_CONFIG.URL.FEED
 })
 </script>
 

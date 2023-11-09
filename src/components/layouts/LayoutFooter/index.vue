@@ -4,7 +4,7 @@ import LayoutInner from '@/components/layouts/LayoutInner/index.vue'
 import { APP_CONFIG } from '@/core/domains/app'
 
 const feedUrl = computed(() => {
-  return APP_CONFIG.FEED_URL
+  return APP_CONFIG.URL.FEED
 })
 </script>
 

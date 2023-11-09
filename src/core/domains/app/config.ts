@@ -1,13 +1,21 @@
 const PROTOCOL = 'https:'
 const HOST = 'blog.kimulaco.dev'
 const ORIGIN = `${PROTOCOL}//${HOST}`
-const FEED_PATH = '/feed/post.xml'
+const FEED_PATH = '/feed/article.xml'
 
 export const APP_CONFIG = {
-  PROTOCOL,
-  HOST,
-  ORIGIN,
-  FEED_PATH,
-  FEED_URL: `${ORIGIN}${FEED_PATH}`,
-  CANONICAL_URL: 'https://kimulaco.com',
+  PATH: {
+    FEED: FEED_PATH,
+  },
+  URL: {
+    PROTOCOL,
+    HOST,
+    ORIGIN,
+    FEED: `${ORIGIN}${FEED_PATH}`,
+    CANONICAL: 'https://kimulaco.com',
+  },
+  META: {
+    TITLE: '@kimulaco/blog',
+    DESCRIPTION: 'Webエンジニアの学びと趣味のブログ。',
+  },
 } as const
