@@ -1,0 +1,17 @@
+---
+const GA_TRACKING_ID = String(import.meta.env.GA_TRACKING_ID ?? '')
+---
+
+<script
+  async
+  type="text/partytown"
+  src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+></script>
+<script type="text/partytown" define:vars={{ GA_TRACKING_ID }}>
+  window.dataLayer = window.dataLayer || []
+  function gtag() {
+    window.dataLayer.push(arguments)
+  }
+  gtag('js', new Date())
+  gtag('config', GA_TRACKING_ID)
+</script>

@@ -4,6 +4,7 @@ import LayoutHeader from '@/components/layouts/LayoutHeader/index.vue'
 import LayoutColumn from '@/components/layouts/LayoutColumn/index.vue'
 import LayoutMain from '@/components/layouts/LayoutMain/index.vue'
 import LayoutFooter from '@/components/layouts/LayoutFooter/index.vue'
+import LayoutGAImporter from '@/components/layouts/LayoutGAImporter/index.astro'
 import { APP_CONFIG } from '@@/config'
 
 interface Props {
@@ -26,6 +27,7 @@ const { title, currentPath } = Astro.props
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <title>{title}</title>
+    <LayoutGAImporter />
   </head>
   <body>
     <LayoutHeader currentPath={currentPath} />
