@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import LayoutInner from '@/components/layouts/LayoutInner/index.vue'
-import { APP_CONFIG } from '@/core/domains/app'
+import { APP_CONFIG } from '@@/config'
 
 const feedUrl = computed(() => {
   return APP_CONFIG.URL.FEED

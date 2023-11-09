@@ -6,7 +6,7 @@ import LayoutMain from '@/components/layouts/LayoutMain/index.vue'
 import LayoutFooter from '@/components/layouts/LayoutFooter/index.vue'
 import AboutWidget from '@/components/widgets/AboutWidget/index.vue'
 import { getAbout } from '@/core/domains/about'
-import { APP_CONFIG } from '@/core/domains/app'
+import { APP_CONFIG } from '@@/config'
 import { BUILD_ENV, isProdBuild } from '@/core/utilities/buildenv'
 
 interface Props {
@@ -28,6 +28,7 @@ const about = await getAbout()
     {!isProdBuild && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={APP_CONFIG.URL.CANONICAL} />
     <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <title>{title}</title>
   </head>
   <body data-build={BUILD_ENV}>

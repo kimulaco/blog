@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import InfoIcon from '@/assets/img/icon-info.svg?component'
 import InfoFeed from '@/assets/img/icon-feed.svg?component'
 import LayoutInner from '@/components/layouts/LayoutInner/index.vue'
-import { APP_CONFIG } from '@/core/domains/app'
+import { APP_CONFIG } from '@@/config'
 
 type Props = {
   currentPath?: string

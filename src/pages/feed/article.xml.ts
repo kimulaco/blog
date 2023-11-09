@@ -1,5 +1,5 @@
 import rss, { type RSSFeedItem } from '@astrojs/rss'
-import { APP_CONFIG } from '@/core/domains/app'
+import { APP_CONFIG } from '@@/config'
 import { getAllArticles } from '@/core/domains/article'
 
 export const GET = async () => {
