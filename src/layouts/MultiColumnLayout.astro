@@ -6,6 +6,8 @@ import LayoutMain from '@/components/layouts/LayoutMain/index.vue'
 import LayoutFooter from '@/components/layouts/LayoutFooter/index.vue'
 import AboutWidget from '@/components/widgets/AboutWidget/index.vue'
 import { getAbout } from '@/core/domains/about'
+import { APP_CONFIG } from '@/core/domains/app'
+import { BUILD_ENV, isProdBuild } from '@/core/utilities/buildenv'
 
 interface Props {
   title: string
@@ -23,9 +25,11 @@ const about = await getAbout()
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    {!isProdBuild && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={APP_CONFIG.CANONICAL_URL} />
     <title>{title}</title>
   </head>
-  <body>
+  <body data-build={BUILD_ENV}>
     <LayoutHeader currentPath={currentPath} />
 
     <LayoutColumn>

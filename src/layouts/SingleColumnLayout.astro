@@ -4,6 +4,7 @@ import LayoutHeader from '@/components/layouts/LayoutHeader/index.vue'
 import LayoutColumn from '@/components/layouts/LayoutColumn/index.vue'
 import LayoutMain from '@/components/layouts/LayoutMain/index.vue'
 import LayoutFooter from '@/components/layouts/LayoutFooter/index.vue'
+import { APP_CONFIG } from '@/core/domains/app'
 
 interface Props {
   title: string
@@ -20,6 +21,8 @@ const { title, currentPath } = Astro.props
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="canonical" href={APP_CONFIG.CANONICAL_URL} />
     <title>{title}</title>
   </head>
   <body>

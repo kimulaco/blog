@@ -23,8 +23,8 @@ const titleTextHref = computed(() => {
   return isHome.value ? undefined : '/'
 })
 
-const siteUrl = computed(() => {
-  return APP_CONFIG.ORIGIN
+const feedUrl = computed(() => {
+  return APP_CONFIG.FEED_URL
 })
 </script>
 
@@ -49,7 +49,7 @@ const siteUrl = computed(() => {
           </a>
         </li>
         <li class="SiteHeader_menu-item">
-          <a class="SiteHeader_menu-anchor" :href="`${siteUrl}/feed/post.xml`">
+          <a class="SiteHeader_menu-anchor" :href="`${feedUrl}`">
             <InfoFeed class="SiteHeader_menu-icon" />
             <span class="hidden">Feed</span>
           </a>
