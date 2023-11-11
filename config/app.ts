@@ -1,5 +1,10 @@
+const HOST = import.meta.env.APP_HOST ?? process.env.APP_HOST ?? ''
+
+if (!HOST) {
+  throw new Error('APP_HOST is not defined')
+}
+
 const PROTOCOL = 'https:'
-const HOST = 'blog.kimulaco.dev'
 const ORIGIN = `${PROTOCOL}//${HOST}`
 const FEED_PATH = '/feed/article.xml'
 
