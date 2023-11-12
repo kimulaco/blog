@@ -3,9 +3,9 @@
   "type": "module",
   "version": "2.0.0",
   "engines": {
-    "node": "20.9.0"
+    "node": "18.*"
   },
-  "packageManager": "pnpm@8.10.0",
+  "packageManager": "pnpm@8.10.2",
   "scripts": {
     "prepare": "husky install",
     "start": "astro dev",
