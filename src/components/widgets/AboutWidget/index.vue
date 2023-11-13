@@ -26,7 +26,7 @@ const descriptions = computed<string[]>(() => {
       <div class="AboutWidget_icon">
         <img
           class="AboutWidget_icon-img"
-          src="../../../assets/img/profile.png"
+          src="/img/profile.png"
           alt=""
           width="50"
           height="50"
