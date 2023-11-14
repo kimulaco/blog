@@ -40,8 +40,8 @@ jobs:
       matrix:
         node-version: ['20.9']
     env:
-      GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID_DEV }}
-      APP_HOST: ${{ secrets.APP_HOST_DEV }}
+      GA_TRACKING_ID: ${{ secrets.TEST_GA_TRACKING_ID }}
+      APP_HOST: ${{ secrets.TEST_APP_HOST }}
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
     steps:
       - uses: actions/checkout@v4
@@ -56,14 +56,33 @@ jobs:
         with:
           files: ./.coverage/coverage-final.json
 
-  build:
+  build_test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: ['20.9']
     env:
-      GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID_DEV }}
-      APP_HOST: ${{ secrets.APP_HOST_DEV }}
+      GA_TRACKING_ID: ${{ secrets.TEST_GA_TRACKING_ID }}
+      APP_HOST: ${{ secrets.TEST_APP_HOST }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+      - run: pnpm i
+      - run: pnpm run build:dev
+
+  build_dev:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop'
+    strategy:
+      matrix:
+        node-version: ['20.9']
+    env:
+      GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID }}
+      APP_HOST: ${{ secrets.APP_HOST }}
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v2
@@ -81,13 +100,13 @@ jobs:
   deploy_dev:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/develop'
-    needs: [lint, unit_test, build]
+    needs: [lint, unit_test, build_dev]
     env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}
-      AWS_S3_REGION: ${{ secrets.AWS_S3_REGION_DEV }}
-      AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME_DEV }}
-      AWS_CLOUDFRONT_DISTRIBUTION: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_DEV }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_S3_REGION: ${{ secrets.AWS_S3_REGION }}
+      AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}
+      AWS_CLOUDFRONT_DISTRIBUTION: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v3
