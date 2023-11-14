@@ -87,6 +87,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}
       AWS_S3_REGION: ${{ secrets.AWS_S3_REGION_DEV }}
       AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME_DEV }}
+      AWS_CLOUDFRONT_DISTRIBUTION: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_DEV }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v3
@@ -99,3 +100,4 @@ jobs:
           aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_S3_REGION }}
       - run: aws s3 sync dist s3://${{ env.AWS_S3_BUCKET_NAME }} --delete --exact-timestamps
+      - run: aws cloudfront create-invalidation --distribution-id ${{ env.AWS_CLOUDFRONT_DISTRIBUTION }} --paths "/*"
