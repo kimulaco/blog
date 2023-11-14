@@ -1,4 +1,4 @@
-name: Test
+name: Deploy
 
 on:
   push:
@@ -98,4 +98,4 @@ jobs:
           aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_S3_REGION }}
-      - run: aws s3 cp dist s3://${{ env.AWS_S3_BUCKET_NAME }} --recursive
+      - run: aws s3 sync dist s3://${{ env.AWS_S3_BUCKET_NAME }} --delete --exact-timestamps
