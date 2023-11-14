@@ -19,9 +19,9 @@ jobs:
       matrix:
         node-version: ['20.9']
     steps:
-      - uses: ./.github/actions/init-repos.yml
-      - uses: ./.github/actions/init-node.yml
-      - uses: ./.github/actions/lint.yml
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/init-node
+      - uses: ./.github/actions/lint
 
   unit_test:
     runs-on: ubuntu-latest
@@ -33,9 +33,9 @@ jobs:
       APP_HOST: ${{ secrets.TEST_APP_HOST }}
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
     steps:
-      - uses: ./.github/actions/init-repos.yml
-      - uses: ./.github/actions/init-node.yml
-      - uses: ./.github/actions/unit-test.yml
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/init-node
+      - uses: ./.github/actions/unit-test
 
   build_dev:
     runs-on: ubuntu-latest
@@ -46,8 +46,8 @@ jobs:
       GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID }}
       APP_HOST: ${{ secrets.APP_HOST }}
     steps:
-      - uses: ./.github/actions/init-repos.yml
-      - uses: ./.github/actions/init-node.yml
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/init-node
       - run: pnpm run build:dev
       - uses: actions/upload-artifact@v3
         with:
@@ -64,7 +64,7 @@ jobs:
       AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}
       AWS_CLOUDFRONT_DISTRIBUTION: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION }}
     steps:
-      - uses: ./.github/actions/init-repos.yml
+      - uses: actions/checkout@v4
       - uses: actions/download-artifact@v3
         with:
           name: build-dev-dist

@@ -1,11 +1,6 @@
-name: Lint
-
-on: workflow_call
-
-jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - run: pnpm run lint:format
-      - run: pnpm run lint:script
-      - run: pnpm run lint:style
+runs:
+  using: 'Composite'
+  steps:
+    - run: pnpm run lint:format
+    - run: pnpm run lint:script
+    - run: pnpm run lint:style

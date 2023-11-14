@@ -1,14 +1,9 @@
-name: Init Node.js
-
-on: workflow_call
-
-jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: pnpm/action-setup@v2
-      - uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
-      - run: pnpm i
+runs:
+  using: 'Composite'
+  steps:
+    - uses: pnpm/action-setup@v2
+    - uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'pnpm'
+    - run: pnpm i
