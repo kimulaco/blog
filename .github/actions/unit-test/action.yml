@@ -2,6 +2,7 @@ runs:
   using: 'Composite'
   steps:
     - run: pnpm run test:unit:cov
+      shell: bash
     - uses: codecov/codecov-action@v3
       with:
         files: ./.coverage/coverage-final.json

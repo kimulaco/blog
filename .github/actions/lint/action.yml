@@ -2,5 +2,8 @@ runs:
   using: 'Composite'
   steps:
     - run: pnpm run lint:format
+      shell: bash
     - run: pnpm run lint:script
+      shell: bash
     - run: pnpm run lint:style
+      shell: bash
