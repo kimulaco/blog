@@ -1,0 +1,12 @@
+name: Unit Test
+
+on: workflow_call
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - run: pnpm run test:unit:cov
+      - uses: codecov/codecov-action@v3
+        with:
+          files: ./.coverage/coverage-final.json

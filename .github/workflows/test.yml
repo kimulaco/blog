@@ -1,0 +1,55 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - '*'
+
+env:
+  MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
+  MICROCMS_SERVICE_DOMAIN: ${{ secrets.MICROCMS_SERVICE_DOMAIN }}
+  SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+  SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+  SENTRY_PROJECT_NAME: ${{ secrets.SENTRY_PROJECT_NAME }}
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ['20.9']
+    steps:
+      - uses: ./.github/actions/init-repos.yml
+      - uses: ./.github/actions/init-node.yml
+      - uses: ./.github/actions/lint.yml
+
+  unit_test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ['20.9']
+    env:
+      GA_TRACKING_ID: ${{ secrets.TEST_GA_TRACKING_ID }}
+      APP_HOST: ${{ secrets.TEST_APP_HOST }}
+      CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+    steps:
+      - uses: ./.github/actions/init-repos.yml
+      - uses: ./.github/actions/init-node.yml
+      - uses: ./.github/actions/unit-test.yml
+
+  build_test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ['20.9']
+    env:
+      GA_TRACKING_ID: ${{ secrets.TEST_GA_TRACKING_ID }}
+      APP_HOST: ${{ secrets.TEST_APP_HOST }}
+    steps:
+      - uses: ./.github/actions/init-repos.yml
+      - uses: ./.github/actions/init-node.yml
+      - run: pnpm run build:dev

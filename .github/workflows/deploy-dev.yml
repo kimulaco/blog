@@ -1,13 +1,9 @@
-name: Deploy
+name: Deploy to development
 
 on:
   push:
     branches:
-      - main
       - develop
-  pull_request:
-    branches:
-      - '*'
 
 env:
   MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
@@ -23,16 +19,9 @@ jobs:
       matrix:
         node-version: ['20.9']
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v2
-      - uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
-      - run: pnpm i
-      - run: pnpm run lint:format
-      - run: pnpm run lint:script
-      - run: pnpm run lint:style
+      - uses: ./.github/actions/init-repos.yml
+      - uses: ./.github/actions/init-node.yml
+      - uses: ./.github/actions/lint.yml
 
   unit_test:
     runs-on: ubuntu-latest
@@ -44,39 +33,12 @@ jobs:
       APP_HOST: ${{ secrets.TEST_APP_HOST }}
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v2
-      - uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
-      - run: pnpm i
-      - run: pnpm run test:unit:cov
-      - uses: codecov/codecov-action@v3
-        with:
-          files: ./.coverage/coverage-final.json
-
-  build_test:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: ['20.9']
-    env:
-      GA_TRACKING_ID: ${{ secrets.TEST_GA_TRACKING_ID }}
-      APP_HOST: ${{ secrets.TEST_APP_HOST }}
-    steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v2
-      - uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
-      - run: pnpm i
-      - run: pnpm run build:dev
+      - uses: ./.github/actions/init-repos.yml
+      - uses: ./.github/actions/init-node.yml
+      - uses: ./.github/actions/unit-test.yml
 
   build_dev:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/develop'
     strategy:
       matrix:
         node-version: ['20.9']
@@ -84,13 +46,8 @@ jobs:
       GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID }}
       APP_HOST: ${{ secrets.APP_HOST }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v2
-      - uses: actions/setup-node@v4
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
-      - run: pnpm i
+      - uses: ./.github/actions/init-repos.yml
+      - uses: ./.github/actions/init-node.yml
       - run: pnpm run build:dev
       - uses: actions/upload-artifact@v3
         with:
@@ -99,7 +56,6 @@ jobs:
 
   deploy_dev:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/develop'
     needs: [lint, unit_test, build_dev]
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -108,7 +64,7 @@ jobs:
       AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}
       AWS_CLOUDFRONT_DISTRIBUTION: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: ./.github/actions/init-repos.yml
       - uses: actions/download-artifact@v3
         with:
           name: build-dev-dist
