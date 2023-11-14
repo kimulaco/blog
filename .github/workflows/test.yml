@@ -73,3 +73,28 @@ jobs:
           cache: 'pnpm'
       - run: pnpm i
       - run: pnpm run build:dev
+      - uses: actions/upload-artifact@v3
+        with:
+          name: build-dev-dist
+          path: dist
+
+  deploy_dev:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop'
+    needs: [lint, unit_test, build]
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}
+      AWS_S3_REGION_DEV: ${{ secrets.AWS_S3_REGION_DEV }}
+      AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME_DEV }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v3
+        with:
+          name: build-dev-dist
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: $AWS_ACCESS_KEY_ID
+          aws-secret-access-key: $AWS_SECRET_ACCESS_KEY
+          aws-region: $AWS_S3_REGION_DEV
+      - run: aws s3 cp --recursive --region $AWS_S3_REGION_DEV dist s3://$AWS_S3_BUCKET_NAME
