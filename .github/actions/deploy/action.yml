@@ -21,4 +21,6 @@ runs:
         aws-secret-access-key: ${{ inputs.aws-secret-access-key }}
         aws-region: ${{ inputs.aws-region }}
     - run: aws s3 sync ${{ inputs.aws-s3-upload-dir }} s3://${{ inputs.aws-s3-bucket-name }} --delete --exact-timestamps
+      shell: bash
     - run: aws cloudfront create-invalidation --distribution-id ${{ inputs.aws-cloudfront-distribution }} --paths "/*"
+      shell: bash
