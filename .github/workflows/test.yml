@@ -85,7 +85,7 @@ jobs:
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}
-      AWS_S3_REGION_DEV: ${{ secrets.AWS_S3_REGION_DEV }}
+      AWS_S3_REGION: ${{ secrets.AWS_S3_REGION_DEV }}
       AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME_DEV }}
     steps:
       - uses: actions/checkout@v4
@@ -94,7 +94,7 @@ jobs:
           name: build-dev-dist
       - uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-access-key-id: $AWS_ACCESS_KEY_ID
-          aws-secret-access-key: $AWS_SECRET_ACCESS_KEY
-          aws-region: $AWS_S3_REGION_DEV
-      - run: aws s3 cp --recursive --region $AWS_S3_REGION_DEV dist s3://$AWS_S3_BUCKET_NAME
+          aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_S3_REGION }}
+      - run: aws s3 cp dist s3://${{ env.AWS_S3_BUCKET_NAME }} --recursive
