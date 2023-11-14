@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - develop
+      - feat/use-github-enviroments # for testing
 
 env:
   MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
@@ -69,10 +70,11 @@ jobs:
         with:
           name: build-dev-dist
           path: dist
-      - uses: aws-actions/configure-aws-credentials@v4
+      - uses: ./.github/actions/deploy
         with:
           aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ env.AWS_S3_REGION }}
-      - run: aws s3 sync dist s3://${{ env.AWS_S3_BUCKET_NAME }} --delete --exact-timestamps
-      - run: aws cloudfront create-invalidation --distribution-id ${{ env.AWS_CLOUDFRONT_DISTRIBUTION }} --paths "/*"
+          aws-s3-bucket-name: ${{ env.AWS_S3_BUCKET_NAME }}
+          aws-s3-upload-dir: dist
+          aws-cloudfront-distribution: ${{ env.AWS_CLOUDFRONT_DISTRIBUTION }}
