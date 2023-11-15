@@ -28,6 +28,7 @@ const { title, currentPath } = Astro.props
     <link rel="sitemap" href="/sitemap-index.xml" />
     <title>{title}</title>
     <LayoutGAImporter />
+    <slot name="head" />
   </head>
   <body>
     <LayoutHeader currentPath={currentPath} />
