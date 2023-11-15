@@ -3,6 +3,8 @@ import MultiColumnLayout from '@/layouts/MultiColumnLayout.astro'
 import AppLinkButton from '@/components/modules/AppLinkButton/index.vue'
 import PageTitle from '@/components/modules/PageTitle/index.vue'
 import ArticleLink from '@/components/modules/ArticleLink/index.vue'
+import JsonldBreadcrumbList from '@/components/jsonld/JsonldBreadcrumbList.astro'
+import { createBreadcrumbList } from '@/core/domains/breadcrumb'
 import {
   getUsedAllTags,
   getTagDetail,
@@ -23,6 +25,17 @@ const articles = await getAllArticles({
 })
 const hasArticles = articles.length > 0
 
+const breadcrumbs = createBreadcrumbList([
+  {
+    text: 'タグ',
+    url: '/tag',
+  },
+  {
+    text: `"${tag.name}"のタグを持つ記事`,
+    url: `/tag/${tag.id}`,
+  },
+])
+
 export const getStaticPaths = async () => {
   const allTags = await getUsedAllTags()
 
@@ -36,6 +49,8 @@ export const getStaticPaths = async () => {
   title={`"${tag.name}"のタグを持つ記事 - @kimulaco/blog`}
   currentPath={`/tag/${tag.id}`}
 >
+  <JsonldBreadcrumbList breadcrumbs={breadcrumbs} slot="head" />
+
   <PageTitle>"{tag.name}"のタグを持つ記事</PageTitle>
 
   {

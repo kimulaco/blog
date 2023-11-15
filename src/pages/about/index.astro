@@ -2,14 +2,25 @@
 import SingleColumnLayout from '@/layouts/SingleColumnLayout.astro'
 import PageTitle from '@/components/modules/PageTitle/index.vue'
 import ArticleContent from '@/components/modules/ArticleContent/index.vue'
+import JsonldBreadcrumbList from '@/components/jsonld/JsonldBreadcrumbList.astro'
+import { createBreadcrumbList } from '@/core/domains/breadcrumb'
 import { getAbout } from '@/core/domains/about'
 
 const { about, contact } = await getAbout()
 const aboutContent = about ?? ''
 const contectContent = contact ?? ''
+
+const breadcrumbs = createBreadcrumbList([
+  {
+    text: 'About',
+    url: '/about',
+  },
+])
 ---
 
 <SingleColumnLayout title="About - @kimulaco/blog" currentPath="/about">
+  <JsonldBreadcrumbList breadcrumbs={breadcrumbs} slot="head" />
+
   <div class="PageAbout">
     <PageTitle>About</PageTitle>
     <ArticleContent content={aboutContent} />

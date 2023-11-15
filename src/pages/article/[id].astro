@@ -5,6 +5,9 @@ import ArticleContent from '@/components/modules/ArticleContent/index.vue'
 import ArticleLink from '@/components/modules/ArticleLink/index.vue'
 import ArticleTags from '@/components/modules/ArticleTags/index.vue'
 import ArticleTimestamp from '@/components/modules/ArticleTimestamp/index.vue'
+import JsonldBlogPosting from '@/components/jsonld/JsonldBlogPosting.astro'
+import JsonldBreadcrumbList from '@/components/jsonld/JsonldBreadcrumbList.astro'
+import { createBreadcrumbList } from '@/core/domains/breadcrumb'
 import { getArticleDetail, getAllArticles } from '@/core/domains/article'
 
 const { id } = Astro.params
@@ -15,6 +18,10 @@ if (!id) {
 
 const article = await getArticleDetail(id)
 
+const breadcrumbs = createBreadcrumbList([
+  { url: `/article/${article.id}`, text: article.title },
+])
+
 export const getStaticPaths = async () => {
   const articles = await getAllArticles()
   return articles.map((article) => ({ params: { id: article.id } }))
@@ -22,6 +29,9 @@ export const getStaticPaths = async () => {
 ---
 
 <MultiColumnLayout title="@kimulaco/blog" currentPath={`/article/${id}`}>
+  <JsonldBlogPosting article={article} slot="head" />
+  <JsonldBreadcrumbList breadcrumbs={breadcrumbs} slot="head" />
+
   <div class="PagePostDetail">
     <article class="PostDetail">
       <div class="PostDetail_head">

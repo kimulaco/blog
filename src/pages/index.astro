@@ -1,12 +1,15 @@
 ---
 import MultiColumnLayout from '@/layouts/MultiColumnLayout.astro'
 import ArticleLink from '@/components/modules/ArticleLink/index.vue'
+import JsonldWebSite from '@/components/jsonld/JsonldWebSite.astro'
 import { getAllArticles } from '@/core/domains/article'
 
 const articles = await getAllArticles()
 ---
 
 <MultiColumnLayout title="@kimulaco/blog" currentPath="/">
+  <JsonldWebSite slot="head" />
+
   <main>
     {
       articles.map((article) => {

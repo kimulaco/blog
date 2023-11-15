@@ -1,0 +1,41 @@
+---
+import { APP_CONFIG } from '@@/config/app'
+import type { Article } from '@/core/domains/article'
+
+type Props = {
+  article: Article
+}
+
+const { article } = Astro.props
+
+const schema = JSON.stringify({
+  '@context': 'http://schema.org',
+  '@type': 'BlogPosting',
+  name: APP_CONFIG.META.TITLE,
+  description: article.description,
+  headline: `${article.title} | ${APP_CONFIG.META.TITLE}`,
+  inLanguage: 'jp',
+  url: APP_CONFIG.URL.ORIGIN,
+  image: [`${APP_CONFIG.URL.ORIGIN}/img/ogp.png`],
+  publisher: {
+    '@type': 'Organization',
+    name: APP_CONFIG.META.TITLE,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${APP_CONFIG.URL.ORIGIN}/img/icon.png`,
+    },
+  },
+  author: {
+    '@type': 'Person',
+    name: APP_CONFIG.META.AUTHOR,
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': `${APP_CONFIG.URL.ORIGIN}/article/${article.id}`,
+  },
+  datePublished: article.created_at,
+  dateModified: article.updated_at || '',
+})
+---
+
+<script type="application/ld+json" set:html={schema} />
