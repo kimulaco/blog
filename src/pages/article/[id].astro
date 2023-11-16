@@ -28,7 +28,10 @@ export const getStaticPaths = async () => {
 }
 ---
 
-<MultiColumnLayout title="@kimulaco/blog" currentPath={`/article/${id}`}>
+<MultiColumnLayout
+  title={`${article.title} - @kimulaco/blog`}
+  currentPath={`/article/${id}`}
+>
   <JsonldBlogPosting article={article} slot="head" />
   <JsonldBreadcrumbList breadcrumbs={breadcrumbs} slot="head" />
 
