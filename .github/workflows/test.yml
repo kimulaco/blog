@@ -63,6 +63,9 @@ jobs:
     strategy:
       matrix:
         node-version: ['20.9']
+    env:
+      GA_TRACKING_ID: ${{ secrets.TEST_GA_TRACKING_ID }}
+      APP_HOST: ${{ secrets.TEST_APP_HOST }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/init-node
