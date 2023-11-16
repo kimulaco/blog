@@ -1,7 +1,7 @@
 runs:
   using: 'Composite'
   steps:
-    - run: pnpm run test:unit:cov
+    - run: pnpm run test:unit:cov:all
       shell: bash
     - uses: codecov/codecov-action@v3
       with:

@@ -17,8 +17,8 @@ const createToc = (headings: Heading[]): string => {
     .join('')
 
   return `<div class="PostContent_index">
-  <h2 class="PostContent_index-title">目次</h2>
-  <ul>${toc}</ul>
+<h2 class="PostContent_index-title">目次</h2>
+<ul>${toc}</ul>
 </div>`
 }
 
@@ -65,7 +65,7 @@ export const convertMdToHtml = (md: string): string => {
   let html = marked(md, { renderer })
 
   if (headings.length > 0) {
-    html = createToc(headings) + html
+    html = createToc(headings) + '\n' + html
   }
 
   return html
