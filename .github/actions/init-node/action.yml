@@ -1,10 +1,14 @@
+inputs:
+  node-version:
+    required: true
+
 runs:
   using: 'Composite'
   steps:
     - uses: pnpm/action-setup@v2
     - uses: actions/setup-node@v4
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: ${{ inputs.node-version }}
         cache: 'pnpm'
     - run: pnpm i
       shell: bash
