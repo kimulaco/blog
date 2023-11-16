@@ -60,6 +60,9 @@ jobs:
   e2e_test:
     runs-on: ubuntu-latest
     needs: [build_test]
+    strategy:
+      matrix:
+        node-version: ['20.9']
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/init-node
