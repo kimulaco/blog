@@ -24,8 +24,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/init-node
-        with:
-          node-version: ${{ matrix.node-version }}
       - uses: ./.github/actions/lint
 
   unit_test:
@@ -40,8 +38,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/init-node
-        with:
-          node-version: ${{ matrix.node-version }}
       - uses: ./.github/actions/unit-test
 
   build_test:
@@ -55,8 +51,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/init-node
-        with:
-          node-version: ${{ matrix.node-version }}
       - run: pnpm run build:dev
       - uses: actions/upload-artifact@v3
         with:
@@ -69,8 +63,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/init-node
-        with:
-          node-version: ${{ matrix.node-version }}
       - uses: actions/download-artifact@v3
         with:
           name: build-test-dist
