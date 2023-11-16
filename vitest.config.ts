@@ -9,7 +9,7 @@ export default getViteConfig({
     environment: 'jsdom',
     include: ['src/**/*.(test|spec).ts'],
     coverage: {
-      all: true,
+      all: !!process.env.COVERAGE_ALL,
       reportsDirectory: '.coverage',
       include: ['src/**/*.ts', 'src/**/*.vue'],
       exclude: ['src/**/*.d.ts', 'src/assets/*', 'src/pages/*'],
