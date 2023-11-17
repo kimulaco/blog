@@ -3,6 +3,7 @@ import { $ } from 'zx'
 
 const VERSION_PARTS_LENGTH = 3
 
+await $`git fetch`
 await $`git checkout develop`
 const developPackage = JSON.parse(await $`cat package.json`)
 const developVersion = developPackage.version
