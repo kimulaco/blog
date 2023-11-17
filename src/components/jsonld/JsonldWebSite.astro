@@ -1,0 +1,32 @@
+---
+import { APP_CONFIG } from '@@/config/app'
+
+const schema = JSON.stringify({
+  '@context': 'http://schema.org',
+  '@type': 'WebSite',
+  url: APP_CONFIG.URL.ORIGIN,
+  name: APP_CONFIG.META.TITLE,
+  publisher: {
+    '@type': 'Organization',
+    name: APP_CONFIG.META.TITLE,
+    logo: {
+      '@type': 'ImageObject',
+      url: `${APP_CONFIG.URL.ORIGIN}/img/icon.png`,
+      width: 512,
+      height: 512,
+    },
+  },
+  author: {
+    '@type': 'Person',
+    name: APP_CONFIG.META.AUTHOR,
+  },
+  image: {
+    '@type': 'ImageObject',
+    url: `${APP_CONFIG.URL.ORIGIN}/img/ogp.png`,
+    width: 1200,
+    height: 630,
+  },
+})
+---
+
+<script type="application/ld+json" set:html={schema} />

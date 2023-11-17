@@ -22,5 +22,6 @@ export const APP_CONFIG = {
   META: {
     TITLE: '@kimulaco/blog',
     DESCRIPTION: 'Webエンジニアの学びと趣味のブログ。',
+    AUTHOR: 'kimulaco',
   },
 } as const

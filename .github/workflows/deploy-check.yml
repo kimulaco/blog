@@ -1,0 +1,19 @@
+name: Deploy check
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  create_version:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ['20.9']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/init-node
+      - uses: ./.github/actions/init-git
+      - run: pnpm exec zx ./.github/scripts/check-package-version.mjs
+        shell: bash

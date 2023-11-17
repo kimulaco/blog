@@ -1,7 +1,8 @@
 import { createClient } from 'microcms-js-sdk'
+import { getenv } from '@/core/utilities/getenv'
 
-const MICROCMS_SERVICE_DOMAIN = import.meta.env.MICROCMS_SERVICE_DOMAIN
-const MICROCMS_API_KEY = import.meta.env.MICROCMS_API_KEY
+const MICROCMS_SERVICE_DOMAIN = getenv('MICROCMS_SERVICE_DOMAIN')
+const MICROCMS_API_KEY = getenv('MICROCMS_API_KEY')
 
 if (!MICROCMS_SERVICE_DOMAIN) {
   throw new Error('MICROCMS_SERVICE_DOMAIN is not defined')

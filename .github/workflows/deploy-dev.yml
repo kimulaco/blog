@@ -56,9 +56,27 @@ jobs:
           name: build-dev-dist
           path: dist
 
+  e2e_test:
+    runs-on: ubuntu-latest
+    needs: [build_dev]
+    strategy:
+      matrix:
+        node-version: ['20.9']
+    env:
+      GA_TRACKING_ID: ${{ secrets.TEST_GA_TRACKING_ID }}
+      APP_HOST: ${{ secrets.TEST_APP_HOST }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/init-node
+      - uses: actions/download-artifact@v3
+        with:
+          name: build-dev-dist
+          path: dist
+      - uses: ./.github/actions/e2e-test
+
   deploy_dev:
     runs-on: ubuntu-latest
-    needs: [lint, unit_test, build_dev]
+    needs: [lint, unit_test, e2e_test]
     environment:
       name: development
     env:
