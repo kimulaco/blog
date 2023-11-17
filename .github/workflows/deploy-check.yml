@@ -1,0 +1,16 @@
+name: Deploy check
+
+on:
+  pull_request:
+    branches:
+      - main
+      - '*'
+
+jobs:
+  create_version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/init-node
+      - run: pnpm exec zx ./.github/scripts/create-version-tag.mjs
+        shell: bash

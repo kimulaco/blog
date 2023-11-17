@@ -62,6 +62,7 @@
     "stylelint-prettier": "^4.0.2",
     "stylelint-scss": "^5.3.1",
     "vite-svg-loader": "^4.0.0",
-    "vitest": "^0.34.6"
+    "vitest": "^0.34.6",
+    "zx": "^7.2.3"
   }
 }
