@@ -9,6 +9,9 @@ on:
 jobs:
   create_version:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ['20.9']
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/init-node
