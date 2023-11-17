@@ -4,24 +4,23 @@ import { $ } from 'zx'
 const VERSION_PARTS_LENGTH = 3
 
 await $`git fetch`
-await $`git checkout develop`
-const developPackage = JSON.parse(await $`cat package.json`)
-const developVersion = developPackage.version
+const currentPackage = JSON.parse(await $`cat package.json`)
+const currentVersion = currentPackage.version
 
 await $`git checkout main`
 const mainPackage = JSON.parse(await $`cat package.json`)
 const mainVersion = mainPackage.version
 
 try {
-  const isUpdatedVersion = validateIsUpdatedVersion(developVersion, mainVersion)
+  const isUpdatedVersion = validateIsUpdatedVersion(currentVersion, mainVersion)
 
   if (!isUpdatedVersion) {
     throw new Error(`Error: must update package version.
 main: ${mainVersion}
-develop: ${developVersion}`)
+develop: ${currentVersion}`)
   }
 
-  console.log(`OK! package version is updated to ${developVersion}`)
+  console.log(`OK! package version is updated to ${currentVersion}`)
 } catch (error) {
   console.error(error)
   process.exit(1)
