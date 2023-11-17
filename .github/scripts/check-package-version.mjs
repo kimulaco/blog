@@ -24,7 +24,7 @@ develop: ${developVersion}`)
   console.log(`OK! package version is updated to ${developVersion}`)
 } catch (error) {
   console.error(error)
-  exit(1)
+  process.exit(1)
 }
 
 function validateIsUpdatedVersion(newVersion, currentVersion) {
