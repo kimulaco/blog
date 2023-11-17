@@ -15,5 +15,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/init-node
+      - uses: ./.github/actions/init-git
       - run: pnpm exec zx ./.github/scripts/create-version-tag.mjs
         shell: bash
