@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [${{ secrets.NODE_VERSION }}]
+        node-version: [${{ env.NODE_VERSION }}]
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/init-node
@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [${{ secrets.NODE_VERSION }}]
+        node-version: [${{ env.NODE_VERSION }}]
     env:
       GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID_DEV }}
       APP_HOST: ${{ secrets.APP_HOST_DEV }}
@@ -46,7 +46,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [${{ secrets.NODE_VERSION }}]
+        node-version: [${{ env.NODE_VERSION }}]
     env:
       GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID_DEV }}
       APP_HOST: ${{ secrets.APP_HOST_DEV }}
@@ -64,7 +64,7 @@ jobs:
     needs: [build_test]
     strategy:
       matrix:
-        node-version: [${{ secrets.NODE_VERSION }}]
+        node-version: [${{ env.NODE_VERSION }}]
     env:
       GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID_DEV }}
       APP_HOST: ${{ secrets.APP_HOST_DEV }}
