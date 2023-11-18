@@ -5,7 +5,7 @@ import LayoutColumn from '@/components/layouts/LayoutColumn/index.vue'
 import LayoutMain from '@/components/layouts/LayoutMain/index.vue'
 import LayoutFooter from '@/components/layouts/LayoutFooter/index.vue'
 import LayoutGAImporter from '@/components/layouts/LayoutGAImporter/index.astro'
-import { APP_CONFIG } from '@@/config'
+import { APP_CONFIG, BUILD_CONFIG } from '@@/config'
 
 interface Props {
   title: string
@@ -23,7 +23,7 @@ const canonicalUrl = `${APP_CONFIG.URL.CANONICAL_BASE_URL}${currentPath}`
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="robots" content="noindex, nofollow" />
+    {!BUILD_CONFIG.isProd && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="sitemap" href="/sitemap-index.xml" />
