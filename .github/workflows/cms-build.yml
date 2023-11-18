@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/init-node
-      - run: pnpm run build:dev
+      - run: pnpm run build:prod
       - uses: actions/upload-artifact@v3
         with:
           name: build-prod-dist
