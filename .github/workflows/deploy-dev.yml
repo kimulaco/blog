@@ -6,6 +6,7 @@ on:
       - develop
 
 env:
+  NODE_VERSION: '20.9'
   MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
   MICROCMS_SERVICE_DOMAIN: ${{ secrets.MICROCMS_SERVICE_DOMAIN }}
   SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
@@ -17,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['20.9']
+        node-version: [${{ secrets.NODE_VERSION }}]
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/init-node
@@ -27,10 +28,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['20.9']
+        node-version: [${{ secrets.NODE_VERSION }}]
     env:
-      GA_TRACKING_ID: ${{ secrets.TEST_GA_TRACKING_ID }}
-      APP_HOST: ${{ secrets.TEST_APP_HOST }}
+      GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID_DEV }}
+      APP_HOST: ${{ secrets.APP_HOST_DEV }}
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
     steps:
       - uses: actions/checkout@v4
@@ -39,14 +40,12 @@ jobs:
 
   build_dev:
     runs-on: ubuntu-latest
-    environment:
-      name: development
     strategy:
       matrix:
-        node-version: ['20.9']
+        node-version: [${{ secrets.NODE_VERSION }}]
     env:
-      GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID }}
-      APP_HOST: ${{ secrets.APP_HOST }}
+      GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID_DEV }}
+      APP_HOST: ${{ secrets.APP_HOST_DEV }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/init-node
@@ -61,10 +60,10 @@ jobs:
     needs: [build_dev]
     strategy:
       matrix:
-        node-version: ['20.9']
+        node-version: [${{ secrets.NODE_VERSION }}]
     env:
-      GA_TRACKING_ID: ${{ secrets.TEST_GA_TRACKING_ID }}
-      APP_HOST: ${{ secrets.TEST_APP_HOST }}
+      GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID_DEV }}
+      APP_HOST: ${{ secrets.APP_HOST_DEV }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/init-node
@@ -80,11 +79,11 @@ jobs:
     environment:
       name: development
     env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      AWS_S3_REGION: ${{ secrets.AWS_S3_REGION }}
-      AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME }}
-      AWS_CLOUDFRONT_DISTRIBUTION: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEV }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEV }}
+      AWS_S3_REGION: ${{ secrets.AWS_S3_REGION_DEV }}
+      AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME_DEV }}
+      AWS_CLOUDFRONT_DISTRIBUTION: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_DEV }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/download-artifact@v3

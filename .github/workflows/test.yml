@@ -10,6 +10,7 @@ on:
       - '!main'
 
 env:
+  NODE_VERSION: '20.9'
   MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
   MICROCMS_SERVICE_DOMAIN: ${{ secrets.MICROCMS_SERVICE_DOMAIN }}
   SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
@@ -21,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['20.9']
+        node-version: [${{ secrets.NODE_VERSION }}]
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/init-node
@@ -31,10 +32,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['20.9']
+        node-version: [${{ secrets.NODE_VERSION }}]
     env:
-      GA_TRACKING_ID: ${{ secrets.TEST_GA_TRACKING_ID }}
-      APP_HOST: ${{ secrets.TEST_APP_HOST }}
+      GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID_DEV }}
+      APP_HOST: ${{ secrets.APP_HOST_DEV }}
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
     steps:
       - uses: actions/checkout@v4
@@ -45,10 +46,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['20.9']
+        node-version: [${{ secrets.NODE_VERSION }}]
     env:
-      GA_TRACKING_ID: ${{ secrets.TEST_GA_TRACKING_ID }}
-      APP_HOST: ${{ secrets.TEST_APP_HOST }}
+      GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID_DEV }}
+      APP_HOST: ${{ secrets.APP_HOST_DEV }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/init-node
@@ -63,10 +64,10 @@ jobs:
     needs: [build_test]
     strategy:
       matrix:
-        node-version: ['20.9']
+        node-version: [${{ secrets.NODE_VERSION }}]
     env:
-      GA_TRACKING_ID: ${{ secrets.TEST_GA_TRACKING_ID }}
-      APP_HOST: ${{ secrets.TEST_APP_HOST }}
+      GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID_DEV }}
+      APP_HOST: ${{ secrets.APP_HOST_DEV }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/init-node
