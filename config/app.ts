@@ -17,7 +17,7 @@ export const APP_CONFIG = {
     HOST,
     ORIGIN,
     FEED: `${ORIGIN}${FEED_PATH}`,
-    CANONICAL: 'https://kimulaco.com',
+    CANONICAL_BASE_URL: 'https://blog.kimulaco.dev',
   },
   META: {
     TITLE: '@kimulaco/blog',
