@@ -1,4 +1,4 @@
-name: Deploy to production
+name: CMS build event
 
 on:
   repository_dispatch:
@@ -52,16 +52,3 @@ jobs:
           aws-s3-bucket-name: ${{ env.AWS_S3_BUCKET_NAME }}
           aws-s3-upload-dir: dist
           aws-cloudfront-distribution: ${{ env.AWS_CLOUDFRONT_DISTRIBUTION }}
-
-  create_version:
-    runs-on: ubuntu-latest
-    needs: [deploy_prod]
-    strategy:
-      matrix:
-        node-version: ['20.9']
-    steps:
-      - uses: actions/checkout@v4
-      - uses: ./.github/actions/init-node
-      - uses: ./.github/actions/init-git
-      - run: pnpm exec zx ./.github/scripts/create-version-tag.mjs
-        shell: bash
