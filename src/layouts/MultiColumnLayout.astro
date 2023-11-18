@@ -16,6 +16,7 @@ interface Props {
 
 const { title, currentPath } = Astro.props
 const about = await getAbout()
+const canonicalUrl = `${APP_CONFIG.URL.CANONICAL_BASE_URL}${currentPath}`
 ---
 
 <!doctype html>
@@ -26,7 +27,7 @@ const about = await getAbout()
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     {!BUILD_CONFIG.isProd && <meta name="robots" content="noindex, nofollow" />}
-    <link rel="canonical" href={APP_CONFIG.URL.CANONICAL} />
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <title>{title}</title>
