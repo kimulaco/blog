@@ -68,16 +68,18 @@ export const getStaticPaths = async () => {
       </div>
     </article>
 
-    <aside v-if="article.related_posts.length > 0" class="PostDetail_related">
-      <AppHeading>関連記事</AppHeading>
-      <div>
-        {
-          article.related_posts.map((relatedArticle) => {
-            return <ArticleLink article={relatedArticle} />
-          })
-        }
-      </div>
-    </aside>
+    {
+      article.related_posts.length > 0 && (
+        <aside class="PostDetail_related">
+          <AppHeading>関連記事</AppHeading>
+          <div>
+            {article.related_posts.map((relatedArticle) => {
+              return <ArticleLink article={relatedArticle} />
+            })}
+          </div>
+        </aside>
+      )
+    }
   </div>
 </MultiColumnLayout>
 

@@ -111,13 +111,3 @@ jobs:
       - uses: ./.github/actions/init-git
       - run: pnpm exec zx ./.github/scripts/create-version-tag.mjs
         shell: bash
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ steps.version.outputs.text }}
-          release_name: ${{ steps.version.outputs.text }}
-          draft: false
-          prerelease: false
