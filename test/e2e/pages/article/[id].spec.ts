@@ -11,6 +11,11 @@ test('title', async ({ page }) => {
   for (const article of articles) {
     await page.goto(`/article/${article.id}`)
 
+    if (!article.publish) {
+      await expect(page).toHaveTitle('404 - @kimulaco/blog')
+      return
+    }
+
     await expect(page).toHaveTitle(`${article.title} - @kimulaco/blog`)
   }
 })
