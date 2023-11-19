@@ -1,8 +1,10 @@
 import { microcms } from '@/core/repositories/microcms'
 import type { Article, ArticleTag } from './type'
+import { isEnableDraft } from '@@/config/build'
 
 const GET_ALL_ARTICLES_PER_PAGE = 20
 const GET_ALL_ARTICLES_LOOP_MAX_COUNT = 10
+const PUBLISH_QUERY = 'publish[equals]true'
 
 const ARTICLE_ENDPOINT = 'post'
 const TAG_ENDPOINT = 'tag'
@@ -19,6 +21,11 @@ export const getAllArticles = async (
   let articleCount = 0
   let isFinish = false
   let index = 0
+  let filters = params?.filters || ''
+
+  if (!isEnableDraft) {
+    filters += filters ? `[and]${PUBLISH_QUERY}` : PUBLISH_QUERY
+  }
 
   while (!isFinish) {
     const { contents: articles, totalCount } = await microcms.getList<Article>({
@@ -26,7 +33,7 @@ export const getAllArticles = async (
       queries: {
         limit: GET_ALL_ARTICLES_PER_PAGE,
         offset: articleCount,
-        filters: params?.filters,
+        filters,
         ids: params?.ids,
       },
     })
@@ -52,7 +59,14 @@ export const getArticleDetail = async (id: string): Promise<Article> => {
   const content = await microcms.getListDetail<Article>({
     endpoint: ARTICLE_ENDPOINT,
     contentId: id,
+    queries: {
+      filters: isEnableDraft ? undefined : PUBLISH_QUERY,
+    },
   })
+
+  if (!isEnableDraft && !content.publish) {
+    throw new Error(`article_id:${content.id}, article is not publish`)
+  }
 
   return content
 }
