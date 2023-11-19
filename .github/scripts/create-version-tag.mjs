@@ -4,5 +4,4 @@ import { $ } from 'zx'
 const developPackage = JSON.parse(await $`cat package.json`)
 const developVersion = developPackage.version
 
-await $`git tag -a ${developVersion} -m "Release ${developVersion}"`
-await $`git push origin ${developVersion}`
+await $`gh release create ${developVersion} -t ${developVersion}`

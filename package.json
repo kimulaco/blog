@@ -2,7 +2,7 @@
   "name": "kimulaco-blog",
   "type": "module",
   "private": true,
-  "version": "2.0.3",
+  "version": "2.0.4",
   "engines": {
     "node": "20.9.0"
   },
@@ -11,6 +11,7 @@
     "prepare": "husky install",
     "start": "astro dev",
     "dev": "BUILD_ENV=development astro dev",
+    "dev:draft": "BUILD_ENV=development DRAFT=true astro dev",
     "build": "astro check && astro build",
     "build:dev": "BUILD_ENV=development pnpm run build",
     "build:prod": "BUILD_ENV=production pnpm run build",

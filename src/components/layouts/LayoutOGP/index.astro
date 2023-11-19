@@ -1,0 +1,20 @@
+---
+import { createOGPMeta, type OGPMeta } from '@/core/domains/ogp'
+
+type Props = {
+  title: string
+  description: string
+  url: string
+}
+
+const { title, description, url } = Astro.props
+const metas = createOGPMeta({ title, description, url })
+---
+
+{
+  metas.map((meta: OGPMeta) => {
+    return (
+      <meta name={meta.name} property={meta.property} content={meta.content} />
+    )
+  })
+}
