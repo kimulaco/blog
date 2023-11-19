@@ -2,6 +2,7 @@ export type Article = {
   id: string
   created_at: string
   updated_at?: string
+  publish: boolean
   title: string
   description: string
   image?: ArticleThumbnail
