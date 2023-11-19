@@ -24,4 +24,8 @@ export const APP_CONFIG = {
     DESCRIPTION: 'Webエンジニアの学びと趣味のブログ。',
     AUTHOR: 'kimulaco',
   },
+  INTEGRATION: {
+    X_USER_ID: '@kimulaco',
+    FACEBOOK_APP_ID: '216629989749363',
+  },
 } as const

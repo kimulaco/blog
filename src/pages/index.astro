@@ -3,11 +3,16 @@ import MultiColumnLayout from '@/layouts/MultiColumnLayout.astro'
 import ArticleLink from '@/components/modules/ArticleLink/index.vue'
 import JsonldWebSite from '@/components/jsonld/JsonldWebSite.astro'
 import { getAllArticles } from '@/core/domains/article'
+import { APP_CONFIG } from '@@/config/app'
 
 const articles = await getAllArticles()
 ---
 
-<MultiColumnLayout title="@kimulaco/blog" currentPath="/">
+<MultiColumnLayout
+  title="@kimulaco/blog"
+  description={APP_CONFIG.META.DESCRIPTION}
+  currentPath="/"
+>
   <JsonldWebSite slot="head" />
 
   <main>

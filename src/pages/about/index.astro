@@ -5,6 +5,7 @@ import ArticleContent from '@/components/modules/ArticleContent/index.vue'
 import JsonldBreadcrumbList from '@/components/jsonld/JsonldBreadcrumbList.astro'
 import { createBreadcrumbList } from '@/core/domains/breadcrumb'
 import { getAbout } from '@/core/domains/about'
+import { APP_CONFIG } from '@@/config/app'
 
 const { about, contact } = await getAbout()
 const aboutContent = about ?? ''
@@ -18,7 +19,11 @@ const breadcrumbs = createBreadcrumbList([
 ])
 ---
 
-<SingleColumnLayout title="About - @kimulaco/blog" currentPath="/about">
+<SingleColumnLayout
+  title="About - @kimulaco/blog"
+  description={APP_CONFIG.META.DESCRIPTION}
+  currentPath="/about"
+>
   <JsonldBreadcrumbList breadcrumbs={breadcrumbs} slot="head" />
 
   <div class="PageAbout">

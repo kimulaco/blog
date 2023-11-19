@@ -10,6 +10,7 @@ import {
   getTagDetail,
   getAllArticles,
 } from '@/core/domains/article'
+import { APP_CONFIG } from '@@/config/app'
 
 const { id } = Astro.params
 
@@ -47,6 +48,7 @@ export const getStaticPaths = async () => {
 
 <MultiColumnLayout
   title={`"${tag.name}"のタグを持つ記事 - @kimulaco/blog`}
+  description={`${APP_CONFIG.META.DESCRIPTION}${tag.name}のタグを持つ記事一覧。`}
   currentPath={`/tag/${tag.id}`}
 >
   <JsonldBreadcrumbList breadcrumbs={breadcrumbs} slot="head" />
