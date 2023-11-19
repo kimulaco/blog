@@ -5,13 +5,18 @@ import ArticleTagList from '@/components/modules/ArticleTagList/index.vue'
 import JsonldBreadcrumbList from '@/components/jsonld/JsonldBreadcrumbList.astro'
 import { createBreadcrumbList } from '@/core/domains/breadcrumb'
 import { getUsedAllTags } from '@/core/domains/article'
+import { APP_CONFIG } from '@@/config/app'
 
 const tags = await getUsedAllTags()
 
 const breadcrumbs = createBreadcrumbList([{ text: 'タグ一覧', url: '/tag' }])
 ---
 
-<MultiColumnLayout title="タグ一覧 - @kimulaco/blog" currentPath="/tag">
+<MultiColumnLayout
+  title="タグ一覧 - @kimulaco/blog"
+  description={`${APP_CONFIG.META.DESCRIPTION}投稿された記事に登録されているタグ一覧。`}
+  currentPath="/tag"
+>
   <JsonldBreadcrumbList breadcrumbs={breadcrumbs} slot="head" />
 
   <div class="PageTag">

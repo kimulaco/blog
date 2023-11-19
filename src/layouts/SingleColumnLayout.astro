@@ -1,6 +1,7 @@
 ---
 import '@/assets/global-style'
 import LayoutHeader from '@/components/layouts/LayoutHeader/index.vue'
+import LayoutOGP from '@/components/layouts/LayoutOGP/index.astro'
 import LayoutColumn from '@/components/layouts/LayoutColumn/index.vue'
 import LayoutMain from '@/components/layouts/LayoutMain/index.vue'
 import LayoutFooter from '@/components/layouts/LayoutFooter/index.vue'
@@ -9,10 +10,12 @@ import { APP_CONFIG, BUILD_CONFIG } from '@@/config'
 
 interface Props {
   title: string
+  description: string
   currentPath: string
 }
 
-const { title, currentPath } = Astro.props
+const { title, description, currentPath } = Astro.props
+const currentUrl = `${APP_CONFIG.URL.ORIGIN}${currentPath}`
 const canonicalUrl = `${APP_CONFIG.URL.CANONICAL_BASE_URL}${currentPath}`
 ---
 
@@ -20,7 +23,6 @@ const canonicalUrl = `${APP_CONFIG.URL.CANONICAL_BASE_URL}${currentPath}`
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     {!BUILD_CONFIG.isProd && <meta name="robots" content="noindex, nofollow" />}
@@ -28,6 +30,8 @@ const canonicalUrl = `${APP_CONFIG.URL.CANONICAL_BASE_URL}${currentPath}`
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <title>{title}</title>
+    <LayoutOGP title={title} description={description} url={currentUrl} />
+    <LayoutGAImporter />
     <LayoutGAImporter />
     <slot name="head" />
   </head>
