@@ -1,8 +1,9 @@
 const PRODUCTION = 'production'
 const DEVELOPMENT = 'development'
 
-const BUILD_ENV = import.meta?.env?.BUILD_ENV ?? DEVELOPMENT
-const DRAFT = !!import.meta?.env?.DRAFT
+const BUILD_ENV =
+  import.meta?.env?.BUILD_ENV || process?.env?.BUILD_ENV || DEVELOPMENT
+const DRAFT = import.meta?.env?.DRAFT || process?.env?.DRAFT
 
 export const isEnableDraft = !!DRAFT
 
