@@ -13,4 +13,5 @@ export const BUILD_CONFIG = {
   BUILD_ENV,
   isProd: BUILD_ENV === PRODUCTION,
   isDev: BUILD_ENV === DEVELOPMENT,
+  TIMEZONE: 'Asia/Tokyo',
 }
