@@ -120,6 +120,24 @@ const html = computed(() => convertMdToHtml(props.content))
       color: variables.$COLOR_BLOCKGRAY;
     }
   }
+  table {
+    font-size: 14px;
+    text-align: left;
+    border-collapse: collapse;
+    thead {
+      border-bottom: 1px solid rgba(variables.$COLOR_GRAY, 0.3);
+      background-color: #f7fafc;
+    }
+    tr {
+      &:not(:last-child) {
+        border-bottom: 1px solid rgba(variables.$COLOR_GRAY, 0.3);
+      }
+    }
+    th,
+    td {
+      padding: 8px 16px;
+    }
+  }
   .PostContent_index {
     padding: 16px;
     margin: 0 0 40px;

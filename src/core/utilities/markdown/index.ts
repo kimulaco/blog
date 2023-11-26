@@ -5,6 +5,7 @@ import 'prismjs/components/prism-scss'
 import 'prismjs/components/prism-typescript'
 import 'prismjs/components/prism-json'
 import 'prismjs/components/prism-yaml'
+import 'prismjs/components/prism-toml'
 import 'prismjs/components/prism-bash'
 
 type Heading = { text: string; id: string }
