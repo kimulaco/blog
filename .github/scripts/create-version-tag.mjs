@@ -5,7 +5,7 @@ const developPackage = JSON.parse(await $`cat package.json`)
 const developVersion = developPackage.version
 
 const prs =
-  await $`gh pr list --repo ${$GITHUB_REPOSITORY} --search "'${developVersion}' in:title" -s all --json url`
+  await $`gh pr list --repo $GITHUB_REPOSITORY --search "'${developVersion}' in:title" -s all --json url`
 
 const description = prs.map((pr) => `- (${pr.url})`).join('\n')
 
