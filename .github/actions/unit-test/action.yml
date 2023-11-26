@@ -1,8 +1,5 @@
 runs:
   using: 'Composite'
   steps:
-    - run: pnpm run test:unit:cov:all
+    - run: pnpm run test:unit
       shell: bash
-    - uses: codecov/codecov-action@v3
-      with:
-        files: ./.coverage/coverage-final.json
