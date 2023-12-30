@@ -98,7 +98,7 @@ devDependencies:
     specifier: ^1.29.0
     version: 1.29.0
   sass:
-    specifier: ^1.69.5
+    specifier: ^1.69.6
     version: 1.69.6
   stylelint:
     specifier: ^16.1.0
