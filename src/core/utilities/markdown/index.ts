@@ -69,5 +69,9 @@ export const convertMdToHtml = (md: string): string => {
     html = createToc(headings) + '\n' + html
   }
 
+  if (typeof html !== 'string') {
+    throw new Error('failed convert markdown to HTML.')
+  }
+
   return html
 }
