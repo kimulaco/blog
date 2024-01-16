@@ -19,6 +19,9 @@ jobs:
         node-version: ['20.9']
     env:
       GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID_PROD }}
+      NEW_RELIC_APP_ID: ${{ secrets.NEW_RELIC_APP_ID_PROD }}
+      NEW_RELIC_ACCOUNT_ID: ${{ secrets.NEW_RELIC_ACCOUNT_ID }}
+      NEW_RELIC_LICENCE_KEY: ${{ secrets.NEW_RELIC_LICENCE_KEY }}
       APP_HOST: ${{ secrets.APP_HOST_PROD }}
     steps:
       - uses: actions/checkout@v4
@@ -37,6 +40,9 @@ jobs:
         node-version: ['20.9']
     env:
       GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID_PROD }}
+      NEW_RELIC_APP_ID: ${{ secrets.NEW_RELIC_APP_ID_PROD }}
+      NEW_RELIC_ACCOUNT_ID: ${{ secrets.NEW_RELIC_ACCOUNT_ID }}
+      NEW_RELIC_LICENCE_KEY: ${{ secrets.NEW_RELIC_LICENCE_KEY }}
       APP_HOST: ${{ secrets.APP_HOST_PROD }}
     steps:
       - uses: actions/checkout@v4
