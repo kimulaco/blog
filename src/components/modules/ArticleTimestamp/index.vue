@@ -26,7 +26,7 @@ const formatedUpdatedAt = computed(() => {
     return ''
   }
 
-  const date = utcToZonedTime(parseISO(props.createdAt), BUILD_CONFIG.TIMEZONE)
+  const date = utcToZonedTime(parseISO(props.updatedAt), BUILD_CONFIG.TIMEZONE)
 
   if (isValid(date)) {
     return format(date, 'yyyy-MM-dd')
