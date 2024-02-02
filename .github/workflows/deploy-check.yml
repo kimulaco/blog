@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  create_version:
+  check_version:
     runs-on: ubuntu-latest
     strategy:
       matrix:
