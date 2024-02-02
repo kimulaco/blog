@@ -30,10 +30,11 @@ function validateIsUpdatedVersion(newVersion, currentVersion) {
   validateVersion(newVersion)
   validateVersion(currentVersion)
 
-  const [newMajorVersion, newMinorVersion, newPatchVersion] =
-    newVersion.split('.')
+  const [newMajorVersion, newMinorVersion, newPatchVersion] = newVersion
+    .split('.')
+    .map(Number)
   const [currentMajorVersion, currentMinorVersion, currentPatchVersion] =
-    currentVersion.split('.')
+    currentVersion.split('.').map(Number)
 
   if (newMajorVersion > currentMajorVersion) {
     return true
