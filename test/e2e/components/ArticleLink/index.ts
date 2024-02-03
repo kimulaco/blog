@@ -1,6 +1,7 @@
 import { expect, type Locator } from '@playwright/test'
 import { type Article } from '@/core/domains/article'
-import { formatDate } from '@/core/utilities/formatDate'
+import { testArticleTimestamp } from '@@/test/e2e/components/ArticleTimestamp'
+import { testArticleTags } from '@@/test/e2e/components/ArticleTags'
 
 export const testArticleLink = async (
   locator: Locator,
@@ -16,40 +17,6 @@ export const testArticleLink = async (
     })
   ).toBeVisible()
 
-  await expect(
-    locator.locator('.ArticleLink_timestamp .Timestamp_title', {
-      hasText: '投稿日:',
-    })
-  ).toBeVisible()
-  await expect(
-    locator.locator('.ArticleLink_timestamp .Timestamp_date', {
-      hasText: formatDate(article.created_at),
-    })
-  ).toBeVisible()
-
-  expect(
-    await locator
-      .locator('.ArticleLink_timestamp .Timestamp_title', {
-        hasText: '更新日:',
-      })
-      .isVisible()
-  ).toBe(!!article.updated_at)
-  if (article.updated_at) {
-    await expect(
-      locator.locator('.ArticleLink_timestamp .Timestamp_date', {
-        hasText: formatDate(article.updated_at),
-      })
-    ).toBeVisible()
-  }
-
-  for (const tag of article.tag) {
-    await expect(
-      locator.locator(
-        `.ArticleLink_tags .ArticleTags_link[href="/tag/${tag.id}/"]`,
-        {
-          hasText: tag.name,
-        }
-      )
-    ).toBeVisible()
-  }
+  await testArticleTimestamp(locator.locator('.ArticleLink_timestamp'), article)
+  await testArticleTags(locator.locator('.ArticleLink_tags'), article)
 }
