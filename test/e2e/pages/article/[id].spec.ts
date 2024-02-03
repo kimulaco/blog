@@ -1,8 +1,7 @@
 import { test, expect, type Page } from '@playwright/test'
 import { getAllArticles, type Article } from '@/core/domains/article'
-import { formatDate } from '@/core/utilities/formatDate'
-import { convertMdToHtml } from '@/core/utilities/markdown'
-import { unescapeHTML } from '@@/test/utilities/unescapeHTML'
+import { testArticleTags } from '@@/test/e2e/components/ArticleTags'
+import { testArticleTimestamp } from '@@/test/e2e/components/ArticleTimestamp'
 
 test('article detail page', async ({ page }) => {
   const articles = await getAllArticles()
@@ -31,48 +30,11 @@ const testPageContent = async (page: Page, article: Article) => {
     })
   ).toBeVisible()
 
-  await expect(
-    page.locator('.PostDetail_head .Timestamp_title', {
-      hasText: '投稿日:',
-    })
-  ).toBeVisible()
-  await expect(
-    page.locator('.PostDetail_head .Timestamp_date', {
-      hasText: formatDate(article.created_at),
-    })
-  ).toBeVisible()
-
-  expect(
-    await page
-      .locator('.PostDetail_head .Timestamp_title', {
-        hasText: '更新日:',
-      })
-      .isVisible()
-  ).toBe(!!article.updated_at)
-  if (article.updated_at) {
-    await expect(
-      page.locator('.PostDetail_head .Timestamp_date', {
-        hasText: formatDate(article.updated_at),
-      })
-    ).toBeVisible()
-  }
-
-  for (const tag of article.tag) {
-    await expect(
-      page.locator(
-        `.PostDetail_head .ArticleTags_link[href="/tag/${tag.id}/"]`,
-        {
-          hasText: tag.name,
-        }
-      )
-    ).toBeVisible()
-  }
-
-  const content = page.locator('.PostContent')
-  await expect(content).toBeVisible()
-  expect(await content.innerHTML()).toBe(
-    unescapeHTML(convertMdToHtml(article.content))
+  await testArticleTimestamp(
+    page.locator('.PostDetail_head .Timestamp'),
+    article
   )
+  await testArticleTags(page.locator('.PostDetail_head .ArticleTags'), article)
 }
 
 const testMetaData = async (page: Page, article: Article) => {
