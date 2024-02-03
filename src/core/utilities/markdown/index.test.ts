@@ -47,8 +47,8 @@ describe('convertMdToHtml()', () => {
 `)
 
     expect(html).toBe(`<p>こんにちは。</p>
-<p><img src="/img/profile.jpg" alt="" loading="lazy"></p>
-<p><img src="/img/profile.jpg" alt="プロフィール画像" loading="lazy"></p>
+<p><img src="/img/profile.jpg" alt="" loading="lazy" /></p>
+<p><img src="/img/profile.jpg" alt="プロフィール画像" loading="lazy" /></p>
 `)
   })
 

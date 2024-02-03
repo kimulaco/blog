@@ -1,12 +1,12 @@
 import { marked } from 'marked'
 import prism from 'prismjs'
 
-import 'prismjs/components/prism-scss.js'
-import 'prismjs/components/prism-typescript.js'
-import 'prismjs/components/prism-json.js'
-import 'prismjs/components/prism-yaml.js'
-import 'prismjs/components/prism-toml.js'
-import 'prismjs/components/prism-bash.js'
+import 'prismjs/components/prism-scss'
+import 'prismjs/components/prism-typescript'
+import 'prismjs/components/prism-json'
+import 'prismjs/components/prism-yaml'
+import 'prismjs/components/prism-toml'
+import 'prismjs/components/prism-bash'
 
 type Heading = { text: string; id: string }
 
@@ -38,7 +38,7 @@ export const convertMdToHtml = (md: string): string => {
   }
 
   renderer.image = (href, _, text) => {
-    return `<img src="${href}" alt="${text || ''}" loading="lazy">`
+    return `<img src="${href}" alt="${text || ''}" loading="lazy" />`
   }
 
   renderer.link = (href, _, text) => {
