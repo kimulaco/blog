@@ -1,11 +1,13 @@
-import { test, expect } from '@playwright/test'
-import { getAllArticles } from '@/core/domains/article'
+import { test, expect, type Page } from '@playwright/test'
+import { getAllArticles, type Article } from '@/core/domains/article'
+import { testArticleTags } from '@@/test/e2e/components/ArticleTags'
+import { testArticleTimestamp } from '@@/test/e2e/components/ArticleTimestamp'
 
-test('title', async ({ page }) => {
+test('article detail page', async ({ page }) => {
   const articles = await getAllArticles()
 
   if (articles.length <= 0) {
-    throw new Error('tags is empty')
+    throw new Error('articles is empty')
   }
 
   for (const article of articles) {
@@ -16,6 +18,54 @@ test('title', async ({ page }) => {
       return
     }
 
-    await expect(page).toHaveTitle(`${article.title} - @kimulaco/blog`)
+    await testMetaData(page, article)
+    await testPageContent(page, article)
   }
 })
+
+const testPageContent = async (page: Page, article: Article) => {
+  await expect(
+    page.locator('.PostDetail_heading', {
+      hasText: article.title,
+    })
+  ).toBeVisible()
+
+  await testArticleTimestamp(
+    page.locator('.PostDetail_head .Timestamp'),
+    article
+  )
+  await testArticleTags(page.locator('.PostDetail_head .ArticleTags'), article)
+}
+
+const testMetaData = async (page: Page, article: Article) => {
+  await expect(page).toHaveTitle(`${article.title} - @kimulaco/blog`)
+  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
+    'content',
+    `${article.title} - @kimulaco/blog`
+  )
+  await expect(page.locator('meta[name="twitter:title"]')).toHaveAttribute(
+    'content',
+    `${article.title} - @kimulaco/blog`
+  )
+
+  await expect(page.locator('meta[name="description"]')).toHaveAttribute(
+    'content',
+    `Webエンジニアの学びと趣味のブログ。${article.description}`
+  )
+  await expect(page.locator('meta[property="og:description"]')).toHaveAttribute(
+    'content',
+    `Webエンジニアの学びと趣味のブログ。${article.description}`
+  )
+  await expect(
+    page.locator('meta[name="twitter:description"]')
+  ).toHaveAttribute(
+    'content',
+    `Webエンジニアの学びと趣味のブログ。${article.description}`
+  )
+
+  const metaOgUrl = page.locator('meta[property="og:url"]')
+  const metaOgUrlValue = await metaOgUrl.getAttribute('content')
+  expect(new RegExp(`/article/${article.id}$`).test(metaOgUrlValue || '')).toBe(
+    true
+  )
+}
