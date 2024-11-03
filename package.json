@@ -8,7 +8,7 @@
   },
   "packageManager": "pnpm@9.12.3",
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky",
     "start": "astro dev",
     "dev": "BUILD_ENV=development astro dev",
     "dev:draft": "BUILD_ENV=development DRAFT=true astro dev",
@@ -52,7 +52,7 @@
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-astro": "1.3.0",
     "globals": "15.11.0",
-    "husky": "^8.0.3",
+    "husky": "9.1.6",
     "jsdom": "^23.0.1",
     "marked": "^11.1.0",
     "microcms-js-sdk": "^2.7.0",
