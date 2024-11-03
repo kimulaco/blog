@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['20.9']
+        node-version: ['22.11']
     env:
       GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID_PROD }}
       NEW_RELIC_APP_ID: ${{ secrets.NEW_RELIC_APP_ID_PROD }}
@@ -37,7 +37,7 @@ jobs:
     needs: [build_prod]
     strategy:
       matrix:
-        node-version: ['20.9']
+        node-version: ['22.11']
     env:
       GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID_PROD }}
       NEW_RELIC_APP_ID: ${{ secrets.NEW_RELIC_APP_ID_PROD }}
