@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['20.9']
+        node-version: ['22.11']
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/init-node
