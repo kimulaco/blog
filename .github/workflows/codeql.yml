@@ -1,13 +1,13 @@
-name: "CodeQL"
+name: 'CodeQL'
 
 on:
   push:
     branches:
-      - "main"
-      - "develop"
+      - 'main'
+      - 'develop'
   pull_request:
     branches:
-      - "*"
+      - '*'
 
 jobs:
   analyze:
@@ -20,13 +20,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'javascript-typescript' ]
+        language: ['javascript-typescript']
     steps:
-    - uses: actions/checkout@v3
-    - uses: github/codeql-action/init@v2
-      with:
-        languages: ${{ matrix.language }}
-    - uses: github/codeql-action/autobuild@v2
-    - uses: github/codeql-action/analyze@v2
-      with:
-        category: "/language:${{matrix.language}}"
+      - uses: actions/checkout@v4
+      - uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+      - uses: github/codeql-action/autobuild@v3
+      - uses: github/codeql-action/analyze@v3
+        with:
+          category: '/language:${{matrix.language}}'
