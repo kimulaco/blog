@@ -1,10 +1,6 @@
 /** @type {import('stylelint').Config} */
 const config = {
-  extends: [
-    // TODO: Enable prettier
-    // 'stylelint-prettier/recommended',
-    'stylelint-config-standard-scss',
-  ],
+  extends: ['stylelint-prettier/recommended', 'stylelint-config-standard-scss'],
   plugins: ['stylelint-scss', 'stylelint-prettier'],
   rules: {
     'color-named': ['never'],
