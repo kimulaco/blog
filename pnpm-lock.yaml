@@ -55,8 +55,8 @@ importers:
         specifier: 21.1.7
         version: 21.1.7
       '@types/prismjs':
-        specifier: ^1.26.3
-        version: 1.26.3
+        specifier: 1.26.5
+        version: 1.26.5
       '@typescript-eslint/eslint-plugin':
         specifier: 8.12.2
         version: 8.12.2(@typescript-eslint/parser@8.12.2(eslint@9.14.0)(typescript@5.3.3))(eslint@9.14.0)(typescript@5.3.3)
@@ -109,7 +109,7 @@ importers:
         specifier: 0.14.1
         version: 0.14.1
       prismjs:
-        specifier: ^1.29.0
+        specifier: 1.29.0
         version: 1.29.0
       sass:
         specifier: ^1.69.6
@@ -1374,8 +1374,8 @@ packages:
   '@types/pg@8.6.1':
     resolution: {integrity: sha512-1Kc4oAGzAl7uqUStZCDvaLFqZrW9qWSjXOmBfdgyBP5La7Us6Mg4GBvRlSoaZMhQF/zSj1C8CtKMBkoiT8eL8w==}
 
-  '@types/prismjs@1.26.3':
-    resolution: {integrity: sha512-A0D0aTXvjlqJ5ZILMz3rNfDBOx9hHxLZYv2by47Sm/pqW35zzjusrZTryatjN/Rf8Us2gZrJD+KeHbUSTux1Cw==}
+  '@types/prismjs@1.26.5':
+    resolution: {integrity: sha512-AUZTa7hQ2KY5L7AmtSiqxlhWxb4ina0yd8hNbl4TWuqnv/pFP0nDMb3YrfSBf4hJVGLh2YEIBfKaBW/9UEl6IQ==}
 
   '@types/sax@1.2.7':
     resolution: {integrity: sha512-rO73L89PJxeYM3s3pPPjiPgVVcymqU490g0YO5n5By0k2Erzj6tay/4lr1CHAAU4JyOWd1rpQ8bCf6cZfHU96A==}
@@ -5733,7 +5733,7 @@ snapshots:
       pg-protocol: 1.7.0
       pg-types: 2.2.0
 
-  '@types/prismjs@1.26.3': {}
+  '@types/prismjs@1.26.5': {}
 
   '@types/sax@1.2.7':
     dependencies:
