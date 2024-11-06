@@ -55,7 +55,7 @@
     "husky": "9.1.6",
     "jsdom": "25.0.1",
     "marked": "^11.1.0",
-    "microcms-js-sdk": "^2.7.0",
+    "microcms-js-sdk": "3.1.2",
     "postcss-html": "1.7.0",
     "prettier": "3.3.3",
     "prettier-plugin-astro": "0.14.1",
