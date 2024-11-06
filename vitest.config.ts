@@ -15,4 +15,4 @@ export default getViteConfig({
       exclude: ['src/**/*.d.ts', 'src/assets/*', 'src/pages/*'],
     },
   },
-})
+} as any) // TODO: pnpmの依存解決の問題でvitestによるviteのUserConfigの上書きができておらずTypeErrorになるのを回避
