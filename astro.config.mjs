@@ -31,5 +31,12 @@ export default defineConfig({
   ],
   vite: {
     plugins: [svgLoader()],
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler',
+        },
+      },
+    },
   },
 })

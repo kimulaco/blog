@@ -33,14 +33,16 @@ const innerTagName = computed(() => {
 .Card_inner {
   @include mixins.reset-child-margin();
 
-  display: block;
-  width: 100%;
-  padding: 16px;
-  border: 1px solid rgba(variables.$COLOR_BLACK, 0.1);
-  border-radius: 6px;
-  color: variables.$COLOR_BLACK;
-  box-shadow: 0 2px 2px rgba(variables.$COLOR_BLACK, 0.1);
-  transition: 0.3s;
+  & {
+    display: block;
+    width: 100%;
+    padding: 16px;
+    border: 1px solid rgba(variables.$COLOR_BLACK, 0.1);
+    border-radius: 6px;
+    color: variables.$COLOR_BLACK;
+    box-shadow: 0 2px 2px rgba(variables.$COLOR_BLACK, 0.1);
+    transition: 0.3s;
+  }
 }
 a.Card {
   &_inner {
