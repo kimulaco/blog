@@ -27,21 +27,21 @@ export const convertMdToHtml = (md: string): string => {
   const renderer = new marked.Renderer()
   const headings: Heading[] = []
 
-  renderer.heading = (text, level) => {
+  renderer.heading = ({ text, depth }) => {
     const escapedText = encodeURIComponent(text.toLowerCase())
 
-    if (level === 2) {
+    if (depth === 2) {
       headings.push({ text, id: escapedText })
     }
 
-    return `<h${level} id="${escapedText}">${text}</h${level}>`
+    return `<h${depth} id="${escapedText}">${text}</h${depth}>`
   }
 
-  renderer.image = (href, _, text) => {
+  renderer.image = ({ href, text }) => {
     return `<img src="${href}" alt="${text || ''}" loading="lazy" />`
   }
 
-  renderer.link = (href, _, text) => {
+  renderer.link = ({ href, text }) => {
     if (!/https?:\/\//.test(href)) {
       return `<a href="${href}">${text}</a>`
     }
@@ -49,18 +49,14 @@ export const convertMdToHtml = (md: string): string => {
     return `<a href="${href}" target="_blank" rel="noopener noreferrer">${text}</a>`
   }
 
-  renderer.code = (code, language) => {
-    if (!language) {
-      return `<pre class="language-plain-text"><code>${code}</code></pre>`
+  renderer.code = ({ text, lang }) => {
+    if (!lang) {
+      return `<pre class="language-plain-text"><code>${text}</code></pre>`
     }
 
-    const highlightedCode = prism.highlight(
-      code,
-      prism.languages[language],
-      language
-    )
+    const highlightedCode = prism.highlight(text, prism.languages[lang], lang)
 
-    return `<pre class="language-${language}"><code>${highlightedCode}</code></pre>`
+    return `<pre class="language-${lang}"><code>${highlightedCode}</code></pre>`
   }
 
   let html = marked(md, { renderer })

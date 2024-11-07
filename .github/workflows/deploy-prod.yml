@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['20.9']
+        node-version: ['22.11']
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/init-node
@@ -28,7 +28,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['20.9']
+        node-version: ['22.11']
     env:
       GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID_PROD }}
       NEW_RELIC_APP_ID: ${{ secrets.NEW_RELIC_APP_ID_PROD }}
@@ -45,7 +45,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['20.9']
+        node-version: ['22.11']
     env:
       GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID_PROD }}
       NEW_RELIC_APP_ID: ${{ secrets.NEW_RELIC_APP_ID_PROD }}
@@ -56,7 +56,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/init-node
       - run: pnpm run build:prod
-      - uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
           name: build-prod-dist
           path: dist
@@ -66,7 +66,7 @@ jobs:
     needs: [build_prod]
     strategy:
       matrix:
-        node-version: ['20.9']
+        node-version: ['22.11']
     env:
       GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID_PROD }}
       NEW_RELIC_APP_ID: ${{ secrets.NEW_RELIC_APP_ID_PROD }}
@@ -76,7 +76,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/init-node
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: build-prod-dist
           path: dist
@@ -95,7 +95,7 @@ jobs:
       AWS_CLOUDFRONT_DISTRIBUTION: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_PROD }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         with:
           name: build-prod-dist
           path: dist
@@ -113,7 +113,7 @@ jobs:
     needs: [deploy_prod]
     strategy:
       matrix:
-        node-version: ['20.9']
+        node-version: ['22.11']
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/init-node

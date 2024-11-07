@@ -1,8 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { parseISO, format, isValid } from 'date-fns'
-import { utcToZonedTime } from 'date-fns-tz'
-import { BUILD_CONFIG } from '@@/config/build'
+import { formatDate } from '@/core/utilities/formatDate'
 
 type Props = {
   createdAt: string
@@ -12,27 +10,14 @@ type Props = {
 const props = defineProps<Props>()
 
 const formatedCreatedAt = computed(() => {
-  const date = utcToZonedTime(parseISO(props.createdAt), BUILD_CONFIG.TIMEZONE)
-
-  if (isValid(date)) {
-    return format(date, 'yyyy-MM-dd')
-  }
-
-  return ''
+  return formatDate(props.createdAt)
 })
 
 const formatedUpdatedAt = computed(() => {
   if (!props.updatedAt) {
     return ''
   }
-
-  const date = utcToZonedTime(parseISO(props.updatedAt), BUILD_CONFIG.TIMEZONE)
-
-  if (isValid(date)) {
-    return format(date, 'yyyy-MM-dd')
-  }
-
-  return ''
+  return formatDate(props.updatedAt)
 })
 </script>
 

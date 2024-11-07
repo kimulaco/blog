@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test'
 import { getUsedAllTags } from '@/core/domains/article'
 
-test('title', async ({ page }) => {
+test('tag detail page', async ({ page }) => {
   const tags = await getUsedAllTags()
 
   if (tags.length <= 0) {
