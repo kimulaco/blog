@@ -13,6 +13,18 @@ env:
   SENTRY_PROJECT_NAME: ${{ secrets.SENTRY_PROJECT_NAME }}
 
 jobs:
+  check_pr:
+    runs-on: ubuntu-latest
+    outputs:
+      is_open_pr: ${{ steps.check_pr.outputs.is_open_pr }}
+    steps:
+      - id: check_pr
+        run: |
+          PR_COUNT=$(gh pr list --base main --head develop --json number --jq length)
+          echo "is_open_pr=$([ "$PR_COUNT" -gt 0 ] && echo 'true' || echo 'false')" >> "$GITHUB_OUTPUT"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
   lint:
     runs-on: ubuntu-latest
     strategy:
@@ -83,7 +95,8 @@ jobs:
 
   deploy_dev:
     runs-on: ubuntu-latest
-    needs: [lint, unit_test, e2e_test]
+    needs: [lint, unit_test, e2e_test, check_pr]
+    if: needs.check_pr.outputs.is_open_pr == 'true'
     environment:
       name: development
     env:
