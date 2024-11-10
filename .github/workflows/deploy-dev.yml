@@ -18,6 +18,7 @@ jobs:
     outputs:
       is_open_pr: ${{ steps.check_pr.outputs.is_open_pr }}
     steps:
+      - uses: actions/checkout@v4
       - id: check_pr
         run: |
           PR_COUNT=$(gh pr list --base main --head develop --json number --jq length)
