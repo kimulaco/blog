@@ -68,6 +68,6 @@
     "typescript": "5.6.3",
     "vite-svg-loader": "5.1.0",
     "vitest": "2.1.5",
-    "zx": "8.2.2"
+    "zx": "8.2.4"
   }
 }
