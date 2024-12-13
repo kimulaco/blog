@@ -3,6 +3,10 @@ import { $ } from 'zx'
 
 const VERSION_PARTS_LENGTH = 3
 
+const currentBranch = (await $`git rev-parse --abbrev-ref HEAD`)
+  .toString()
+  .trim()
+
 await $`git fetch`
 const currentPackage = JSON.parse(await $`cat package.json`)
 const currentVersion = currentPackage.version
@@ -21,8 +25,10 @@ develop: ${currentVersion}`)
   }
 
   console.log(`OK! package version is updated to ${currentVersion}`)
+  await $`git checkout ${currentBranch}`
 } catch (error) {
   console.error(error)
+  await $`git checkout ${currentBranch}`
   process.exit(1)
 }
 
