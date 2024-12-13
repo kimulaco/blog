@@ -6,3 +6,4 @@ runs:
         bun-version: ${{ env.BUN_VERSION }}
     - run: bun i
       shell: bash
+  post: []

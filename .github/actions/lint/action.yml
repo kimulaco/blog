@@ -7,3 +7,4 @@ runs:
       shell: bash
     - run: bun run lint:style
       shell: bash
+  post: []

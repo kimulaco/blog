@@ -3,3 +3,4 @@ runs:
   steps:
     - run: bun run test:unit
       shell: bash
+  post: []
