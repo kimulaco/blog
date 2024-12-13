@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['22.11']
+        bun-version: ['1.1.39']
     env:
       GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID_PROD }}
       NEW_RELIC_APP_ID: ${{ secrets.NEW_RELIC_APP_ID_PROD }}
@@ -25,8 +25,8 @@ jobs:
       APP_HOST: ${{ secrets.APP_HOST_PROD }}
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/init-node
-      - run: pnpm run build:prod
+      - uses: ./.github/actions/init-bun
+      - run: bun run build:prod
       - uses: actions/upload-artifact@v4
         with:
           name: build-prod-dist
@@ -37,7 +37,7 @@ jobs:
     needs: [build_prod]
     strategy:
       matrix:
-        node-version: ['22.11']
+        bun-version: ['1.1.39']
     env:
       GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID_PROD }}
       NEW_RELIC_APP_ID: ${{ secrets.NEW_RELIC_APP_ID_PROD }}
@@ -46,12 +46,12 @@ jobs:
       APP_HOST: ${{ secrets.APP_HOST_PROD }}
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/init-node
+      - uses: ./.github/actions/init-bun
       - uses: actions/download-artifact@v4
         with:
           name: build-prod-dist
           path: dist
-      - uses: ./.github/actions/e2e-test
+      - run: bun run test:e2e
 
   deploy_prod:
     runs-on: ubuntu-latest

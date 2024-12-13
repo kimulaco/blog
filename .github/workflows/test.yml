@@ -18,17 +18,17 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['22.11']
+        bun-version: ['1.1.39']
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/init-node
+      - uses: ./.github/actions/init-bun
       - uses: ./.github/actions/lint
 
   unit_test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['22.11']
+        bun-version: ['1.1.39']
     env:
       GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID_DEV }}
       NEW_RELIC_APP_ID: ${{ secrets.NEW_RELIC_APP_ID_DEV }}
@@ -38,14 +38,14 @@ jobs:
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/init-node
-      - uses: ./.github/actions/unit-test
+      - uses: ./.github/actions/init-bun
+      - run: bun run test:unit
 
   build_test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: ['22.11']
+        bun-version: ['1.1.39']
     env:
       GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID_DEV }}
       NEW_RELIC_APP_ID: ${{ secrets.NEW_RELIC_APP_ID_DEV }}
@@ -54,8 +54,8 @@ jobs:
       APP_HOST: ${{ secrets.APP_HOST_DEV }}
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/init-node
-      - run: pnpm run build:dev
+      - uses: ./.github/actions/init-bun
+      - run: bun run build:dev
       - uses: actions/upload-artifact@v4
         with:
           name: build-test-dist
@@ -66,7 +66,7 @@ jobs:
     needs: [build_test]
     strategy:
       matrix:
-        node-version: ['22.11']
+        bun-version: ['1.1.39']
     env:
       GA_TRACKING_ID: ${{ secrets.GA_TRACKING_ID_DEV }}
       NEW_RELIC_APP_ID: ${{ secrets.NEW_RELIC_APP_ID_DEV }}
@@ -75,9 +75,9 @@ jobs:
       APP_HOST: ${{ secrets.APP_HOST_DEV }}
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/init-node
+      - uses: ./.github/actions/init-bun
       - uses: actions/download-artifact@v4
         with:
           name: build-test-dist
           path: dist
-      - uses: ./.github/actions/e2e-test
+      - uses: bun run test:e2e
