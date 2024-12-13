@@ -27,7 +27,7 @@
     "@astrojs/rss": "4.0.10",
     "@astrojs/sitemap": "3.2.1",
     "@astrojs/vue": "4.5.3",
-    "@sentry/astro": "8.41.0",
+    "@sentry/astro": "8.44.0",
     "astro": "4.4.0",
     "date-fns": "4.1.0",
     "date-fns-tz": "3.2.0",
@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@eslint/js": "9.14.0",
-    "@playwright/test": "1.49.0",
+    "@playwright/test": "1.49.1",
     "@types/jsdom": "21.1.7",
     "@types/prismjs": "1.26.5",
     "@typescript-eslint/eslint-plugin": "8.13.0",
