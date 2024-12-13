@@ -6,7 +6,7 @@ dotenv.config()
 export default defineConfig({
   testDir: './test',
   webServer: {
-    command: 'pnpm run preview',
+    command: 'bun run preview',
     url: 'http://localhost:4321/',
     timeout: 120 * 1000,
     reuseExistingServer: !process.env.CI,
