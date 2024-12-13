@@ -24,4 +24,3 @@ runs:
       shell: bash
     - run: aws cloudfront create-invalidation --distribution-id ${{ inputs.aws-cloudfront-distribution }} --paths "/*"
       shell: bash
-  post: []
