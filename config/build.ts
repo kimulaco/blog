@@ -1,9 +1,24 @@
 const PRODUCTION = 'production'
 const DEVELOPMENT = 'development'
 
-const BUILD_ENV =
-  import.meta.env.BUILD_ENV || process?.env?.BUILD_ENV || DEVELOPMENT
-const DRAFT = import.meta.env.DRAFT || process?.env?.DRAFT
+const getEnv = (envName: string, defaultValue?: string) => {
+  try {
+    return import.meta.env[envName]
+  } catch {
+    // no throw
+  }
+
+  try {
+    return process.env[envName]
+  } catch {
+    // no throw
+  }
+
+  return defaultValue
+}
+
+const BUILD_ENV = getEnv('BUILD_ENV', DEVELOPMENT)
+const DRAFT = getEnv('DRAFT')
 
 export const isEnableDraft = !!DRAFT
 
