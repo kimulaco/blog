@@ -3,6 +3,9 @@
   "type": "module",
   "private": true,
   "version": "2.1.0",
+  "engines": {
+    "bun": "1.1.38"
+  },
   "scripts": {
     "prepare": "husky",
     "start": "astro dev",
