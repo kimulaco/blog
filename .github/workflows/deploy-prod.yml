@@ -80,7 +80,7 @@ jobs:
         with:
           name: build-prod-dist
           path: dist
-      - uses: bun run test:e2e
+      - run: bun run test:e2e
 
   deploy_prod:
     runs-on: ubuntu-latest

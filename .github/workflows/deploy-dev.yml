@@ -92,7 +92,7 @@ jobs:
         with:
           name: build-dev-dist
           path: dist
-      - uses: bun run test:e2e
+      - run: bun run test:e2e
 
   deploy_dev:
     runs-on: ubuntu-latest

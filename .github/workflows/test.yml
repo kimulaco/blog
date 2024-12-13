@@ -79,4 +79,4 @@ jobs:
         with:
           name: build-test-dist
           path: dist
-      - uses: bun run test:e2e
+      - run: bun run test:e2e
