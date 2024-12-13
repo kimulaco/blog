@@ -3,6 +3,6 @@ runs:
   steps:
     - uses: oven-sh/setup-bun@v2
       with:
-        bun-version: ${{ matrix.bun-version }}
+        bun-version: ${{ env.BUN_VERSION }}
     - run: bun i
       shell: bash
