@@ -1,7 +1,0 @@
-runs:
-  using: 'Composite'
-  steps:
-    - run: pnpm exec playwright install --with-deps
-      shell: bash
-    - run: pnpm run test:e2e
-      shell: bash

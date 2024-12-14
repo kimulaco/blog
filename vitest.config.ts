@@ -1,8 +1,8 @@
 /// <reference types="vitest" />
-import { getViteConfig } from 'astro/config'
+import { defineConfig } from 'vitest/config'
 import vue from '@vitejs/plugin-vue'
 
-export default getViteConfig({
+export default defineConfig({
   plugins: [vue()],
   test: {
     globals: true,
@@ -15,4 +15,4 @@ export default getViteConfig({
       exclude: ['src/**/*.d.ts', 'src/assets/*', 'src/pages/*'],
     },
   },
-} as any) // TODO: pnpmの依存解決の問題でvitestによるviteのUserConfigの上書きができておらずTypeErrorになるのを回避
+})

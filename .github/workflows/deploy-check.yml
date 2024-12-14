@@ -5,15 +5,15 @@ on:
     branches:
       - main
 
+env:
+  BUN_VERSION: '1.1.38'
+
 jobs:
   check_version:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: ['22.11']
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/init-node
+      - uses: ./.github/actions/init-bun
       - uses: ./.github/actions/init-git
-      - run: pnpm exec zx ./.github/scripts/check-package-version.mjs
+      - run: bunx zx ./.github/scripts/check-package-version.mjs
         shell: bash

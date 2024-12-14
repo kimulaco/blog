@@ -3,11 +3,16 @@ import { $ } from 'zx'
 
 const VERSION_PARTS_LENGTH = 3
 
+const currentBranch =
+  process.env.GITHUB_HEAD_REF ||
+  process.env.GITHUB_REF_NAME ||
+  (await $`git rev-parse --abbrev-ref HEAD`).toString().trim()
+
 await $`git fetch`
 const currentPackage = JSON.parse(await $`cat package.json`)
 const currentVersion = currentPackage.version
 
-await $`git checkout main`
+await gitCheckout('main')
 const mainPackage = JSON.parse(await $`cat package.json`)
 const mainVersion = mainPackage.version
 
@@ -21,9 +26,16 @@ develop: ${currentVersion}`)
   }
 
   console.log(`OK! package version is updated to ${currentVersion}`)
+  await gitCheckout(currentBranch)
 } catch (error) {
   console.error(error)
+  await gitCheckout(currentBranch)
   process.exit(1)
+}
+
+async function gitCheckout(branchName) {
+  console.log(`git checkout ${branchName}`)
+  await $`git checkout ${branchName}`
 }
 
 function validateIsUpdatedVersion(newVersion, currentVersion) {
