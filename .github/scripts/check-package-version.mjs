@@ -3,9 +3,10 @@ import { $ } from 'zx'
 
 const VERSION_PARTS_LENGTH = 3
 
-const currentBranch = (await $`git rev-parse --abbrev-ref HEAD`)
-  .toString()
-  .trim()
+const currentBranch =
+  process.env.GITHUB_HEAD_REF ||
+  process.env.GITHUB_REF_NAME ||
+  (await $`git rev-parse --abbrev-ref HEAD`).toString().trim()
 
 await $`git fetch`
 const currentPackage = JSON.parse(await $`cat package.json`)
