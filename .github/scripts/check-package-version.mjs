@@ -11,7 +11,7 @@ await $`git fetch`
 const currentPackage = JSON.parse(await $`cat package.json`)
 const currentVersion = currentPackage.version
 
-await $`git checkout main`
+await gitCheckout('main')
 const mainPackage = JSON.parse(await $`cat package.json`)
 const mainVersion = mainPackage.version
 
@@ -25,11 +25,16 @@ develop: ${currentVersion}`)
   }
 
   console.log(`OK! package version is updated to ${currentVersion}`)
-  await $`git checkout ${currentBranch}`
+  await gitCheckout(currentBranch)
 } catch (error) {
   console.error(error)
-  await $`git checkout ${currentBranch}`
+  await gitCheckout(currentBranch)
   process.exit(1)
+}
+
+async function gitCheckout(branchName) {
+  console.log(`git checkout ${branchName}`)
+  await $`git checkout ${branchName}`
 }
 
 function validateIsUpdatedVersion(newVersion, currentVersion) {
