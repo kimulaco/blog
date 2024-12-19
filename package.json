@@ -29,7 +29,7 @@
     "@astrojs/sitemap": "3.2.1",
     "@astrojs/vue": "5.0.2",
     "@sentry/astro": "8.45.0",
-    "astro": "5.0.5",
+    "astro": "5.0.8",
     "date-fns": "4.1.0",
     "date-fns-tz": "3.2.0",
     "normalize.css": "8.0.1",
