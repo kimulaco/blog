@@ -55,7 +55,7 @@
     "marked": "15.0.7",
     "microcms-js-sdk": "3.1.2",
     "postcss-html": "1.8.0",
-    "prettier": "3.4.2",
+    "prettier": "3.5.2",
     "prettier-plugin-astro": "0.14.1",
     "prismjs": "1.29.0",
     "sass": "1.85.1",
