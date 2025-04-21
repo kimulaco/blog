@@ -5,7 +5,6 @@ on:
     types: [cms_build]
 
 env:
-  BUN_VERSION: '1.1.38'
   MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
   MICROCMS_SERVICE_DOMAIN: ${{ secrets.MICROCMS_SERVICE_DOMAIN }}
   SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
@@ -23,8 +22,8 @@ jobs:
       APP_HOST: ${{ secrets.APP_HOST_PROD }}
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/init-bun
-      - run: bun run build:prod
+      - uses: ./.github/actions/init-pnpm
+      - run: pnpm run build:prod
       - uses: actions/upload-artifact@v4
         with:
           name: build-prod-dist
@@ -41,12 +40,12 @@ jobs:
       APP_HOST: ${{ secrets.APP_HOST_PROD }}
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/init-bun
+      - uses: ./.github/actions/init-pnpm
       - uses: actions/download-artifact@v4
         with:
           name: build-prod-dist
           path: dist
-      - run: bun run test:e2e
+      - run: pnpm run test:e2e
 
   deploy_prod:
     runs-on: ubuntu-latest
