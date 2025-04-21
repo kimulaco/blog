@@ -1,0 +1,6 @@
+runs:
+  using: 'Composite'
+  steps:
+    - uses: pnpm/action-setup@v4
+    - run: pnpm install
+      shell: bash

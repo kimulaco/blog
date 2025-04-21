@@ -6,7 +6,6 @@ on:
       - main
 
 env:
-  BUN_VERSION: '1.1.38'
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
   MICROCMS_SERVICE_DOMAIN: ${{ secrets.MICROCMS_SERVICE_DOMAIN }}
@@ -19,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/init-bun
+      - uses: ./.github/actions/init-pnpm
       - uses: ./.github/actions/lint
 
   unit_test:
@@ -33,8 +32,8 @@ jobs:
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/init-bun
-      - run: bun run test:unit
+      - uses: ./.github/actions/init-pnpm
+      - run: pnpm run test:unit
 
   build_prod:
     runs-on: ubuntu-latest
@@ -46,8 +45,8 @@ jobs:
       APP_HOST: ${{ secrets.APP_HOST_PROD }}
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/init-bun
-      - run: bun run build:prod
+      - uses: ./.github/actions/init-pnpm
+      - run: pnpm run build:prod
       - uses: actions/upload-artifact@v4
         with:
           name: build-prod-dist
@@ -64,12 +63,12 @@ jobs:
       APP_HOST: ${{ secrets.APP_HOST_PROD }}
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/init-bun
+      - uses: ./.github/actions/init-pnpm
       - uses: actions/download-artifact@v4
         with:
           name: build-prod-dist
           path: dist
-      - run: bun run test:e2e
+      - run: pnpm run test:e2e
 
   deploy_prod:
     runs-on: ubuntu-latest
@@ -102,7 +101,7 @@ jobs:
     needs: [deploy_prod]
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/init-bun
+      - uses: ./.github/actions/init-pnpm
       - uses: ./.github/actions/init-git
-      - run: bunx zx ./.github/scripts/create-version-tag.mjs
+      - run: pnpm node ./.github/scripts/create-version-tag.mjs
         shell: bash

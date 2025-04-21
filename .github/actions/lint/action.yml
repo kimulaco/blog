@@ -1,9 +1,9 @@
 runs:
   using: 'Composite'
   steps:
-    - run: bun run lint:format
+    - run: pnpm run lint:format
       shell: bash
-    - run: bun run lint:script
+    - run: pnpm run lint:script
       shell: bash
-    - run: bun run lint:style
+    - run: pnpm run lint:style
       shell: bash
