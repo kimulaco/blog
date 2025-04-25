@@ -5,10 +5,11 @@ type Props = {
   title: string
   description: string
   url: string
+  imagePath?: string
 }
 
-const { title, description, url } = Astro.props
-const metas = createOGPMeta({ title, description, url })
+const { title, description, url, imagePath } = Astro.props
+const metas = createOGPMeta({ title, description, url, imagePath })
 ---
 
 {

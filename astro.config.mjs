@@ -15,6 +15,7 @@ export default defineConfig({
   site: APP_CONFIG.URL.ORIGIN,
   integrations: [
     vue(),
+    react(),
     sitemap(),
     partytown({
       config: {
@@ -29,7 +30,6 @@ export default defineConfig({
         authToken: SENTRY_AUTH_TOKEN,
       },
     }),
-    react(),
   ],
   vite: {
     plugins: [svgLoader()],
