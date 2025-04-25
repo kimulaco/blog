@@ -10,10 +10,14 @@ export type OGPProps = {
   title: string
   description: string
   url: string
+  imagePath?: string
 }
 
+const DEFAULT_IMAGE_PATH = '/img/ogp.png'
+
 export const createOGPMeta = (props: OGPProps): OGPMeta[] => {
-  const image = `${APP_CONFIG.URL.ORIGIN}/img/ogp.png`
+  const origin = APP_CONFIG.URL.ORIGIN
+  const image = `${origin}${props.imagePath || DEFAULT_IMAGE_PATH}`
 
   return [
     { name: 'description', content: props.description },
