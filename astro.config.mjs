@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config'
+import react from '@astrojs/react'
 import vue from '@astrojs/vue'
 import sitemap from '@astrojs/sitemap'
 import partytown from '@astrojs/partytown'
@@ -28,6 +29,7 @@ export default defineConfig({
         authToken: SENTRY_AUTH_TOKEN,
       },
     }),
+    react(),
   ],
   vite: {
     plugins: [svgLoader()],
@@ -37,6 +39,9 @@ export default defineConfig({
           api: 'modern-compiler',
         },
       },
+    },
+    optimizeDeps: {
+      exclude: ['@resvg/resvg-js'],
     },
   },
 })
