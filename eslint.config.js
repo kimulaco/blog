@@ -40,6 +40,7 @@ export default [
           argsIgnorePattern: '^_',
         },
       ],
+      '@typescript-eslint/no-explicit-any': 1,
     },
   },
 ]

@@ -13,9 +13,10 @@ interface Props {
   title: string
   description: string
   currentPath: string
+  ogpImagePath?: string
 }
 
-const { title, description, currentPath } = Astro.props
+const { title, description, currentPath, ogpImagePath } = Astro.props
 const currentUrl = `${APP_CONFIG.URL.ORIGIN}${currentPath}`
 const canonicalUrl = `${APP_CONFIG.URL.CANONICAL_BASE_URL}${currentPath}`
 ---
@@ -32,7 +33,12 @@ const canonicalUrl = `${APP_CONFIG.URL.CANONICAL_BASE_URL}${currentPath}`
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <title>{title}</title>
-    <LayoutOGP title={title} description={description} url={currentUrl} />
+    <LayoutOGP
+      title={title}
+      description={description}
+      url={currentUrl}
+      imagePath={ogpImagePath}
+    />
     <LayoutGAImporter />
     <LayoutGAImporter />
     <slot name="head" />

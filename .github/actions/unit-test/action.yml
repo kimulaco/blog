@@ -1,5 +1,5 @@
 runs:
   using: 'Composite'
   steps:
-    - run: bun run test:unit
+    - run: pnpm run test:unit
       shell: bash

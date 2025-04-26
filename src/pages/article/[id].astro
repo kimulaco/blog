@@ -33,6 +33,7 @@ export const getStaticPaths = async () => {
   title={`${article.title} - @kimulaco/blog`}
   description={`${APP_CONFIG.META.DESCRIPTION}${article.description}`}
   currentPath={`/article/${id}`}
+  ogpImagePath={`/article/${id}/ogp.png`}
 >
   <JsonldBlogPosting article={article} slot="head" />
   <JsonldBreadcrumbList breadcrumbs={breadcrumbs} slot="head" />
