@@ -8,7 +8,7 @@ export const testArticleLink = async (
   article: Article
 ): Promise<void> => {
   const heading = locator.locator('.ArticleLink_heading-link')
-  expect(await heading.getAttribute('href')).toBe(`/article/${article.id}/`)
+  expect(await heading.getAttribute('href')).toBe(`/article/${article.id}`)
   expect(await heading.textContent()).toBe(article.title)
 
   await expect(

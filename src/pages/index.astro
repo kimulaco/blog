@@ -16,14 +16,17 @@ const articles = await getAllArticles()
   <JsonldWebSite slot="head" />
 
   <main>
-    {
-      articles.map((article) => {
-        return (
-          <>
-            <ArticleLink article={article} />
-          </>
-        )
-      })
-    }
+    <h2 class="hidden">記事一覧</h2>
+    <div>
+      {
+        articles.map((article) => {
+          return (
+            <>
+              <ArticleLink article={article} />
+            </>
+          )
+        })
+      }
+    </div>
   </main>
 </MultiColumnLayout>

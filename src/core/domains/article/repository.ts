@@ -61,6 +61,7 @@ export const getArticleDetail = async (id: string): Promise<Article> => {
     contentId: id,
     queries: {
       filters: isEnableDraft ? undefined : PUBLISH_QUERY,
+      depth: 2,
     },
   })
 

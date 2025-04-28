@@ -25,13 +25,13 @@ importers:
         version: 3.3.1
       '@astrojs/vue':
         specifier: 5.0.11
-        version: 5.0.11(@types/node@22.14.1)(astro@5.7.5(@types/node@22.14.1)(rollup@4.40.0)(sass@1.87.0)(typescript@5.8.3)(yaml@2.7.1))(rollup@4.40.0)(sass@1.87.0)(vue@3.5.13(typescript@5.8.3))(yaml@2.7.1)
+        version: 5.0.11(@types/node@22.14.1)(astro@5.7.7(@types/node@22.14.1)(rollup@4.40.0)(sass@1.87.0)(typescript@5.8.3)(yaml@2.7.1))(rollup@4.40.0)(sass@1.87.0)(vue@3.5.13(typescript@5.8.3))(yaml@2.7.1)
       '@sentry/astro':
         specifier: 9.14.0
-        version: 9.14.0(astro@5.7.5(@types/node@22.14.1)(rollup@4.40.0)(sass@1.87.0)(typescript@5.8.3)(yaml@2.7.1))
+        version: 9.14.0(astro@5.7.7(@types/node@22.14.1)(rollup@4.40.0)(sass@1.87.0)(typescript@5.8.3)(yaml@2.7.1))
       astro:
-        specifier: 5.7.5
-        version: 5.7.5(@types/node@22.14.1)(rollup@4.40.0)(sass@1.87.0)(typescript@5.8.3)(yaml@2.7.1)
+        specifier: 5.7.7
+        version: 5.7.7(@types/node@22.14.1)(rollup@4.40.0)(sass@1.87.0)(typescript@5.8.3)(yaml@2.7.1)
       date-fns:
         specifier: 4.1.0
         version: 4.1.0
@@ -1825,8 +1825,8 @@ packages:
     resolution: {integrity: sha512-JepyLROIad6f44uyqMF6HKE2QbunNzp3mYKRcPoDGt0QkxXmH222FAFC64WTyQu2Kg8NNEXHTN/sWuUId9sSxw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  astro@5.7.5:
-    resolution: {integrity: sha512-c59YuYiXyWWnUMOBlDczrjqKzF0dJQP20EP9vqDggcyKm//tEt9iJHNwoYq4r3UeO9UJCwlGK8FwaGTAwwF3IA==}
+  astro@5.7.7:
+    resolution: {integrity: sha512-nmp8U3oQLZ/eDlobF1UG0hiSycVvHrVyPDMXZxuohpd24Z2aO2Ea0YnfZxS5Sx4uh9c8UBxy4fHTcoQlXNx3TQ==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -3915,8 +3915,8 @@ packages:
   unified@11.0.5:
     resolution: {integrity: sha512-xKvGhPWw3k84Qjh8bI3ZeJjqnyadK+GEFtazSfZv/rKeTkTjOJho6mFqh2SM96iIcZokxiOpg78GazTSg8+KHA==}
 
-  unifont@0.2.0:
-    resolution: {integrity: sha512-RoF14/tOhLvDa7R5K6A3PjsfJVFKvadvRpWjfV1ttabUe9704P1ie9z1ABLWEts/8SxrBVePav/XhgeFNltpsw==}
+  unifont@0.4.0:
+    resolution: {integrity: sha512-wbc8b02b+K7WRHSxD+YQRYS31iVwOd0dRF7Nv73nolzyQ5n4qMtuJ4OdJSe1hEB7XT+lPb2Qk7FHxOrMReh9lw==}
 
   unist-util-find-after@5.0.0:
     resolution: {integrity: sha512-amQa0Ep2m6hE2g72AugUItjbuM8X8cGQnFoHk0pGfrFeT9GZhzN5SW8nRsiGKK7Aif4CrACPENkA6P/Lw6fHGQ==}
@@ -4573,12 +4573,12 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@astrojs/vue@5.0.11(@types/node@22.14.1)(astro@5.7.5(@types/node@22.14.1)(rollup@4.40.0)(sass@1.87.0)(typescript@5.8.3)(yaml@2.7.1))(rollup@4.40.0)(sass@1.87.0)(vue@3.5.13(typescript@5.8.3))(yaml@2.7.1)':
+  '@astrojs/vue@5.0.11(@types/node@22.14.1)(astro@5.7.7(@types/node@22.14.1)(rollup@4.40.0)(sass@1.87.0)(typescript@5.8.3)(yaml@2.7.1))(rollup@4.40.0)(sass@1.87.0)(vue@3.5.13(typescript@5.8.3))(yaml@2.7.1)':
     dependencies:
       '@vitejs/plugin-vue': 5.2.1(vite@6.3.2(@types/node@22.14.1)(sass@1.87.0)(yaml@2.7.1))(vue@3.5.13(typescript@5.8.3))
       '@vitejs/plugin-vue-jsx': 4.1.2(vite@6.3.2(@types/node@22.14.1)(sass@1.87.0)(yaml@2.7.1))(vue@3.5.13(typescript@5.8.3))
       '@vue/compiler-sfc': 3.5.13
-      astro: 5.7.5(@types/node@22.14.1)(rollup@4.40.0)(sass@1.87.0)(typescript@5.8.3)(yaml@2.7.1)
+      astro: 5.7.7(@types/node@22.14.1)(rollup@4.40.0)(sass@1.87.0)(typescript@5.8.3)(yaml@2.7.1)
       vite: 6.3.2(@types/node@22.14.1)(sass@1.87.0)(yaml@2.7.1)
       vite-plugin-vue-devtools: 7.7.5(rollup@4.40.0)(vite@6.3.2(@types/node@22.14.1)(sass@1.87.0)(yaml@2.7.1))(vue@3.5.13(typescript@5.8.3))
       vue: 3.5.13(typescript@5.8.3)
@@ -5598,13 +5598,13 @@ snapshots:
       '@sentry-internal/browser-utils': 9.14.0
       '@sentry/core': 9.14.0
 
-  '@sentry/astro@9.14.0(astro@5.7.5(@types/node@22.14.1)(rollup@4.40.0)(sass@1.87.0)(typescript@5.8.3)(yaml@2.7.1))':
+  '@sentry/astro@9.14.0(astro@5.7.7(@types/node@22.14.1)(rollup@4.40.0)(sass@1.87.0)(typescript@5.8.3)(yaml@2.7.1))':
     dependencies:
       '@sentry/browser': 9.14.0
       '@sentry/core': 9.14.0
       '@sentry/node': 9.14.0
       '@sentry/vite-plugin': 2.23.0
-      astro: 5.7.5(@types/node@22.14.1)(rollup@4.40.0)(sass@1.87.0)(typescript@5.8.3)(yaml@2.7.1)
+      astro: 5.7.7(@types/node@22.14.1)(rollup@4.40.0)(sass@1.87.0)(typescript@5.8.3)(yaml@2.7.1)
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -6303,7 +6303,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  astro@5.7.5(@types/node@22.14.1)(rollup@4.40.0)(sass@1.87.0)(typescript@5.8.3)(yaml@2.7.1):
+  astro@5.7.7(@types/node@22.14.1)(rollup@4.40.0)(sass@1.87.0)(typescript@5.8.3)(yaml@2.7.1):
     dependencies:
       '@astrojs/compiler': 2.11.0
       '@astrojs/internal-helpers': 0.6.1
@@ -6352,7 +6352,7 @@ snapshots:
       tinyglobby: 0.2.13
       tsconfck: 3.1.5(typescript@5.8.3)
       ultrahtml: 1.6.0
-      unifont: 0.2.0
+      unifont: 0.4.0
       unist-util-visit: 5.0.0
       unstorage: 1.15.0
       vfile: 6.0.3
@@ -8767,7 +8767,7 @@ snapshots:
       trough: 2.2.0
       vfile: 6.0.3
 
-  unifont@0.2.0:
+  unifont@0.4.0:
     dependencies:
       css-tree: 3.1.0
       ohash: 2.0.11
