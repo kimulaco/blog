@@ -26,13 +26,13 @@ describe('convertMdToHtml()', () => {
     const html = convertMdToHtml(`
 こんにちは。
 
-[GitHub](https://github.com/kimulaco)と[X](https://twitter.com/kimulaco)をやっています。
+[GitHub](https://github.com/kimulaco)と[X](https://x.com/kimulaco)をやっています。
 
 私については[About](/about)をご覧ください。
 `)
 
     expect(html).toBe(`<p>こんにちは。</p>
-<p><a href="https://github.com/kimulaco" target="_blank" rel="noopener noreferrer">GitHub</a>と<a href="https://twitter.com/kimulaco" target="_blank" rel="noopener noreferrer">X</a>をやっています。</p>
+<p><a href="https://github.com/kimulaco" target="_blank" rel="noopener noreferrer">GitHub</a>と<a href="https://x.com/kimulaco" target="_blank" rel="noopener noreferrer">X</a>をやっています。</p>
 <p>私については<a href="/about">About</a>をご覧ください。</p>
 `)
   })
