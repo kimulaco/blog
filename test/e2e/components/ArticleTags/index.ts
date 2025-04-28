@@ -7,7 +7,7 @@ export const testArticleTags = async (
 ): Promise<void> => {
   for (const tag of article.tag) {
     await expect(
-      locator.locator(`.ArticleTags_link[href="/tag/${tag.id}/"]`, {
+      locator.locator(`.ArticleTags_link[href="/tag/${tag.id}"]`, {
         hasText: tag.name,
       })
     ).toBeVisible()

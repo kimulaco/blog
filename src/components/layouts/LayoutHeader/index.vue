@@ -43,7 +43,7 @@ const feedUrl = computed(() => {
 
       <ul class="SiteHeader_menu">
         <li class="SiteHeader_menu-item">
-          <a class="SiteHeader_menu-anchor" href="/about/">
+          <a class="SiteHeader_menu-anchor" href="/about">
             <InfoIcon class="SiteHeader_menu-icon" />
             <span class="hidden">About</span>
           </a>

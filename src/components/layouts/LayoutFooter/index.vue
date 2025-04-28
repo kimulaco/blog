@@ -13,10 +13,10 @@ const feedUrl = computed(() => {
     <LayoutInner class="SiteFooter_inner">
       <ul class="SiteFooter_menu">
         <li class="SiteFooter_menu-item">
-          <a class="SiteFooter_menu-link" href="/about/">About</a>
+          <a class="SiteFooter_menu-link" href="/about">About</a>
         </li>
         <li class="SiteFooter_menu-item">
-          <a class="SiteFooter_menu-link" href="/about/#contact">Contact</a>
+          <a class="SiteFooter_menu-link" href="/about#contact">Contact</a>
         </li>
         <li class="SiteFooter_menu-item">
           <a class="SiteFooter_menu-link" :href="feedUrl">Feed</a>

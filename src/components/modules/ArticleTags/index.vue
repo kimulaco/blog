@@ -14,7 +14,7 @@ withDefaults(defineProps<Props>(), {
   <div class="ArticleTags">
     <ul class="ArticleTags_list">
       <li v-for="tag in tags" :key="tag.id" class="ArticleTags_item">
-        <a :href="`/tag/${tag.id}/`" class="ArticleTags_link">
+        <a :href="`/tag/${tag.id}`" class="ArticleTags_link">
           {{ tag.name }}
         </a>
       </li>
