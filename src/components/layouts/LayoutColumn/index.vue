@@ -24,11 +24,12 @@ import LayoutInner from '@/components/layouts/LayoutInner/index.vue'
 @use '@/assets/scss/mixins' as mixins;
 
 .SiteColumn__inner {
-  padding: 32px 20px;
+  padding: 32px 10px;
 
   @include mixins.media() {
     display: flex;
     align-items: flex-start;
+    padding: 32px 20px;
   }
 }
 .SiteColumn_main {
