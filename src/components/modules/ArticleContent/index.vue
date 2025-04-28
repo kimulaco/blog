@@ -144,7 +144,7 @@ const html = computed(() => convertMdToHtml(props.content))
     border-radius: 6px;
     box-shadow: 0 0 4px rgba(variables.$COLOR_BLACK, 0.2);
     @include mixins.media() {
-      margin: 20px 20px 40px;
+      margin: 20px 0 40px;
     }
     ul {
       margin: 0;
