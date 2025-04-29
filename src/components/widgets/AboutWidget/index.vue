@@ -74,11 +74,10 @@ const descriptions = computed<string[]>(() => {
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/variables' as variables;
 @use '@/assets/scss/mixins' as mixins;
 
 .AboutWidget {
-  color: variables.$COLOR_WHITE;
+  color: var(--app-color-white);
   margin: 0;
 }
 .AboutWidget_head {

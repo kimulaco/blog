@@ -16,7 +16,6 @@ const html = computed(() => convertMdToHtml(props.content))
 </template>
 
 <style lang="scss">
-@use '@/assets/scss/variables' as variables;
 @use '@/assets/scss/mixins' as mixins;
 
 .PostContent {
@@ -43,7 +42,7 @@ const html = computed(() => convertMdToHtml(props.content))
     }
   }
   strong {
-    color: variables.$COLOR_RED;
+    color: var(--app-color-red);
   }
   p {
     margin: 16px 0;
@@ -57,7 +56,7 @@ const html = computed(() => convertMdToHtml(props.content))
   h6 {
     > code {
       display: inline-block;
-      color: variables.$COLOR_DARKGRAY;
+      color: var(--app-color-darkgray);
       background: #f1f1f1;
       padding: 2px 6px;
       margin: 0 4px;
@@ -75,7 +74,7 @@ const html = computed(() => convertMdToHtml(props.content))
     font-size: 24px;
     padding: 0 0 4px;
     margin: 40px 0 24px;
-    border-bottom: 1px solid rgba(variables.$COLOR_GRAY, 0.3);
+    border-bottom: 1px solid var(--app-color-lightgray);
   }
   h3 {
     font-size: 20px;
@@ -106,7 +105,7 @@ const html = computed(() => convertMdToHtml(props.content))
   blockquote {
     padding: 8px;
     margin: 16px 0;
-    background: variables.$COLOR_BLOCKGRAY;
+    background: var(--app-color-blockgray);
     border-radius: 6px;
     @include mixins.reset-child-margin();
   }
@@ -117,7 +116,7 @@ const html = computed(() => convertMdToHtml(props.content))
     code {
       display: block;
       padding: 0;
-      color: variables.$COLOR_BLOCKGRAY;
+      color: var(--app-color-blockgray);
     }
   }
   table {
@@ -125,12 +124,12 @@ const html = computed(() => convertMdToHtml(props.content))
     text-align: left;
     border-collapse: collapse;
     thead {
-      border-bottom: 1px solid rgba(variables.$COLOR_GRAY, 0.3);
+      border-bottom: 1px solid var(--app-color-lightgray);
       background-color: #f7fafc;
     }
     tr {
       &:not(:last-child) {
-        border-bottom: 1px solid rgba(variables.$COLOR_GRAY, 0.3);
+        border-bottom: 1px solid var(--app-color-lightgray);
       }
     }
     th,
@@ -142,7 +141,7 @@ const html = computed(() => convertMdToHtml(props.content))
     padding: 16px;
     margin: 0 0 40px;
     border-radius: 6px;
-    box-shadow: 0 0 4px rgba(variables.$COLOR_BLACK, 0.2);
+    box-shadow: 0 0 4px var(--app-color-shadowblack);
     @include mixins.media() {
       margin: 20px 0 40px;
     }

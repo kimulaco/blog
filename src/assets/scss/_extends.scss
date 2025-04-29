@@ -1,9 +1,8 @@
-@use 'variables' as variables;
 @use 'mixins' as mixins;
 
 %layout-inner {
-  min-width: variables.$CONTENT_MIN_WIDTH;
-  max-width: variables.$CONTENT_MAX_WIDTH;
+  min-width: var(--app-content-min-width);
+  max-width: var(--app-content-max-width);
   padding: 0 10px;
   margin: 0 auto;
 

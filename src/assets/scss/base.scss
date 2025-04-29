@@ -1,24 +1,41 @@
-@use 'variables' as variables;
+:root {
+  --app-color-black: #222;
+  --app-color-shadowblack: rgb(34 34 34 / 20%);
+  --app-color-white: #fff;
+  --app-color-gray: #666;
+  --app-color-lightgray: #d8d8d8;
+  --app-color-darkgray: #444;
+  --app-color-blockgray: #fcfcfc;
+  --app-color-red: #e64e33;
+  --app-color-blue: #0476c9;
+  --app-font-family:
+    'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Meiryo',
+    sans-serif;
+  --app-content-max-width: 1200px;
+  --app-content-min-width: 320px;
+  --app-aside-width: 320px;
+  --app-main-width: calc(100% - var(--app-aside-width));
+}
 
 * {
   box-sizing: border-box;
 }
 
 html {
-  background: variables.$COLOR_WHITE;
-  font-family: variables.$FONT_FAMILY;
+  background: var(--app-color-white);
+  font-family: var(--app-font-family);
   font-size: 16px;
   line-height: 1.6;
-  color: variables.$COLOR_BLACK;
+  color: var(--app-color-black);
   scroll-behavior: smooth;
 }
 
 body {
-  background: variables.$COLOR_WHITE;
+  background: var(--app-color-white);
 }
 
 a {
-  color: variables.$COLOR_BLUE;
+  color: var(--app-color-blue);
   text-decoration: none;
 }
 

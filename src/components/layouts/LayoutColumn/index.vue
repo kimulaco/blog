@@ -21,7 +21,6 @@ import LayoutInner from '@/components/layouts/LayoutInner/index.vue'
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/variables' as variables;
 @use '@/assets/scss/mixins' as mixins;
 
 .SiteColumn__inner {
@@ -36,7 +35,7 @@ import LayoutInner from '@/components/layouts/LayoutInner/index.vue'
   width: 100%;
 
   @include mixins.media() {
-    width: variables.$MAIN_WIDTH;
+    width: var(--app-main-width);
 
     .SiteColumn.--single & {
       width: 100%;
@@ -45,7 +44,7 @@ import LayoutInner from '@/components/layouts/LayoutInner/index.vue'
 }
 .SiteColumn_sub {
   @include mixins.media() {
-    width: #{variables.$ASIDE_WIDTH - 20px};
+    width: calc(var(--app-aside-width) - 20px);
     margin-left: 20px;
   }
 }

@@ -36,20 +36,19 @@ defineProps<Props>()
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/variables' as variables;
 @use '@/assets/scss/mixins' as mixins;
 
 .ArticleLink {
-  border-bottom: 1px solid variables.$COLOR_LIGHTGRAY;
+  border-bottom: 1px solid var(--app-color-lightgray);
   position: relative;
   &:first-child {
-    border-top: 1px solid variables.$COLOR_LIGHTGRAY;
+    border-top: 1px solid var(--app-color-lightgray);
   }
 }
 .ArticleLink_inner {
   display: block;
   padding: 20px 10px;
-  color: variables.$COLOR_BLACK;
+  color: var(--app-color-black);
   @include mixins.media() {
     padding: 24px 20px;
   }
@@ -59,7 +58,7 @@ defineProps<Props>()
   padding: 5px 0;
   line-height: 1.4;
   margin: 0;
-  color: variables.$COLOR_BLUE;
+  color: var(--app-color-blue);
 }
 .ArticleLink_heading-link {
   transition: 0.3s;
