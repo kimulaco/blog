@@ -9,6 +9,7 @@ export const GET = async () => {
     title: APP_CONFIG.META.TITLE,
     description: APP_CONFIG.META.DESCRIPTION,
     site: APP_CONFIG.URL.ORIGIN,
+    trailingSlash: false,
     items: articles.map((article): RSSFeedItem => {
       return {
         title: article.title,
