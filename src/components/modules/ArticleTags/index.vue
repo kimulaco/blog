@@ -23,7 +23,6 @@ withDefaults(defineProps<Props>(), {
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/variables' as variables;
 @use '@/assets/scss/mixins' as mixins;
 
 $margin-top: 5px;
@@ -32,7 +31,7 @@ $margin-left: 8px;
 .ArticleTags {
   font-size: 14px;
   display: flex;
-  color: variables.$COLOR_GRAY;
+  color: var(--app-color-gray);
 }
 .ArticleTags_heading {
   font-weight: normal;
@@ -57,7 +56,7 @@ $margin-left: 8px;
   }
 }
 .ArticleTags_icon {
-  fill: variables.$COLOR_GRAY;
+  fill: var(--app-color-gray);
   width: 14px;
   height: 14px;
   margin: 2px 8px 0 0;

@@ -24,11 +24,10 @@ const innerTagName = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/variables' as variables;
 @use '@/assets/scss/mixins' as mixins;
 
 .Card {
-  background: variables.$COLOR_WHITE;
+  background: var(--app-color-white);
 }
 .Card_inner {
   @include mixins.reset-child-margin();
@@ -37,10 +36,10 @@ const innerTagName = computed(() => {
     display: block;
     width: 100%;
     padding: 16px;
-    border: 1px solid rgba(variables.$COLOR_BLACK, 0.1);
+    border: 1px solid var(--app-color-shadowblack);
     border-radius: 6px;
-    color: variables.$COLOR_BLACK;
-    box-shadow: 0 2px 2px rgba(variables.$COLOR_BLACK, 0.1);
+    color: var(--app-color-black);
+    box-shadow: 0 2px 2px var(--app-color-shadowblack);
     transition: 0.3s;
   }
 }
@@ -48,7 +47,7 @@ a.Card {
   &_inner {
     @include mixins.active() {
       transform: translateY(-3px);
-      box-shadow: 0 2px 8px rgba(variables.$COLOR_BLACK, 0.2);
+      box-shadow: 0 2px 8px var(--app-color-shadowblack);
     }
   }
 }

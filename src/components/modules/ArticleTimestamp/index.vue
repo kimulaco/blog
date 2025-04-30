@@ -37,14 +37,12 @@ const formatedUpdatedAt = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/variables' as variables;
-
 $margin-top: 5px;
 $margin-left: 10px;
 
 .Timestamp {
   font-size: 14px;
-  color: variables.$COLOR_GRAY;
+  color: var(--app-color-gray);
   display: flex;
   align-items: center;
 }
@@ -61,7 +59,7 @@ $margin-left: 10px;
   margin: 0 0 0 4px;
 }
 .Timestamp_icon {
-  fill: variables.$COLOR_GRAY;
+  fill: var(--app-color-gray);
   width: 15px;
   height: 15px;
   margin: 0 4px 0 0;
