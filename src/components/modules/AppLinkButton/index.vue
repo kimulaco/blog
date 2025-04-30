@@ -13,12 +13,10 @@ defineProps<Props>()
 </template>
 
 <style scoped lang="scss">
-@use '@/assets/scss/variables' as variables;
-
 .LinkButton {
   display: inline-block;
-  color: variables.$COLOR_WHITE;
-  background: variables.$COLOR_BLACK;
+  color: var(--app-color-white);
+  background: var(--app-color-black);
   font-size: 15px;
   text-align: center;
   min-width: 160px;

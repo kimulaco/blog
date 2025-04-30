@@ -60,13 +60,12 @@ const feedUrl = computed(() => {
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/variables' as variables;
 @use '@/assets/scss/mixins' as mixins;
 
 .SiteHeader {
-  background: variables.$COLOR_WHITE;
+  background: var(--app-color-white);
   margin: 0;
-  box-shadow: 0 2px 4px rgba(variables.$COLOR_BLACK, 0.1);
+  box-shadow: 0 2px 4px var(--app-color-shadowblack);
   @include mixins.media() {
     margin: 0 0 30px;
   }
@@ -89,7 +88,7 @@ const feedUrl = computed(() => {
   display: flex;
   align-items: center;
   font-size: 18px;
-  color: variables.$COLOR_BLACK;
+  color: var(--app-color-black);
 }
 .SiteHeader_menu {
   display: flex;
@@ -108,6 +107,6 @@ const feedUrl = computed(() => {
 .SiteHeader_menu-icon {
   width: 32px;
   height: 32px;
-  fill: variables.$COLOR_BLACK;
+  fill: var(--app-color-black);
 }
 </style>

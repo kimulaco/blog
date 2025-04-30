@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import TwitterIcon from '@/assets/img/icon-twitter.svg?component'
+import XIcon from '@/assets/img/icon-x.svg?component'
 import GitHubIcon from '@/assets/img/icon-github.svg?component'
 import AppCard from '@/components/modules/AppCard/index.vue'
 
@@ -48,19 +48,19 @@ const descriptions = computed<string[]>(() => {
       <ul class="AboutWidget_link-list">
         <li class="AboutWidget_link-item">
           <a
-            href="https://twitter.com/kimulaco"
-            class="AboutWidget_link-anchor -twitter"
+            href="https://x.com/kimulaco"
+            class="AboutWidget_link-anchor"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <TwitterIcon class="AboutWidget_link-icon" />
-            <span class="AboutWidget_link-text">Twitter</span>
+            <XIcon class="AboutWidget_link-icon" />
+            <span class="AboutWidget_link-text">X</span>
           </a>
         </li>
         <li class="AboutWidget_link-item">
           <a
             href="https://github.com/kimulaco"
-            class="AboutWidget_link-anchor -twitter"
+            class="AboutWidget_link-anchor"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -74,11 +74,10 @@ const descriptions = computed<string[]>(() => {
 </template>
 
 <style lang="scss" scoped>
-@use '@/assets/scss/variables' as variables;
 @use '@/assets/scss/mixins' as mixins;
 
 .AboutWidget {
-  color: variables.$COLOR_WHITE;
+  color: var(--app-color-white);
   margin: 0;
 }
 .AboutWidget_head {
@@ -145,9 +144,6 @@ const descriptions = computed<string[]>(() => {
     @include mixins.active() {
       opacity: 0.8;
     }
-  }
-  &.-twitter {
-    color: #1da1f2;
   }
 }
 .AboutWidget_more {

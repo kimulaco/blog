@@ -1,7 +1,5 @@
-@use 'variables' as variables;
-
-@mixin media($min-width: variables.$BREAK_POINT) {
-  @media screen and (min-width: $min-width) {
+@mixin media() {
+  @media (width >= 980px) {
     @content;
   }
 }
