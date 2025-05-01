@@ -78,7 +78,7 @@ const descriptions = computed<string[]>(() => {
 
 .AboutWidget {
   color: var(--app-color-white);
-  margin: 0;
+  margin: 0 0 20px;
 }
 .AboutWidget_head {
   display: flex;
