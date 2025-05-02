@@ -1,0 +1,41 @@
+---
+interface Props {
+  adSlot: string
+  width: number
+  height: number
+}
+
+const { adSlot, width, height } = Astro.props
+const GOOGLE_ADS_CLIENT = String(import.meta.env.GOOGLE_ADS_CLIENT ?? '')
+---
+
+<div class="container">
+  <ins
+    class="adsbygoogle"
+    data-ad-client={GOOGLE_ADS_CLIENT}
+    data-ad-slot={adSlot}
+    style={{
+      width: `${width}px`,
+      height: `${height}px`,
+    }}></ins>
+  <script is:inline>
+    ;(adsbygoogle = window.adsbygoogle || []).push({})
+  </script>
+</div>
+
+<style>
+  .container {
+    width: 100%;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .adsbygoogle {
+    display: block;
+    margin: auto !important;
+  }
+</style>

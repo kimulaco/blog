@@ -8,6 +8,7 @@ import LayoutFooter from '@/components/layouts/LayoutFooter/index.vue'
 import LayoutGAImporter from '@/components/layouts/LayoutGAImporter/index.astro'
 import LayoutNewRelicImporter from '@/components/layouts/LayoutNewRelicImporter/index.astro'
 import AboutWidget from '@/components/widgets/AboutWidget/index.vue'
+import GoogleAds from '@/components/modules/GoogleAds/index.astro'
 import { getAbout } from '@/core/domains/about'
 import { APP_CONFIG, BUILD_CONFIG } from '@@/config'
 
@@ -22,6 +23,10 @@ const { title, description, currentPath, ogpImagePath } = Astro.props
 const about = await getAbout()
 const currentUrl = `${APP_CONFIG.URL.ORIGIN}${currentPath}`
 const canonicalUrl = `${APP_CONFIG.URL.CANONICAL_BASE_URL}${currentPath}`
+const GOOGLE_ADS_CLIENT = String(import.meta.env.GOOGLE_ADS_CLIENT ?? '')
+const GOOGLE_ADS_SIDE_AD_SLOT_ID = String(
+  import.meta.env.GOOGLE_ADS_SIDE_AD_SLOT_ID ?? ''
+)
 ---
 
 <!doctype html>
@@ -44,6 +49,10 @@ const canonicalUrl = `${APP_CONFIG.URL.CANONICAL_BASE_URL}${currentPath}`
     />
     <LayoutGAImporter />
     <slot name="head" />
+    <script
+      async
+      src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${GOOGLE_ADS_CLIENT}`}
+      crossorigin="anonymous"></script>
   </head>
   <body data-build={BUILD_CONFIG.BUILD_ENV}>
     <LayoutHeader currentPath={currentPath} />
@@ -55,6 +64,11 @@ const canonicalUrl = `${APP_CONFIG.URL.CANONICAL_BASE_URL}${currentPath}`
 
       <aside slot="sub">
         <AboutWidget description={about.about_widget} />
+        <GoogleAds
+          adSlot={GOOGLE_ADS_SIDE_AD_SLOT_ID}
+          width={300}
+          height={300}
+        />
       </aside>
     </LayoutColumn>
 

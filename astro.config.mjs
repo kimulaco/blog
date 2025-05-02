@@ -13,6 +13,7 @@ const SENTRY_PROJECT_NAME = process.env.SENTRY_PROJECT_NAME ?? ''
 
 export default defineConfig({
   site: APP_CONFIG.URL.ORIGIN,
+  trailingSlash: 'never',
   integrations: [
     vue(),
     react(),
