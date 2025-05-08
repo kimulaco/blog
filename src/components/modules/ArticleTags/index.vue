@@ -49,17 +49,14 @@ $margin-left: 8px;
 }
 .ArticleTags_link {
   transition: 0.3s;
+  color: var(--app-color-blue);
+  border: 1px solid var(--app-color-blue);
+  border-radius: 4px;
+  padding: 4px;
   @include mixins.media() {
     @include mixins.active() {
       opacity: 0.8;
     }
   }
-}
-.ArticleTags_icon {
-  fill: var(--app-color-gray);
-  width: 14px;
-  height: 14px;
-  margin: 2px 8px 0 0;
-  transform: translateY(1px);
 }
 </style>

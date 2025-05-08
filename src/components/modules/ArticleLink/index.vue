@@ -72,7 +72,7 @@ defineProps<Props>()
   margin: 0 16px 0 0;
 }
 .ArticleLink_tags {
-  margin: 2px 0 0;
+  margin: 8px 0 0;
 }
 .ArticleLink_description {
   font-size: 15px;
