@@ -62,17 +62,15 @@ defineProps<Props>()
 }
 .ArticleLink_heading-link {
   transition: 0.3s;
-  @include mixins.media() {
-    @include mixins.active() {
-      opacity: 0.8;
-    }
+  @include mixins.active() {
+    opacity: 0.8;
   }
 }
 .ArticleLink_timestamp {
   margin: 0 16px 0 0;
 }
 .ArticleLink_tags {
-  margin: 2px 0 0;
+  margin: 8px 0 0;
 }
 .ArticleLink_description {
   font-size: 15px;

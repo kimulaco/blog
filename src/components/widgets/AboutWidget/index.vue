@@ -140,10 +140,8 @@ const descriptions = computed<string[]>(() => {
   max-width: 24px;
   max-height: 24px;
   transition: 0.3s;
-  @include mixins.media() {
-    @include mixins.active() {
-      opacity: 0.8;
-    }
+  @include mixins.active() {
+    opacity: 0.8;
   }
 }
 .AboutWidget_more {

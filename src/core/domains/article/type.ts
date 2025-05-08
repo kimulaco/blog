@@ -6,7 +6,6 @@ export type Article = {
   title: string
   description: string
   image?: ArticleThumbnail
-  category: ArticleCategory
   tag: ArticleTag[]
   content: string
   related_posts: Article[]
@@ -14,14 +13,6 @@ export type Article = {
 
 export type ArticleThumbnail = {
   url: string
-}
-
-export type ArticleCategory = {
-  id: string
-  createdAt: string
-  updatedAt: string
-  name: string
-  description: string
 }
 
 export type ArticleTag = {
