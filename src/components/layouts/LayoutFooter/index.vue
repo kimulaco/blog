@@ -23,7 +23,7 @@ const feedUrl = computed(() => {
         </li>
       </ul>
 
-      <p class="SiteFooter_copyright">&copy; 2023 kimulaco.</p>
+      <p class="SiteFooter_copyright">&copy; 2025 kimulaco.</p>
     </LayoutInner>
   </footer>
 </template>
@@ -59,10 +59,8 @@ const feedUrl = computed(() => {
 }
 .SiteFooter_menu-link {
   transition: 0.3s;
-  @include mixins.media() {
-    @include mixins.active() {
-      opacity: 0.8;
-    }
+  @include mixins.active() {
+    opacity: 0.8;
   }
 }
 .SiteFooter_copyright {
