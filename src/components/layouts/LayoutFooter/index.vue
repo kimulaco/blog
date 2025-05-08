@@ -23,7 +23,7 @@ const feedUrl = computed(() => {
         </li>
       </ul>
 
-      <p class="SiteFooter_copyright">&copy; 2023 kimulaco.</p>
+      <p class="SiteFooter_copyright">&copy; 2025 kimulaco.</p>
     </LayoutInner>
   </footer>
 </template>
