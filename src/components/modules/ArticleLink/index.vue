@@ -62,10 +62,8 @@ defineProps<Props>()
 }
 .ArticleLink_heading-link {
   transition: 0.3s;
-  @include mixins.media() {
-    @include mixins.active() {
-      opacity: 0.8;
-    }
+  @include mixins.active() {
+    opacity: 0.8;
   }
 }
 .ArticleLink_timestamp {

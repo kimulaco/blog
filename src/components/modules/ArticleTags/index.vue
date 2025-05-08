@@ -53,10 +53,8 @@ $margin-left: 8px;
   border: 1px solid var(--app-color-blue);
   border-radius: 4px;
   padding: 4px;
-  @include mixins.media() {
-    @include mixins.active() {
-      opacity: 0.8;
-    }
+  @include mixins.active() {
+    opacity: 0.8;
   }
 }
 </style>

@@ -59,10 +59,8 @@ const feedUrl = computed(() => {
 }
 .SiteFooter_menu-link {
   transition: 0.3s;
-  @include mixins.media() {
-    @include mixins.active() {
-      opacity: 0.8;
-    }
+  @include mixins.active() {
+    opacity: 0.8;
   }
 }
 .SiteFooter_copyright {

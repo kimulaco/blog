@@ -26,10 +26,8 @@ const html = computed(() => convertMdToHtml(props.content))
     text-decoration: none;
     padding: 0 2px 2px;
     position: relative;
-    @include mixins.media() {
-      @include mixins.active() {
-        text-decoration: underline;
-      }
+    @include mixins.active() {
+      text-decoration: underline;
     }
     > code {
       font-size: 15px;
