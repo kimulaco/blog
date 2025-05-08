@@ -34,7 +34,7 @@ const html = computed(() => convertMdToHtml(props.content))
     > code {
       font-size: 15px;
       display: inline-block;
-      background: #f1f1f1;
+      background: var(--app-color-quotegray);
       padding: 2px 6px;
       margin: 0 4px;
       border-radius: 4px;
@@ -103,9 +103,9 @@ const html = computed(() => convertMdToHtml(props.content))
     }
   }
   blockquote {
-    padding: 8px;
+    padding: 16px;
     margin: 16px 0;
-    background: var(--app-color-blockgray);
+    background: var(--app-color-quotegray);
     border-radius: 6px;
     @include mixins.reset-child-margin();
   }
