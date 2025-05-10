@@ -2,7 +2,7 @@
 import MultiColumnLayout from '@/layouts/MultiColumnLayout.astro'
 import AppHeading from '@/components/modules/AppHeading/index.astro'
 import ArticleContent from '@/components/modules/ArticleContent/index.vue'
-import ArticleLink from '@/components/modules/ArticleLink/index.vue'
+import ArticleItem from '@/components/modules/ArticleItem/index.astro'
 import ArticleTags from '@/components/modules/ArticleTags/index.vue'
 import ArticleTimestamp from '@/components/modules/ArticleTimestamp/index.vue'
 import JsonldBlogPosting from '@/components/jsonld/JsonldBlogPosting.astro'
@@ -75,7 +75,7 @@ export const getStaticPaths = async () => {
           <AppHeading>関連記事</AppHeading>
           <div>
             {article.related_posts.map((relatedArticle) => {
-              return <ArticleLink article={relatedArticle} />
+              return <ArticleItem article={relatedArticle} />
             })}
           </div>
         </aside>
