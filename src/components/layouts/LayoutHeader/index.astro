@@ -1,7 +1,6 @@
 ---
 import InfoIcon from '@/assets/img/icon-info.svg'
 import InfoFeed from '@/assets/img/icon-feed.svg'
-import LayoutInner from '@/components/layouts/LayoutInner/index.vue'
 import { APP_CONFIG } from '@@/config'
 
 interface Props {
@@ -20,7 +19,7 @@ const feedUrl = APP_CONFIG.URL.FEED
 ---
 
 <header class="header">
-  <LayoutInner class="inner">
+  <div class="inner">
     <TitleComponent class="title">
       <TitleTextComponent href={titleTextHref} class="title-text">
         @kimulaco/blog
@@ -41,7 +40,7 @@ const feedUrl = APP_CONFIG.URL.FEED
         </a>
       </li>
     </ul>
-  </LayoutInner>
+  </div>
 </header>
 
 <style lang="scss">
@@ -62,10 +61,20 @@ const feedUrl = APP_CONFIG.URL.FEED
   }
 
   .inner {
+    @include mixins.reset-child-margin();
+
     min-height: 50px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    min-width: var(--app-content-min-width);
+    max-width: var(--app-content-max-width);
+    padding: 0 10px;
+    margin: 0 auto;
+
+    @include mixins.media() {
+      padding: 0 20px;
+    }
   }
 
   .title {

@@ -1,12 +1,11 @@
 ---
-import LayoutInner from '@/components/layouts/LayoutInner/index.vue'
 import { APP_CONFIG } from '@@/config'
 
 const feedUrl = APP_CONFIG.URL.FEED
 ---
 
 <footer class="footer">
-  <LayoutInner class="inner">
+  <div class="inner">
     <ul class="menu">
       <li class="menu-item">
         <a href="/about">About</a>
@@ -20,7 +19,7 @@ const feedUrl = APP_CONFIG.URL.FEED
     </ul>
 
     <p class="copyright">&copy; 2025 kimulaco.</p>
-  </LayoutInner>
+  </div>
 </footer>
 
 <style lang="scss">
@@ -36,11 +35,16 @@ const feedUrl = APP_CONFIG.URL.FEED
   }
 
   .inner {
+    @include mixins.reset-child-margin();
+
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
+    min-width: var(--app-content-min-width);
+    max-width: var(--app-content-max-width);
+    margin: 0 auto;
 
     @include mixins.media() {
       padding: 0 20px;

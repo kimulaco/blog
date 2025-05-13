@@ -1,11 +1,9 @@
 ---
-import LayoutInner from '@/components/layouts/LayoutInner/index.vue'
-
 const hasSub = !!Astro.slots.sub
 ---
 
 <div class="column" class:list={[...(hasSub ? ['multi'] : ['single'])]}>
-  <LayoutInner class="inner">
+  <div class="inner">
     <div class="main">
       <slot name="main" />
     </div>
@@ -17,14 +15,19 @@ const hasSub = !!Astro.slots.sub
         </div>
       )
     }
-  </LayoutInner>
+  </div>
 </div>
 
 <style lang="scss">
   @use '@/assets/scss/mixins' as mixins;
 
   .inner {
+    @include mixins.reset-child-margin();
+
     padding: 32px 10px;
+    min-width: var(--app-content-min-width);
+    max-width: var(--app-content-max-width);
+    margin: 0 auto;
 
     @include mixins.media() {
       display: flex;
