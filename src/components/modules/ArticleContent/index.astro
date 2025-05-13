@@ -17,8 +17,10 @@ const html = convertMdToHtml(content)
   .PostContent {
     @include mixins.reset-child-margin();
 
-    line-height: 1.8;
-    word-wrap: break-word;
+    & {
+      line-height: 1.8;
+      word-wrap: break-word;
+    }
 
     a {
       text-decoration: none;
@@ -115,10 +117,12 @@ const html = convertMdToHtml(content)
     blockquote {
       @include mixins.reset-child-margin();
 
-      padding: 16px;
-      margin: 16px 0;
-      background: var(--app-color-quotegray);
-      border-radius: 6px;
+      & {
+        padding: 16px;
+        margin: 16px 0;
+        background: var(--app-color-quotegray);
+        border-radius: 6px;
+      }
     }
 
     pre {

@@ -63,14 +63,16 @@ const feedUrl = APP_CONFIG.URL.FEED
   .inner {
     @include mixins.reset-child-margin();
 
-    min-height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-width: var(--app-content-min-width);
-    max-width: var(--app-content-max-width);
-    padding: 0 10px;
-    margin: 0 auto;
+    & {
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-width: var(--app-content-min-width);
+      max-width: var(--app-content-max-width);
+      padding: 0 10px;
+      margin: 0 auto;
+    }
 
     @include mixins.media() {
       padding: 0 20px;
