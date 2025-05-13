@@ -7,16 +7,16 @@ export const testArticleLink = async (
   locator: Locator,
   article: Article
 ): Promise<void> => {
-  const heading = locator.locator('.ArticleLink_heading-link')
+  const heading = locator.locator('h3 a')
   expect(await heading.getAttribute('href')).toBe(`/article/${article.id}`)
-  expect(await heading.textContent()).toBe(article.title)
+  expect((await heading.textContent())?.trim()).toBe(article.title.trim())
 
   await expect(
-    locator.locator('.ArticleLink_description', {
+    locator.locator('.description', {
       hasText: article.description,
     })
   ).toBeVisible()
 
-  await testArticleTimestamp(locator.locator('.ArticleLink_timestamp'), article)
-  await testArticleTags(locator.locator('.ArticleLink_tags'), article)
+  await testArticleTimestamp(locator.locator('.timestamp'), article)
+  await testArticleTags(locator.locator('.tags'), article)
 }

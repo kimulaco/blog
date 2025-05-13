@@ -13,7 +13,7 @@ test('top page', async ({ page }) => {
 
   await expect(page).toHaveTitle('@kimulaco/blog')
 
-  const articleLinks = await page.locator('.ArticleLink').all()
+  const articleLinks = await page.locator('section.item').all()
 
   expect(articleLinks).toHaveLength(articles.length)
 
