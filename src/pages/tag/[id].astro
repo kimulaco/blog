@@ -1,8 +1,8 @@
 ---
 import MultiColumnLayout from '@/layouts/MultiColumnLayout.astro'
-import AppLinkButton from '@/components/modules/AppLinkButton/index.vue'
-import PageTitle from '@/components/modules/PageTitle/index.vue'
-import ArticleLink from '@/components/modules/ArticleLink/index.vue'
+import AppLinkButton from '@/components/modules/AppLinkButton/index.astro'
+import PageTitle from '@/components/modules/PageTitle/index.astro'
+import ArticleItem from '@/components/modules/ArticleItem/index.astro'
 import JsonldBreadcrumbList from '@/components/jsonld/JsonldBreadcrumbList.astro'
 import { createBreadcrumbList } from '@/core/domains/breadcrumb'
 import {
@@ -59,7 +59,7 @@ export const getStaticPaths = async () => {
     hasArticles && (
       <div>
         {articles.map((article) => {
-          return <ArticleLink article={article} />
+          return <ArticleItem article={article} />
         })}
       </div>
     )

@@ -1,0 +1,52 @@
+---
+import { formatDate } from '@/core/utilities/formatDate'
+
+interface Props {
+  createdAt: string
+  updatedAt?: string
+}
+
+const { createdAt, updatedAt } = Astro.props
+
+const formatedCreatedAt = formatDate(createdAt)
+
+const formatedUpdatedAt = updatedAt ? formatDate(updatedAt) : ''
+---
+
+<div class="timestamp">
+  <dl class="list">
+    <div class="item">
+      <dt class="name">投稿日:</dt>
+      <dd class="value">{formatedCreatedAt}</dd>
+    </div>
+    {
+      updatedAt && (
+        <div class="item">
+          <dt class="name">更新日:</dt>
+          <dd class="value">{formatedUpdatedAt}</dd>
+        </div>
+      )
+    }
+  </dl>
+</div>
+
+<style>
+  .timestamp {
+    font-size: 14px;
+    color: var(--app-color-gray);
+    display: flex;
+    align-items: center;
+  }
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -5px 0 0 -10px;
+  }
+  .item {
+    display: flex;
+    margin: 5px 0 0 10px;
+  }
+  .value {
+    margin: 0 0 0 4px;
+  }
+</style>

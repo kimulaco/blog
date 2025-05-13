@@ -1,0 +1,53 @@
+---
+import type { ArticleTag } from '@/core/domains/article/index'
+
+interface Props {
+  tags: ArticleTag[]
+}
+
+const { tags } = Astro.props
+---
+
+<div>
+  <ul class="list">
+    {
+      tags.map((tag) => (
+        <li class="item">
+          <a href={`/tag/${tag.id}`} class="link">
+            {tag.name}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<style lang="scss">
+  @use '@/assets/scss/mixins' as mixins;
+
+  .list {
+    font-size: 14px;
+    color: var(--app-color-gray);
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: -5px 0 0 -8px;
+    list-style: none;
+  }
+
+  .item {
+    margin: 5px 0 0 8px;
+  }
+
+  .link {
+    transition: 0.3s;
+    color: var(--app-color-blue);
+    border: 1px solid var(--app-color-blue);
+    border-radius: 4px;
+    padding: 4px;
+
+    @include mixins.active() {
+      opacity: 0.8;
+    }
+  }
+</style>

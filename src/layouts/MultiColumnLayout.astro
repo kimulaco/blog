@@ -1,13 +1,13 @@
 ---
 import '@/assets/global-style'
-import LayoutHeader from '@/components/layouts/LayoutHeader/index.vue'
+import LayoutHeader from '@/components/layouts/LayoutHeader/index.astro'
 import LayoutOGP from '@/components/layouts/LayoutOGP/index.astro'
-import LayoutColumn from '@/components/layouts/LayoutColumn/index.vue'
-import LayoutMain from '@/components/layouts/LayoutMain/index.vue'
-import LayoutFooter from '@/components/layouts/LayoutFooter/index.vue'
+import LayoutColumn from '@/components/layouts/LayoutColumn/index.astro'
+import LayoutMain from '@/components/layouts/LayoutMain/index.astro'
+import LayoutFooter from '@/components/layouts/LayoutFooter/index.astro'
 import LayoutGAImporter from '@/components/layouts/LayoutGAImporter/index.astro'
 import LayoutNewRelicImporter from '@/components/layouts/LayoutNewRelicImporter/index.astro'
-import AboutWidget from '@/components/widgets/AboutWidget/index.vue'
+import AboutWidget from '@/components/widgets/AboutWidget/index.astro'
 import GoogleAds from '@/components/modules/GoogleAds/index.astro'
 import { getAbout } from '@/core/domains/about'
 import { APP_CONFIG, BUILD_CONFIG } from '@@/config'
@@ -63,7 +63,7 @@ const GOOGLE_ADS_SIDE_AD_SLOT_ID = String(
       </LayoutMain>
 
       <aside slot="sub">
-        <AboutWidget description={about.about_widget} />
+        <AboutWidget class="mb-20" description={about.about_widget} />
         <GoogleAds
           adSlot={GOOGLE_ADS_SIDE_AD_SLOT_ID}
           width={300}

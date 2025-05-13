@@ -1,0 +1,145 @@
+---
+import AppCard from '@/components/modules/AppCard/index.astro'
+import XIcon from '@/assets/img/icon-x.svg'
+import GitHubIcon from '@/assets/img/icon-github.svg'
+
+interface Props {
+  class?: string
+  description: string
+}
+
+const { class: className, description } = Astro.props
+
+const descriptions = description.split(/(\r\n|\n|\r)/).filter((v) => !!v)
+---
+
+<AppCard class={className}>
+  <h2 class="hidden">管理人について</h2>
+  <div class="head">
+    <div>
+      <p class="name">kimulaco</p>
+      <p class="job">Web Developer</p>
+    </div>
+    <div class="icon">
+      <img
+        class="icon-img"
+        src="/img/profile.png"
+        alt=""
+        width="50"
+        height="50"
+        loading="lazy"
+      />
+    </div>
+  </div>
+
+  <div class="content">
+    {descriptions.map((descriptionItem) => <p>{descriptionItem}</p>)}
+  </div>
+
+  <div class="AboutWidget_link">
+    <ul class="link-list">
+      <li class="link-item">
+        <a
+          href="https://x.com/kimulaco"
+          class="link-anchor"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <XIcon class="link-icon" aria-hidden="true" />
+          <span class="link-text">X</span>
+        </a>
+      </li>
+      <li class="link-item">
+        <a
+          href="https://github.com/kimulaco"
+          class="link-anchor"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <GitHubIcon class="link-icon" aria-hidden="true" />
+          <span class="link-text">GitHub</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</AppCard>
+
+<style lang="scss">
+  @use '@/assets/scss/mixins' as mixins;
+
+  .head {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+    justify-content: flex-end;
+    margin: 0 0 8px;
+  }
+
+  .name {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 6px 0 0;
+    line-height: 1.2;
+  }
+
+  .job {
+    font-size: 14px;
+    margin: 2px 0 0;
+    line-height: 1.2;
+  }
+
+  .icon {
+    width: 50px;
+    height: 50px;
+    margin: 0 10px 0 0;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(#000, 0.2);
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .content {
+    font-size: 14px;
+    padding: 8px 0 0;
+    margin: 0 0 12px;
+    p {
+      margin: 2px 0 0;
+    }
+  }
+
+  .link-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: -12px 0 0 -12px;
+    list-style: none;
+  }
+
+  .link-item {
+    margin: 12px 0 0 12px;
+
+    a {
+      display: block;
+      min-width: 24px;
+      max-width: 24px;
+      max-height: 24px;
+      transition: 0.3s;
+
+      @include mixins.active() {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .link-icon {
+    max-width: 24px;
+    max-height: 24px;
+  }
+
+  .link-text {
+    font-size: 0;
+  }
+</style>

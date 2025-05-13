@@ -1,10 +1,10 @@
 ---
 import MultiColumnLayout from '@/layouts/MultiColumnLayout.astro'
-import AppHeading from '@/components/modules/AppHeading/index.vue'
-import ArticleContent from '@/components/modules/ArticleContent/index.vue'
-import ArticleLink from '@/components/modules/ArticleLink/index.vue'
-import ArticleTags from '@/components/modules/ArticleTags/index.vue'
-import ArticleTimestamp from '@/components/modules/ArticleTimestamp/index.vue'
+import AppHeading from '@/components/modules/AppHeading/index.astro'
+import ArticleContent from '@/components/modules/ArticleContent/index.astro'
+import ArticleItem from '@/components/modules/ArticleItem/index.astro'
+import ArticleTags from '@/components/modules/ArticleTags/index.astro'
+import ArticleTimestamp from '@/components/modules/ArticleTimestamp/index.astro'
 import JsonldBlogPosting from '@/components/jsonld/JsonldBlogPosting.astro'
 import JsonldBreadcrumbList from '@/components/jsonld/JsonldBreadcrumbList.astro'
 import { createBreadcrumbList } from '@/core/domains/breadcrumb'
@@ -63,9 +63,7 @@ export const getStaticPaths = async () => {
       </div>
 
       <div class="PostDetail_content">
-        <!-- eslint-disable vue/no-v-html -->
         <ArticleContent content={article.content} />
-        <!-- eslint-enable vue/no-v-html -->
       </div>
     </article>
 
@@ -75,7 +73,7 @@ export const getStaticPaths = async () => {
           <AppHeading>関連記事</AppHeading>
           <div>
             {article.related_posts.map((relatedArticle) => {
-              return <ArticleLink article={relatedArticle} />
+              return <ArticleItem article={relatedArticle} />
             })}
           </div>
         </aside>

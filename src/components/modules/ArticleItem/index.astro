@@ -1,0 +1,80 @@
+---
+import ArticleTags from '@/components/modules/ArticleTags/index.astro'
+import ArticleTimestamp from '@/components/modules/ArticleTimestamp/index.astro'
+import type { Article } from '@/core/domains/article'
+
+type Props = {
+  article: Article
+}
+
+const { article } = Astro.props
+
+const articlePagePath = `/article/${article.id}`
+const hasTags = article.tag.length > 0
+---
+
+<section class="item">
+  <div class="inner">
+    <h3 class="title">
+      <a href={articlePagePath}>
+        {article.title}
+      </a>
+    </h3>
+
+    <div class="timestamp">
+      <ArticleTimestamp
+        createdAt={article.created_at}
+        updatedAt={article.updated_at}
+      />
+    </div>
+
+    {
+      hasTags && (
+        <div class="tags">
+          <ArticleTags tags={article.tag} />
+        </div>
+      )
+    }
+
+    <p class="description">{article.description}</p>
+  </div>
+</section>
+
+<style lang="scss">
+  @use '@/assets/scss/mixins' as mixins;
+
+  .item {
+    border-bottom: 1px solid var(--app-color-lightgray);
+    position: relative;
+    &:first-child {
+      border-top: 1px solid var(--app-color-lightgray);
+    }
+  }
+  .inner {
+    display: block;
+    padding: 20px 10px;
+    color: var(--app-color-black);
+
+    @include mixins.media() {
+      padding: 24px 20px;
+    }
+  }
+  .title {
+    font-size: 24px;
+    padding: 5px 0;
+    line-height: 1.4;
+    margin: 0;
+    color: var(--app-color-blue);
+  }
+  .timestamp {
+    margin: 0 16px 0 0;
+  }
+  .tags {
+    margin: 8px 0 0;
+  }
+  .description {
+    font-size: 15px;
+    margin: 7px 0 0;
+    padding: 0;
+  }
+</style>

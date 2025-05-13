@@ -1,0 +1,25 @@
+---
+interface Props {
+  href: string
+}
+
+const { href } = Astro.props
+---
+
+<a class="button" href={href}>
+  <slot />
+</a>
+
+<style>
+  .button {
+    display: inline-block;
+    color: var(--app-color-white);
+    background: var(--app-color-black);
+    font-size: 15px;
+    text-align: center;
+    min-width: 160px;
+    padding: 8px 12px;
+    margin: 0;
+    border-radius: 4px;
+  }
+</style>
