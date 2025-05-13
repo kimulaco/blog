@@ -1,9 +1,8 @@
 /// <reference types="vitest" />
 import { defineConfig } from 'vitest/config'
-import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
-  plugins: [vue() as any],
+  plugins: [],
   test: {
     globals: true,
     environment: 'jsdom',
@@ -11,7 +10,7 @@ export default defineConfig({
     coverage: {
       all: !!process.env.COVERAGE_ALL,
       reportsDirectory: '.coverage',
-      include: ['src/**/*.ts', 'src/**/*.vue'],
+      include: ['src/**/*.ts'],
       exclude: ['src/**/*.d.ts', 'src/assets/*', 'src/pages/*'],
     },
   },

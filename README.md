@@ -10,7 +10,6 @@ Migration from [kimulaco/kimulaco-blog](https://github.com/kimulaco/kimulaco-blo
   - TypeScript
   - SCSS
   - Astro v3
-  - Vue v3
   - Vitest
   - Playwright
 - Infrastructure
