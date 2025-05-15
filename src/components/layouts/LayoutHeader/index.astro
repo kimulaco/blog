@@ -1,0 +1,117 @@
+---
+import InfoIcon from '@/assets/img/icon-info.svg'
+import InfoFeed from '@/assets/img/icon-feed.svg'
+import { APP_CONFIG } from '@@/config'
+
+interface Props {
+  currentPath?: string
+}
+
+const { currentPath } = Astro.props
+
+const isHome = currentPath === '/'
+
+const TitleComponent = isHome ? 'h1' : 'p'
+const TitleTextComponent = isHome ? 'span' : 'a'
+const titleTextHref = isHome ? undefined : '/'
+
+const feedUrl = APP_CONFIG.URL.FEED
+---
+
+<header class="header">
+  <div class="inner">
+    <TitleComponent class="title">
+      <TitleTextComponent href={titleTextHref} class="title-text">
+        @kimulaco/blog
+      </TitleTextComponent>
+    </TitleComponent>
+
+    <ul class="menu">
+      <li class="menu-item">
+        <a href="/about">
+          <InfoIcon class="menu-icon" />
+          <span class="hidden">About</span>
+        </a>
+      </li>
+      <li class="menu-item">
+        <a href={feedUrl}>
+          <InfoFeed class="menu-icon" />
+          <span class="hidden">Feed</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<style lang="scss">
+  @use '@/assets/scss/mixins' as mixins;
+
+  .header {
+    background: var(--app-color-white);
+    margin: 0;
+    box-shadow: 0 2px 4px var(--app-color-shadowblack);
+
+    @include mixins.media() {
+      margin: 0 0 30px;
+    }
+
+    a {
+      color: inherit;
+    }
+  }
+
+  .inner {
+    @include mixins.reset-child-margin();
+
+    & {
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-width: var(--app-content-min-width);
+      max-width: var(--app-content-max-width);
+      padding: 0 10px;
+      margin: 0 auto;
+    }
+
+    @include mixins.media() {
+      padding: 0 20px;
+    }
+  }
+
+  .title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: normal;
+  }
+
+  .title-text {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    color: var(--app-color-black);
+  }
+
+  .menu {
+    display: flex;
+    padding: 0;
+    margin: -6px 0 0 -6px;
+    list-style: none;
+  }
+
+  .menu-item {
+    margin: 6px 0 0 6px;
+
+    a {
+      display: block;
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .menu-icon {
+    width: 32px;
+    height: 32px;
+    fill: var(--app-color-black);
+  }
+</style>

@@ -1,0 +1,36 @@
+---
+interface Props {
+  class?: string
+}
+
+const { class: className } = Astro.props
+---
+
+<div class:list={['card', ...(className ? [className] : [])]}>
+  <div class="inner">
+    <slot />
+  </div>
+</div>
+
+<style lang="scss" scoped>
+  @use '@/assets/scss/mixins' as mixins;
+
+  .card {
+    background: var(--app-color-white);
+  }
+
+  .inner {
+    @include mixins.reset-child-margin();
+
+    & {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      border: 1px solid var(--app-color-shadowblack);
+      border-radius: 6px;
+      color: var(--app-color-black);
+      box-shadow: 0 2px 2px var(--app-color-shadowblack);
+      transition: 0.3s;
+    }
+  }
+</style>

@@ -1,7 +1,7 @@
 ---
 import MultiColumnLayout from '@/layouts/MultiColumnLayout.astro'
-import PageTitle from '@/components/modules/PageTitle/index.vue'
-import ArticleTags from '@/components/modules/ArticleTags/index.vue'
+import PageTitle from '@/components/modules/PageTitle/index.astro'
+import ArticleTags from '@/components/modules/ArticleTags/index.astro'
 import JsonldBreadcrumbList from '@/components/jsonld/JsonldBreadcrumbList.astro'
 import { createBreadcrumbList } from '@/core/domains/breadcrumb'
 import { getUsedAllTags } from '@/core/domains/article'
@@ -19,8 +19,6 @@ const breadcrumbs = createBreadcrumbList([{ text: 'タグ一覧', url: '/tag' }]
 >
   <JsonldBreadcrumbList breadcrumbs={breadcrumbs} slot="head" />
 
-  <div class="PageTag">
-    <PageTitle>タグ一覧</PageTitle>
-    <ArticleTags tags={tags} />
-  </div>
+  <PageTitle>タグ一覧</PageTitle>
+  <ArticleTags tags={tags} />
 </MultiColumnLayout>

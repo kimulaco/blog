@@ -1,10 +1,10 @@
 ---
 import MultiColumnLayout from '@/layouts/MultiColumnLayout.astro'
-import AppHeading from '@/components/modules/AppHeading/index.vue'
-import ArticleContent from '@/components/modules/ArticleContent/index.vue'
-import ArticleLink from '@/components/modules/ArticleLink/index.vue'
-import ArticleTags from '@/components/modules/ArticleTags/index.vue'
-import ArticleTimestamp from '@/components/modules/ArticleTimestamp/index.vue'
+import AppHeading from '@/components/modules/AppHeading/index.astro'
+import ArticleContent from '@/components/modules/ArticleContent/index.astro'
+import ArticleItem from '@/components/modules/ArticleItem/index.astro'
+import ArticleTags from '@/components/modules/ArticleTags/index.astro'
+import ArticleTimestamp from '@/components/modules/ArticleTimestamp/index.astro'
 import JsonldBlogPosting from '@/components/jsonld/JsonldBlogPosting.astro'
 import JsonldBreadcrumbList from '@/components/jsonld/JsonldBreadcrumbList.astro'
 import { createBreadcrumbList } from '@/core/domains/breadcrumb'
@@ -38,64 +38,56 @@ export const getStaticPaths = async () => {
   <JsonldBlogPosting article={article} slot="head" />
   <JsonldBreadcrumbList breadcrumbs={breadcrumbs} slot="head" />
 
-  <div class="PagePostDetail">
-    <article class="PostDetail">
-      <div class="PostDetail_head">
-        <h1 class="PostDetail_heading">{article.title}</h1>
-        <ArticleTimestamp
-          createdAt={article.created_at}
-          updatedAt={article.updated_at}
-        />
+  <article class="article">
+    <div class="head">
+      <h1 class="heading">{article.title}</h1>
+      <ArticleTimestamp
+        createdAt={article.created_at}
+        updatedAt={article.updated_at}
+      />
 
-        {
-          (article.tag ?? []).length > 0 && (
-            <div class="PostDetail_tags">
-              <ArticleTags tags={article.tag} />
-            </div>
-          )
-        }
-
-        {
-          article.image && (
-            <img src={article.image.url} class="PostDetail_image" alt="" />
-          )
-        }
-      </div>
-
-      <div class="PostDetail_content">
-        <!-- eslint-disable vue/no-v-html -->
-        <ArticleContent content={article.content} />
-        <!-- eslint-enable vue/no-v-html -->
-      </div>
-    </article>
-
-    {
-      article.related_posts.length > 0 && (
-        <aside class="PostDetail_related">
-          <AppHeading>関連記事</AppHeading>
-          <div>
-            {article.related_posts.map((relatedArticle) => {
-              return <ArticleLink article={relatedArticle} />
-            })}
+      {
+        (article.tag ?? []).length > 0 && (
+          <div class="tags">
+            <ArticleTags tags={article.tag} />
           </div>
-        </aside>
-      )
-    }
-  </div>
+        )
+      }
+
+      {article.image && <img src={article.image.url} class="image" alt="" />}
+    </div>
+
+    <div class="content">
+      <ArticleContent content={article.content} />
+    </div>
+  </article>
+
+  {
+    article.related_posts.length > 0 && (
+      <aside class="related">
+        <AppHeading>関連記事</AppHeading>
+        <div>
+          {article.related_posts.map((relatedArticle) => {
+            return <ArticleItem article={relatedArticle} />
+          })}
+        </div>
+      </aside>
+    )
+  }
 </MultiColumnLayout>
 
 <style scoped lang="scss">
   @use '../../assets/scss/mixins.scss' as mixins;
 
-  .PostDetail {
+  .article {
     position: relative;
   }
 
-  .PostDetail_head {
+  .head {
     padding: 0 0 16px;
   }
 
-  .PostDetail_heading {
+  .heading {
     font-size: 28px;
     padding: 5px 0;
     margin: 0 0 8px;
@@ -106,11 +98,11 @@ export const getStaticPaths = async () => {
     }
   }
 
-  .PostDetail_tags {
+  .tags {
     margin: 8px 0 0;
   }
 
-  .PostDetail_image {
+  .image {
     margin: 0 0 16px;
 
     @include mixins.media() {
@@ -118,7 +110,7 @@ export const getStaticPaths = async () => {
     }
   }
 
-  .PostDetail_content {
+  .content {
     margin: 0;
     padding: 16px 0 20px;
 
@@ -127,7 +119,7 @@ export const getStaticPaths = async () => {
     }
   }
 
-  .PostDetail_related {
+  .related {
     padding: 0 10px;
   }
 </style>

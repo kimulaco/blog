@@ -7,26 +7,26 @@ export const testArticleTimestamp = async (
   article: Article
 ): Promise<void> => {
   await expect(
-    locator.locator('.Timestamp_title', {
+    locator.locator('.name', {
       hasText: '投稿日:',
     })
   ).toBeVisible()
   await expect(
-    locator.locator('.Timestamp_date', {
+    locator.locator('.value', {
       hasText: formatDate(article.created_at),
     })
   ).toBeVisible()
 
   expect(
     await locator
-      .locator('.Timestamp_title', {
+      .locator('.name', {
         hasText: '更新日:',
       })
       .isVisible()
   ).toBe(!!article.updated_at)
   if (article.updated_at) {
     await expect(
-      locator.locator('.Timestamp_date', {
+      locator.locator('.value', {
         hasText: formatDate(article.updated_at),
       })
     ).toBeVisible()

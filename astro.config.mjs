@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config'
 import react from '@astrojs/react'
-import vue from '@astrojs/vue'
 import sitemap from '@astrojs/sitemap'
 import partytown from '@astrojs/partytown'
 import sentry from '@sentry/astro'
@@ -15,7 +14,6 @@ export default defineConfig({
   site: APP_CONFIG.URL.ORIGIN,
   trailingSlash: 'never',
   integrations: [
-    vue(),
     react(),
     sitemap(),
     partytown({
