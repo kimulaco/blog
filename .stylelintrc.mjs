@@ -6,6 +6,7 @@ const config = {
     'color-named': ['never'],
     'selector-class-pattern': null,
     'rule-empty-line-before': null,
+    'no-duplicate-selectors': null,
     'scss/at-mixin-argumentless-call-parentheses': 'always',
     'scss/at-import-no-partial-leading-underscore': null, // deprecated
     'scss/dollar-variable-empty-line-before': null,

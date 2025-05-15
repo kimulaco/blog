@@ -19,8 +19,6 @@ const breadcrumbs = createBreadcrumbList([{ text: 'タグ一覧', url: '/tag' }]
 >
   <JsonldBreadcrumbList breadcrumbs={breadcrumbs} slot="head" />
 
-  <div class="PageTag">
-    <PageTitle>タグ一覧</PageTitle>
-    <ArticleTags tags={tags} />
-  </div>
+  <PageTitle>タグ一覧</PageTitle>
+  <ArticleTags tags={tags} />
 </MultiColumnLayout>

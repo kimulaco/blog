@@ -25,16 +25,14 @@ test('article detail page', async ({ page }) => {
 
 const testPageContent = async (page: Page, article: Article) => {
   await expect(
-    page.locator('.PostDetail_heading', {
+    page.locator('h1', {
       hasText: article.title,
     })
   ).toBeVisible()
 
-  await testArticleTimestamp(
-    page.locator('.PostDetail_head .Timestamp'),
-    article
-  )
-  await testArticleTags(page.locator('.PostDetail_head .ArticleTags'), article)
+  const articleContent = page.locator('article')
+  await testArticleTimestamp(articleContent, article)
+  await testArticleTags(articleContent, article)
 }
 
 const testMetaData = async (page: Page, article: Article) => {

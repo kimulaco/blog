@@ -37,14 +37,16 @@ const feedUrl = APP_CONFIG.URL.FEED
   .inner {
     @include mixins.reset-child-margin();
 
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-    min-width: var(--app-content-min-width);
-    max-width: var(--app-content-max-width);
-    margin: 0 auto;
+    & {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+      min-width: var(--app-content-min-width);
+      max-width: var(--app-content-max-width);
+      margin: 0 auto;
+    }
 
     @include mixins.media() {
       padding: 0 20px;
