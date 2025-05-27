@@ -20,7 +20,7 @@ jobs:
     outputs:
       is_open_pr: ${{ steps.check_pr.outputs.is_open_pr }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - id: check_pr
         run: |
           PR_COUNT=$(gh pr list --base main --head develop --json number --jq length)
@@ -31,7 +31,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - uses: ./.github/actions/init-pnpm
       - uses: ./.github/actions/lint
 
@@ -45,7 +45,7 @@ jobs:
       APP_HOST: ${{ secrets.APP_HOST_DEV }}
       CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - uses: ./.github/actions/init-pnpm
       - run: pnpm run test:unit
 
@@ -58,10 +58,10 @@ jobs:
       NEW_RELIC_LICENCE_KEY: ${{ secrets.NEW_RELIC_LICENCE_KEY }}
       APP_HOST: ${{ secrets.APP_HOST_DEV }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - uses: ./.github/actions/init-pnpm
       - run: pnpm run build:dev
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: build-dev-dist
           path: dist
@@ -76,9 +76,9 @@ jobs:
       NEW_RELIC_LICENCE_KEY: ${{ secrets.NEW_RELIC_LICENCE_KEY }}
       APP_HOST: ${{ secrets.APP_HOST_DEV }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - uses: ./.github/actions/init-pnpm
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
           name: build-dev-dist
           path: dist
@@ -97,8 +97,8 @@ jobs:
       AWS_S3_BUCKET_NAME: ${{ secrets.AWS_S3_BUCKET_NAME_DEV }}
       AWS_CLOUDFRONT_DISTRIBUTION: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION_DEV }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
           name: build-dev-dist
           path: dist
