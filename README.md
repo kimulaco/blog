@@ -23,3 +23,38 @@ Migration from [kimulaco/kimulaco-blog](https://github.com/kimulaco/kimulaco-blo
 - Tools
   - Google Analytics 4
   - Sentry
+
+## Development
+
+```shell
+# Install dependencies
+pnpm i
+
+# Launch dev server
+pnpm run dev
+
+# Run lint tools
+pnpm run lint:astro
+pnpm run lint:format
+pnpm run lint:script
+pnpm run lint:style
+
+# Run build
+pnpm run build:dev
+pnpm run build:prod
+
+# Run unit test
+pnpm run test:unit
+pnpm run test:e2e
+
+# Launch preview server
+pnpm run preview
+```
+
+```shell
+# Install dev tools
+aqua install
+
+# Pin GitHub Action versions
+aqua exec -- pinact run
+```
