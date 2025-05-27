@@ -2,7 +2,7 @@
   "name": "kimulaco-blog",
   "type": "module",
   "private": true,
-  "version": "2.5.0",
+  "version": "2.5.1",
   "engines": {
     "node": "22.15.0"
   },
