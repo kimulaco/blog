@@ -71,6 +71,6 @@
     "typescript": "5.8.3",
     "vite-svg-loader": "5.1.0",
     "vitest": "3.1.4",
-    "zx": "8.5.4-lite"
+    "zx": "8.5.4"
   }
 }
