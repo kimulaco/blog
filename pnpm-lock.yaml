@@ -145,8 +145,8 @@ importers:
         specifier: 3.1.4
         version: 3.1.4(@types/debug@4.1.12)(@types/node@22.14.1)(jsdom@26.1.0)(sass@1.89.0)(yaml@2.7.1)
       zx:
-        specifier: 8.5.4-lite
-        version: 8.5.4-lite
+        specifier: 8.5.4
+        version: 8.5.4
 
 packages:
 
@@ -4123,8 +4123,8 @@ packages:
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
-  zx@8.5.4-lite:
-    resolution: {integrity: sha512-S1CzHj3vI9HNfcomB/+XNvwPliu67yBnBnpWaWbkKXjFBoB17CCpwlJ3H2bZ4COZ+M9Q/yFQeHBsIrTRv8yhWw==}
+  zx@8.5.4:
+    resolution: {integrity: sha512-44oKea9Sa8ZnOkTnS6fRJpg3quzgnbB43nLrVfYnqE86J4sxgZMUDLezzKET/FdOAVkF4X+Alm9Bume+W+RW9Q==}
     engines: {node: '>= 12.17.0'}
     hasBin: true
 
@@ -8566,4 +8566,4 @@ snapshots:
 
   zwitch@2.0.4: {}
 
-  zx@8.5.4-lite: {}
+  zx@8.5.4: {}
