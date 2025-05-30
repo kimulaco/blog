@@ -25,10 +25,10 @@ importers:
         version: 3.4.0
       '@sentry/astro':
         specifier: 9.22.0
-        version: 9.22.0(astro@5.8.0(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.0)(typescript@5.8.3)(yaml@2.7.1))
+        version: 9.22.0(astro@5.8.1(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.0)(typescript@5.8.3)(yaml@2.7.1))
       astro:
-        specifier: 5.8.0
-        version: 5.8.0(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.0)(typescript@5.8.3)(yaml@2.7.1)
+        specifier: 5.8.1
+        version: 5.8.1(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.0)(typescript@5.8.3)(yaml@2.7.1)
       date-fns:
         specifier: 4.1.0
         version: 4.1.0
@@ -1673,8 +1673,8 @@ packages:
     resolution: {integrity: sha512-JepyLROIad6f44uyqMF6HKE2QbunNzp3mYKRcPoDGt0QkxXmH222FAFC64WTyQu2Kg8NNEXHTN/sWuUId9sSxw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  astro@5.8.0:
-    resolution: {integrity: sha512-G57ELkdIntDiSrucA5lQaRtBOjquaZ9b9NIwoz2f471ZuuJcynLjWgItgBzlrz5UMY4WqnFbVWUCKlJb7nt9bA==}
+  astro@5.8.1:
+    resolution: {integrity: sha512-lkBg1smMRFW+FQ6i92SgEN53o4+ItRjlRt6Ck+rEjmTcb57Bid7faTNKUQNYuNnxiesTWw3NJDyVPQPbfKDyfw==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -5166,13 +5166,13 @@ snapshots:
       '@sentry-internal/browser-utils': 9.22.0
       '@sentry/core': 9.22.0
 
-  '@sentry/astro@9.22.0(astro@5.8.0(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.0)(typescript@5.8.3)(yaml@2.7.1))':
+  '@sentry/astro@9.22.0(astro@5.8.1(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.0)(typescript@5.8.3)(yaml@2.7.1))':
     dependencies:
       '@sentry/browser': 9.22.0
       '@sentry/core': 9.22.0
       '@sentry/node': 9.22.0
       '@sentry/vite-plugin': 2.23.0
-      astro: 5.8.0(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.0)(typescript@5.8.3)(yaml@2.7.1)
+      astro: 5.8.1(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.0)(typescript@5.8.3)(yaml@2.7.1)
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -5793,7 +5793,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  astro@5.8.0(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.0)(typescript@5.8.3)(yaml@2.7.1):
+  astro@5.8.1(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.0)(typescript@5.8.3)(yaml@2.7.1):
     dependencies:
       '@astrojs/compiler': 2.11.0
       '@astrojs/internal-helpers': 0.6.1
@@ -5848,8 +5848,8 @@ snapshots:
       unist-util-visit: 5.0.0
       unstorage: 1.15.0
       vfile: 6.0.3
-      vite: 6.3.4(@types/node@22.14.1)(sass@1.89.0)(yaml@2.7.1)
-      vitefu: 1.0.6(vite@6.3.4(@types/node@22.14.1)(sass@1.89.0)(yaml@2.7.1))
+      vite: 6.3.5(@types/node@22.14.1)(sass@1.89.0)(yaml@2.7.1)
+      vitefu: 1.0.6(vite@6.3.5(@types/node@22.14.1)(sass@1.89.0)(yaml@2.7.1))
       xxhash-wasm: 1.1.0
       yargs-parser: 21.1.1
       yocto-spinner: 0.2.2
@@ -8257,9 +8257,9 @@ snapshots:
       sass: 1.89.0
       yaml: 2.7.1
 
-  vitefu@1.0.6(vite@6.3.4(@types/node@22.14.1)(sass@1.89.0)(yaml@2.7.1)):
+  vitefu@1.0.6(vite@6.3.5(@types/node@22.14.1)(sass@1.89.0)(yaml@2.7.1)):
     optionalDependencies:
-      vite: 6.3.4(@types/node@22.14.1)(sass@1.89.0)(yaml@2.7.1)
+      vite: 6.3.5(@types/node@22.14.1)(sass@1.89.0)(yaml@2.7.1)
 
   vitest@3.1.4(@types/debug@4.1.12)(@types/node@22.14.1)(jsdom@26.1.0)(sass@1.89.0)(yaml@2.7.1):
     dependencies:
