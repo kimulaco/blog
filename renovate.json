@@ -6,10 +6,6 @@
     {
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
-    },
-    {
-      "matchPackageNames": ["zx"],
-      "allowedVersions": ".*-lite$"
     }
   ]
 }
