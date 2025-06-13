@@ -61,7 +61,7 @@
     "prettier": "3.5.3",
     "prettier-plugin-astro": "0.14.1",
     "prismjs": "1.30.0",
-    "sass": "1.89.0",
+    "sass": "1.89.2",
     "satori": "0.13.1",
     "stylelint": "16.19.1",
     "stylelint-config-html": "1.1.0",
