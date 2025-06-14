@@ -1,0 +1,15 @@
+ls:
+  .astro: regex:^index$
+  .ts: camelCase
+  .tsx: regex:^index$
+  src/pages:
+    .astro: regex:^index$|^404$|^\[id\]$
+
+ignore:
+  - .astro
+  - .husky
+  - .git
+  - dist
+  - node_modules
+  - src/core/domains/ogp/img.tsx
+  - test-results
