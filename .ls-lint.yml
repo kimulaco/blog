@@ -2,7 +2,16 @@ ls:
   .astro: regex:^index$
   .ts: camelCase
   .tsx: regex:^index$
+  .png: kebab-case
+  .svg: kebab-case
+  .scss: lowercase
+  .css: lowercase
+
+  src/components:
+    .astro: regex:^index$
+
   src/pages:
+    .dir: regex:^[a-z0-9]+$|^\[id\]$
     .astro: regex:^index$|^404$|^\[id\]$
 
 ignore:
