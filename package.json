@@ -19,6 +19,7 @@
     "test:unit": "vitest run",
     "test:e2e": "playwright install --with-deps && playwright test",
     "lint:astro": "astro check",
+    "lint:ls": "ls-lint",
     "lint:format": "prettier --check '**/*.{js,ts,astro,json,md}'",
     "lint:script": "eslint .",
     "lint:style": "stylelint './src/**/*.{css,scss,astro}' --ignore-path .gitignore"
@@ -39,6 +40,7 @@
   },
   "devDependencies": {
     "@eslint/js": "9.27.0",
+    "@ls-lint/ls-lint": "2.3.1",
     "@playwright/test": "1.52.0",
     "@resvg/resvg-js": "2.6.2",
     "@types/jsdom": "21.1.7",
