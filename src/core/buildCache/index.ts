@@ -1,16 +1,31 @@
 import fs from 'fs'
 import path from 'path'
 
-const ROOT_DIR = process.cwd()
-const BUILD_CACHE_DIR_NAME = '.build-cache'
-const BUILD_CACHE_DIR = path.join(ROOT_DIR, BUILD_CACHE_DIR_NAME)
-const ENCODING = 'utf-8'
-
 export type BuildCacheValuesBase = Record<string, unknown>
 
-export const useBuildCache = <T extends BuildCacheValuesBase>(key: string) => {
+export type BuildCacheOptions = {
+  dir?: string
+}
+
+const ENCODING = 'utf-8'
+
+const DEFAULT_OPTIONS: Required<BuildCacheOptions> = {
+  dir: path.resolve(process.cwd(), '.build-cache'),
+}
+
+export const useBuildCache = <T extends BuildCacheValuesBase>(
+  key: string,
+  options?: BuildCacheOptions
+) => {
+  const config = {
+    ...DEFAULT_OPTIONS,
+    ...(options || {}),
+  }
+
+  const cacheDirPath = config.dir
+  const cacheFilePath = path.resolve(config.dir, `${key}.json`)
+
   const get = async (): Promise<T | null> => {
-    const cacheFilePath = path.join(BUILD_CACHE_DIR, `${key}.json`)
     if (!fs.existsSync(cacheFilePath)) {
       return null
     }
@@ -21,13 +36,12 @@ export const useBuildCache = <T extends BuildCacheValuesBase>(key: string) => {
   }
 
   const save = async (value: T) => {
-    if (!fs.existsSync(BUILD_CACHE_DIR)) {
-      fs.mkdirSync(BUILD_CACHE_DIR, {
+    if (!fs.existsSync(cacheDirPath)) {
+      fs.mkdirSync(cacheDirPath, {
         recursive: true,
       })
     }
 
-    const cacheFilePath = path.join(BUILD_CACHE_DIR, `${key}.json`)
     fs.writeFileSync(cacheFilePath, JSON.stringify(value, null, 2), {
       encoding: ENCODING,
     })
@@ -42,7 +56,6 @@ export const useBuildCache = <T extends BuildCacheValuesBase>(key: string) => {
   }
 
   const clear = async () => {
-    const cacheFilePath = path.join(BUILD_CACHE_DIR, `${key}.json`)
     if (fs.existsSync(cacheFilePath)) {
       fs.unlinkSync(cacheFilePath)
     }
