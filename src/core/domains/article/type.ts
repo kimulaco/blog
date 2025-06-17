@@ -21,3 +21,7 @@ export type ArticleTag = {
   createdAt?: string
   updatedAt?: string
 }
+
+export type GetArticleListParams = {
+  tagId?: string
+}
