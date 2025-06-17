@@ -6,9 +6,9 @@ export type ArticleCache = {
   articleTags?: ArticleTag[]
 }
 
-const ARTICLE_CACHE_KEY = 'article'
+const CACHE_KEY = 'article'
 
-export const articleCache = useBuildCache<ArticleCache>(ARTICLE_CACHE_KEY)
+export const articleCache = useBuildCache<ArticleCache>(CACHE_KEY)
 
 export const getCachedAllArticles = async (
   params?: GetArticleListParams
