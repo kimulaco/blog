@@ -1,5 +1,6 @@
 import { microcms } from '@/core/repositories/microcms'
-import type { Article, ArticleTag } from './type'
+import { logger } from '@/core/utilities/logger'
+import type { Article, ArticleTag, GetArticleListParams } from './type'
 import { isEnableDraft } from '@@/config/build'
 
 const GET_ALL_ARTICLES_PER_PAGE = 20
@@ -9,19 +10,20 @@ const PUBLISH_QUERY = 'publish[equals]true'
 const ARTICLE_ENDPOINT = 'post'
 const TAG_ENDPOINT = 'tag'
 
-export type GetArticleListRequest = {
-  filters?: string
-  ids?: string
-}
-
-export const getAllArticles = async (
-  params?: GetArticleListRequest
+export const fetchAllArticles = async (
+  params?: GetArticleListParams
 ): Promise<Article[]> => {
+  logger.buildInfo(`fetchAllArticles`)
+
   let allArticles: Article[] = []
   let articleCount = 0
   let isFinish = false
   let index = 0
-  let filters = params?.filters || ''
+  let filters = ''
+
+  if (params?.tagId) {
+    filters += `tag[contains]${params.tagId}`
+  }
 
   if (!isEnableDraft) {
     filters += filters ? `[and]${PUBLISH_QUERY}` : PUBLISH_QUERY
@@ -34,7 +36,7 @@ export const getAllArticles = async (
         limit: GET_ALL_ARTICLES_PER_PAGE,
         offset: articleCount,
         filters,
-        ids: params?.ids,
+        depth: 2,
       },
     })
 
@@ -55,7 +57,9 @@ export const getAllArticles = async (
   return allArticles
 }
 
-export const getArticleDetail = async (id: string): Promise<Article> => {
+export const fetchArticleDetail = async (id: string): Promise<Article> => {
+  logger.buildInfo(`fetchArticleDetail: ${id}`)
+
   const content = await microcms.getListDetail<Article>({
     endpoint: ARTICLE_ENDPOINT,
     contentId: id,
@@ -72,8 +76,10 @@ export const getArticleDetail = async (id: string): Promise<Article> => {
   return content
 }
 
-export const getUsedAllTags = async (): Promise<ArticleTag[]> => {
-  const articles = await getAllArticles()
+export const fetchUsedAllTags = async (): Promise<ArticleTag[]> => {
+  logger.buildInfo(`fetchUsedAllTags`)
+
+  const articles = await fetchAllArticles()
   const tags: ArticleTag[] = []
 
   for (const article of articles) {
@@ -89,7 +95,9 @@ export const getUsedAllTags = async (): Promise<ArticleTag[]> => {
   return tags
 }
 
-export const getTagDetail = async (id: string): Promise<ArticleTag> => {
+export const fetchTagDetail = async (id: string): Promise<ArticleTag> => {
+  logger.buildInfo(`fetchTagDetail`)
+
   const content = await microcms.getListDetail<ArticleTag>({
     endpoint: TAG_ENDPOINT,
     contentId: id,
