@@ -17,8 +17,6 @@
     "build": "astro check --minimumSeverity error && astro build",
     "build:dev": "BUILD_ENV=development pnpm run build",
     "build:prod": "BUILD_ENV=production pnpm run build",
-    "prebuild:dev": "pnpm setup:build-cache",
-    "prebuild:prod": "pnpm setup:build-cache",
     "prebuild": "pnpm setup:build-cache",
     "preview": "astro preview",
     "test:unit": "vitest run",
