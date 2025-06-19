@@ -134,7 +134,7 @@ describe('useBuildCache', () => {
 
   describe('default options', () => {
     test('should use default directory when dir option is not specified', async () => {
-      const defaultDir = path.resolve(process.cwd(), '.build-cache')
+      const defaultDir = path.resolve(process.cwd(), 'build-cache')
       const defaultCacheFilePath = path.resolve(defaultDir, `${testKey}.json`)
 
       mockFs.existsSync.mockReturnValue(false)

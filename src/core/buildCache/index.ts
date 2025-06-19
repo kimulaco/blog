@@ -10,7 +10,7 @@ export type BuildCacheOptions = {
 const ENCODING = 'utf-8'
 
 const DEFAULT_OPTIONS: Required<BuildCacheOptions> = {
-  dir: path.resolve(process.cwd(), '.build-cache'),
+  dir: path.resolve(process.cwd(), 'build-cache'),
 }
 
 export const useBuildCache = <T extends BuildCacheValuesBase>(

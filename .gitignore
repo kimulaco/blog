@@ -26,4 +26,4 @@ pnpm-debug.log*
 test-results
 
 # build cache
-.build-cache
+build-cache
