@@ -48,11 +48,16 @@ export const getArticleTagDetail = async (id: string): Promise<ArticleTag> => {
   return fetchTagDetail(id)
 }
 
-export const generateArticleCache = async (): Promise<void> => {
+export const generateArticleCache = async (): Promise<{
+  cacheFilePath: string
+}> => {
   const articles = await fetchAllArticles()
   const articleTags = await fetchUsedAllTags()
   await articleCache.save({
     articles,
     articleTags,
   })
+  return {
+    cacheFilePath: articleCache.getCacheFilePath(),
+  }
 }

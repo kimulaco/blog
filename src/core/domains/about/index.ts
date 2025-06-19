@@ -14,9 +14,14 @@ export const getAbout = async (): Promise<GetAboutRequest> => {
   return fetchAbout()
 }
 
-export const generateAboutCache = async (): Promise<void> => {
+export const generateAboutCache = async (): Promise<{
+  cacheFilePath: string
+}> => {
   const about = await fetchAbout()
   await aboutCache.save({
     about,
   })
+  return {
+    cacheFilePath: aboutCache.getCacheFilePath(),
+  }
 }

@@ -61,10 +61,15 @@ export const useBuildCache = <T extends BuildCacheValuesBase>(
     }
   }
 
+  const getCacheFilePath = () => {
+    return cacheFilePath
+  }
+
   return {
     get,
     save,
     override,
     clear,
+    getCacheFilePath,
   }
 }

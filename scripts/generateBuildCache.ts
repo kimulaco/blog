@@ -5,11 +5,11 @@ try {
   console.log(`start generating build caches...`)
 
   await Promise.all([
-    generateArticleCache().then(() =>
-      console.log(`completed generate article build cache.`)
+    generateArticleCache().then(({ cacheFilePath }) =>
+      console.log(`completed generate article build cache to ${cacheFilePath}.`)
     ),
-    generateAboutCache().then(() =>
-      console.log(`completed generate about build cache.`)
+    generateAboutCache().then(({ cacheFilePath }) =>
+      console.log(`completed generate about build cache to ${cacheFilePath}.`)
     ),
   ])
 
