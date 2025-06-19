@@ -1,6 +1,8 @@
 runs:
   using: 'Composite'
   steps:
+    - run: pnpm run lint:ls
+      shell: bash
     - run: pnpm run lint:format
       shell: bash
     - run: pnpm run lint:script

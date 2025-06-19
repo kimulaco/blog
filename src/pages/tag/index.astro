@@ -1,13 +1,13 @@
 ---
-import MultiColumnLayout from '@/layouts/MultiColumnLayout.astro'
+import MultiColumnLayout from '@/layouts/MultiColumnLayout/index.astro'
 import PageTitle from '@/components/modules/PageTitle/index.astro'
 import ArticleTags from '@/components/modules/ArticleTags/index.astro'
-import JsonldBreadcrumbList from '@/components/jsonld/JsonldBreadcrumbList.astro'
+import JsonldBreadcrumbList from '@/components/jsonld/JsonldBreadcrumbList/index.astro'
 import { createBreadcrumbList } from '@/core/domains/breadcrumb'
-import { getUsedAllTags } from '@/core/domains/article'
+import { getAllArticleTags } from '@/core/domains/article'
 import { APP_CONFIG } from '@@/config/app'
 
-const tags = await getUsedAllTags()
+const tags = await getAllArticleTags()
 
 const breadcrumbs = createBreadcrumbList([{ text: 'タグ一覧', url: '/tag' }])
 ---

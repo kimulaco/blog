@@ -1,13 +1,13 @@
 ---
-import MultiColumnLayout from '@/layouts/MultiColumnLayout.astro'
+import MultiColumnLayout from '@/layouts/MultiColumnLayout/index.astro'
 import AppLinkButton from '@/components/modules/AppLinkButton/index.astro'
 import PageTitle from '@/components/modules/PageTitle/index.astro'
 import ArticleItem from '@/components/modules/ArticleItem/index.astro'
-import JsonldBreadcrumbList from '@/components/jsonld/JsonldBreadcrumbList.astro'
+import JsonldBreadcrumbList from '@/components/jsonld/JsonldBreadcrumbList/index.astro'
 import { createBreadcrumbList } from '@/core/domains/breadcrumb'
 import {
-  getUsedAllTags,
-  getTagDetail,
+  getAllArticleTags,
+  getArticleTagDetail,
   getAllArticles,
 } from '@/core/domains/article'
 import { APP_CONFIG } from '@@/config/app'
@@ -20,9 +20,9 @@ if (!id) {
   }
 }
 
-const tag = await getTagDetail(id)
+const tag = await getArticleTagDetail(id)
 const articles = await getAllArticles({
-  filters: `tag[contains]${id}`,
+  tagId: id,
 })
 const hasArticles = articles.length > 0
 
@@ -38,7 +38,7 @@ const breadcrumbs = createBreadcrumbList([
 ])
 
 export const getStaticPaths = async () => {
-  const allTags = await getUsedAllTags()
+  const allTags = await getAllArticleTags()
 
   return allTags
     .filter((tag) => !!tag.id)

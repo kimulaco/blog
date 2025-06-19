@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test'
-import { getUsedAllTags } from '@/core/domains/article'
+import { getAllArticleTags } from '@/core/domains/article'
 
 test('tag detail page', async ({ page }) => {
-  const tags = await getUsedAllTags()
+  const tags = await getAllArticleTags()
 
   if (tags.length <= 0) {
     throw new Error('tags is empty')
