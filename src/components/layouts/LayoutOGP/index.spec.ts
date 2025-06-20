@@ -26,15 +26,23 @@ describe('LayoutOGP', () => {
 
       expect(metaArray.length).toBeGreaterThan(0)
 
-      const hasTitle = metaArray.some((meta) =>
-        meta.content?.includes('Test Page Title')
+      const hasTitle = metaArray.some(
+        (meta) => meta.content === 'Test Page Title'
       )
-      const hasDescription = metaArray.some((meta) =>
-        meta.content?.includes('This is a test page description')
+      const hasDescription = metaArray.some(
+        (meta) => meta.content === 'This is a test page description'
       )
-      const hasUrl = metaArray.some((meta) =>
-        meta.content?.includes('https://example.com/test-page')
-      )
+      const hasUrl = metaArray.some((meta) => {
+        try {
+          const parsedUrl = new URL(meta.content || '')
+          return (
+            parsedUrl.host === 'example.com' &&
+            parsedUrl.pathname === '/test-page'
+          )
+        } catch {
+          return false
+        }
+      })
 
       expect(hasTitle).toBeTruthy()
       expect(hasDescription).toBeTruthy()
@@ -61,9 +69,14 @@ describe('LayoutOGP', () => {
         content: meta.getAttribute('content'),
       }))
 
-      const hasCustomImage = metaArray.some((meta) =>
-        meta.content?.includes('/images/custom-ogp.png')
-      )
+      const hasCustomImage = metaArray.some((meta) => {
+        try {
+          const url = new URL(meta.content || '')
+          return url.pathname === '/images/custom-ogp.png'
+        } catch {
+          return false
+        }
+      })
 
       expect(hasCustomImage).toBeTruthy()
     })

@@ -118,9 +118,14 @@ describe('SingleColumnLayout', () => {
       const headElement = document.querySelector('head')
       const metaTags = headElement?.querySelectorAll('meta')
 
-      const hasCustomImage = Array.from(metaTags || []).some((meta) =>
-        meta.getAttribute('content')?.includes('/images/custom-ogp.png')
-      )
+      const hasCustomImage = Array.from(metaTags || []).some((meta) => {
+        try {
+          const url = new URL(meta.getAttribute('content') || '')
+          return url.pathname === '/images/custom-ogp.png'
+        } catch {
+          return false
+        }
+      })
 
       expect(hasCustomImage).toBeTruthy()
     })
