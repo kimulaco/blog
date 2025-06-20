@@ -15,8 +15,6 @@ export default getViteConfig({
         '**/*.test.ts',
         'src/**/*.d.ts',
         'src/assets/*',
-        'src/components/layouts/LayoutGAImporter/index.astro',
-        'src/components/layouts/LayoutNewRelicImporter/index.astro',
         'src/pages/*',
         'src/env.d.ts',
         'test/*',
