@@ -42,7 +42,7 @@ jobs:
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - uses: ./.github/actions/init-pnpm
-      - run: pnpm run test:unit
+      - uses: ./.github/actions/unit-test
 
   build_test:
     runs-on: ubuntu-latest

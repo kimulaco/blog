@@ -1,5 +1,13 @@
+inputs:
+  codecov-token:
+    required: true
+
 runs:
   using: 'Composite'
   steps:
-    - run: pnpm run test:unit
+    - run: pnpm run test:unit:coverage
       shell: bash
+    - uses: codecov/codecov-action@18283e04ce6e62d37312384ff67231eb8fd56d24 # v5.4.3
+      with:
+        files: .coverage/coverage-final.json
+        token: ${{ inputs.codecov-token }}
