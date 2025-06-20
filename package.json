@@ -22,6 +22,7 @@
     "test:unit": "vitest run",
     "test:unit:coverage": "vitest run --coverage",
     "test:e2e": "playwright install --with-deps && playwright test",
+    "lint": "pnpm lint:ls && pnpm lint:format && pnpm lint:script && pnpm lint:style && pnpm lint:astro",
     "lint:astro": "astro check",
     "lint:ls": "ls-lint",
     "lint:format": "prettier --check '**/*.{js,ts,astro,json,md}'",

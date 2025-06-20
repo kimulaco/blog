@@ -4,7 +4,7 @@ import { parseHTML } from '@@/test/utilities'
 import Card from './index.astro'
 
 describe('AppCard', () => {
-  describe('AppCard', () => {
+  describe('slot', () => {
     it('should render without slot content', async () => {
       const container = await AstroContainer.create()
       const result = await container.renderToString(Card)
@@ -37,7 +37,7 @@ describe('AppCard', () => {
     })
   })
 
-  describe('Props handling', () => {
+  describe('props', () => {
     describe('class prop', () => {
       it('should render correctly without class prop', async () => {
         const container = await AstroContainer.create()
