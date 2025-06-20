@@ -1,17 +1,24 @@
 /// <reference types="vitest" />
-import { defineConfig } from 'vitest/config'
+import { getViteConfig } from 'astro/config'
 
-export default defineConfig({
-  plugins: [],
+export default getViteConfig({
   test: {
     globals: true,
-    environment: 'jsdom',
+    environment: 'happy-dom',
     include: ['src/**/*.(test|spec).ts'],
     coverage: {
-      all: !!process.env.COVERAGE_ALL,
+      all: true,
       reportsDirectory: '.coverage',
-      include: ['src/**/*.ts'],
-      exclude: ['src/**/*.d.ts', 'src/assets/*', 'src/pages/*'],
+      include: ['src/**/*.{ts,astro}'],
+      exclude: [
+        '**/*.spec.ts',
+        '**/*.test.ts',
+        'src/**/*.d.ts',
+        'src/assets/*',
+        'src/pages/*',
+        'src/env.d.ts',
+        'test/*',
+      ],
     },
   },
 })
