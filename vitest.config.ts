@@ -1,17 +1,26 @@
 /// <reference types="vitest" />
-import { defineConfig } from 'vitest/config'
+import { getViteConfig } from 'astro/config'
 
-export default defineConfig({
-  plugins: [],
+export default getViteConfig({
   test: {
     globals: true,
-    environment: 'jsdom',
+    environment: 'node',
     include: ['src/**/*.(test|spec).ts'],
     coverage: {
-      all: !!process.env.COVERAGE_ALL,
+      all: true,
       reportsDirectory: '.coverage',
-      include: ['src/**/*.ts'],
-      exclude: ['src/**/*.d.ts', 'src/assets/*', 'src/pages/*'],
+      include: ['src/**/*.{ts,astro}'],
+      exclude: [
+        '**/*.spec.ts',
+        '**/*.test.ts',
+        'src/**/*.d.ts',
+        'src/assets/*',
+        'src/components/layouts/LayoutGAImporter/index.astro',
+        'src/components/layouts/LayoutNewRelicImporter/index.astro',
+        'src/pages/*',
+        'src/env.d.ts',
+        'test/*',
+      ],
     },
   },
 })

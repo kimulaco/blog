@@ -20,6 +20,7 @@
     "prebuild": "pnpm setup:build-cache",
     "preview": "astro preview",
     "test:unit": "vitest run",
+    "test:unit:coverage": "vitest run --coverage",
     "test:e2e": "playwright install --with-deps && playwright test",
     "lint:astro": "astro check",
     "lint:ls": "ls-lint",
