@@ -128,3 +128,4 @@ jobs:
           aws-s3-bucket-name: ${{ env.AWS_S3_BUCKET_NAME }}
           aws-s3-upload-dir: dist
           aws-cloudfront-distribution: ${{ env.AWS_CLOUDFRONT_DISTRIBUTION }}
+      - uses: ./.github/actions/cleanup-artifact
