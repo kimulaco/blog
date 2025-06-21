@@ -1,5 +1,14 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { createBreadcrumbList, type Breadcrumb } from './index'
+
+// Mock the app config
+vi.mock('@@/config/app', () => ({
+  APP_CONFIG: {
+    URL: {
+      ORIGIN: 'https://blog.kimulaco.dev',
+    },
+  },
+}))
 
 describe('createBreadcrumbList', () => {
   it('should return only TOP page when no breadcrumbs provided', () => {
