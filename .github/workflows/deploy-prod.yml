@@ -130,4 +130,5 @@ jobs:
     needs: [e2e_test, deploy_prod]
     if: always()
     steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - uses: ./.github/actions/cleanup-artifact
