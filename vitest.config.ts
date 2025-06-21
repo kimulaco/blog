@@ -13,6 +13,7 @@ export default getViteConfig({
       exclude: [
         '**/*.spec.ts',
         '**/*.test.ts',
+        '**/type.ts',
         'src/**/*.d.ts',
         'src/assets/*',
         'src/pages/*',
