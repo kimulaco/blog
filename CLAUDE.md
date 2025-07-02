@@ -90,3 +90,47 @@ The application uses a sophisticated build cache system:
 - Unit tests: `src/**/*.{spec,test}.ts` - Test domain logic and utilities
 - E2E tests: `test/e2e/**/*.spec.ts` - Test user interactions and page behavior
 - Component tests: Each component has corresponding `.spec.ts` file
+
+## Package Management & Troubleshooting
+
+### Dependency Updates
+
+When updating packages, follow this workflow:
+
+1. Check outdated packages: `pnpm outdated`
+2. Update packages: `pnpm update`
+3. Run quality checks: `pnpm run lint && pnpm run test:unit`
+4. Test build process: `pnpm run build:dev`
+
+### Vite Version Management
+
+- **Important**: Do not explicitly install Vite in package.json - Astro manages Vite version compatibility
+- If Vite is explicitly listed in dependencies, remove it and let Astro handle version management
+- This prevents version conflicts between Astro's expected Vite version and manually installed versions
+
+### Dependency Resolution Issues
+
+If you encounter type errors in `vitest.config.ts` or other build configuration files after package updates:
+
+1. **First attempt**: Clean dependency resolution
+
+   ```bash
+   rm -rf node_modules
+   rm pnpm-lock.yaml  # Only if backup available
+   pnpm install
+   ```
+
+2. **Root cause**: Usually corrupted dependency resolution, not actual version incompatibilities
+
+3. **Warning signs**:
+   - Type errors in config files that previously worked
+   - Mismatched Vite versions between different tools
+   - Sudden build failures after dependency updates
+
+### Post-Update Verification
+
+Always run after package updates:
+
+- `pnpm run build:dev` - Ensure build process works
+- `pnpm run test:unit` - Verify all tests pass
+- `pnpm run lint` - Check code quality standards
