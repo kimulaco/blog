@@ -25,10 +25,10 @@ importers:
         version: 3.4.1
       '@sentry/astro':
         specifier: 9.34.0
-        version: 9.34.0(astro@5.10.1(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.2)(tsx@4.20.3)(typescript@5.8.3)(yaml@2.7.1))
+        version: 9.34.0(astro@5.11.0(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.2)(tsx@4.20.3)(typescript@5.8.3)(yaml@2.7.1))
       astro:
-        specifier: 5.10.1
-        version: 5.10.1(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.2)(tsx@4.20.3)(typescript@5.8.3)(yaml@2.7.1)
+        specifier: 5.11.0
+        version: 5.11.0(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.2)(tsx@4.20.3)(typescript@5.8.3)(yaml@2.7.1)
       date-fns:
         specifier: 4.1.0
         version: 4.1.0
@@ -1706,8 +1706,8 @@ packages:
     resolution: {integrity: sha512-JepyLROIad6f44uyqMF6HKE2QbunNzp3mYKRcPoDGt0QkxXmH222FAFC64WTyQu2Kg8NNEXHTN/sWuUId9sSxw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  astro@5.10.1:
-    resolution: {integrity: sha512-DJVmt+51jU1xmgmAHCDwuUgcG/5aVFSU+tcX694acAZqPVt8EMUAmUZcJDX36Z7/EztnPph9HR3pm72jS2EgHQ==}
+  astro@5.11.0:
+    resolution: {integrity: sha512-MEICntERthUxJPSSDsDiZuwiCMrsaYy3fnDhp4c6ScUfldCB8RBnB/myYdpTFXpwYBy6SgVsHQ1H4MuuA7ro/Q==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -5219,13 +5219,13 @@ snapshots:
       '@sentry-internal/browser-utils': 9.34.0
       '@sentry/core': 9.34.0
 
-  '@sentry/astro@9.34.0(astro@5.10.1(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.2)(tsx@4.20.3)(typescript@5.8.3)(yaml@2.7.1))':
+  '@sentry/astro@9.34.0(astro@5.11.0(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.2)(tsx@4.20.3)(typescript@5.8.3)(yaml@2.7.1))':
     dependencies:
       '@sentry/browser': 9.34.0
       '@sentry/core': 9.34.0
       '@sentry/node': 9.34.0
       '@sentry/vite-plugin': 2.23.0
-      astro: 5.10.1(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.2)(tsx@4.20.3)(typescript@5.8.3)(yaml@2.7.1)
+      astro: 5.11.0(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.2)(tsx@4.20.3)(typescript@5.8.3)(yaml@2.7.1)
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -5875,7 +5875,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  astro@5.10.1(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.2)(tsx@4.20.3)(typescript@5.8.3)(yaml@2.7.1):
+  astro@5.11.0(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.2)(tsx@4.20.3)(typescript@5.8.3)(yaml@2.7.1):
     dependencies:
       '@astrojs/compiler': 2.12.2
       '@astrojs/internal-helpers': 0.6.1
