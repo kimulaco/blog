@@ -27,3 +27,6 @@ test-results
 
 # build cache
 build-cache
+
+# Claude
+.claude
