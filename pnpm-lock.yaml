@@ -21,14 +21,14 @@ importers:
         specifier: 4.0.12
         version: 4.0.12
       '@astrojs/sitemap':
-        specifier: 3.4.2
-        version: 3.4.2
+        specifier: 3.5.1
+        version: 3.5.1
       '@sentry/astro':
         specifier: 9.42.0
-        version: 9.42.0(astro@5.13.2(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.2)(tsx@4.20.4)(typescript@5.8.3)(yaml@2.7.1))
+        version: 9.42.0(astro@5.13.3(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.2)(tsx@4.20.4)(typescript@5.8.3)(yaml@2.7.1))
       astro:
-        specifier: 5.13.2
-        version: 5.13.2(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.2)(tsx@4.20.4)(typescript@5.8.3)(yaml@2.7.1)
+        specifier: 5.13.3
+        version: 5.13.3(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.2)(tsx@4.20.4)(typescript@5.8.3)(yaml@2.7.1)
       date-fns:
         specifier: 4.1.0
         version: 4.1.0
@@ -209,8 +209,8 @@ packages:
   '@astrojs/rss@4.0.12':
     resolution: {integrity: sha512-O5yyxHuDVb6DQ6VLOrbUVFSm+NpObulPxjs6XT9q3tC+RoKbN4HXMZLpv0LvXd1qdAjzVgJ1NFD+zKHJNDXikw==}
 
-  '@astrojs/sitemap@3.4.2':
-    resolution: {integrity: sha512-wfN2dZzdkto6yaMtOFa/J9gc60YE3wl3rgSBoNJ+MU3lJVUMsDY9xf9uAVi8Mp/zEQKFDSJlQzBvqQUpw0Hf6g==}
+  '@astrojs/sitemap@3.5.1':
+    resolution: {integrity: sha512-uX5z52GLtQTgOe8r3jeGmFRYrFe52mdpLYJzqjvL1cdy5Kg3MLOZEvaZ/OCH0fSq0t7e50uJQ6oBMZG0ffszBg==}
 
   '@astrojs/telemetry@3.3.0':
     resolution: {integrity: sha512-UFBgfeldP06qu6khs/yY+q1cDAaArM2/7AEIqQ9Cuvf7B1hNLq0xDrZkct+QoIGyjq56y8IaE2I3CTvG99mlhQ==}
@@ -1717,8 +1717,8 @@ packages:
     resolution: {integrity: sha512-JepyLROIad6f44uyqMF6HKE2QbunNzp3mYKRcPoDGt0QkxXmH222FAFC64WTyQu2Kg8NNEXHTN/sWuUId9sSxw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  astro@5.13.2:
-    resolution: {integrity: sha512-yjcXY0Ua3EwjpVd3GoUXa65HQ6qgmURBptA+M9GzE0oYvgfuyM7bIbH8IR/TWIbdefVUJR5b7nZ0oVnMytmyfQ==}
+  astro@5.13.3:
+    resolution: {integrity: sha512-V0mUOUK70UZ7xqXp5Noqse/SREU0P756KgFufBEluq5LkmBejzC2GENMUA2Na+PFwUjemElJtRlpKyrnKpFhSQ==}
     engines: {node: 18.20.8 || ^20.3.0 || >=22.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
 
@@ -4306,7 +4306,7 @@ snapshots:
       fast-xml-parser: 5.2.5
       kleur: 4.1.5
 
-  '@astrojs/sitemap@3.4.2':
+  '@astrojs/sitemap@3.5.1':
     dependencies:
       sitemap: 8.0.0
       stream-replace-string: 2.0.0
@@ -5230,13 +5230,13 @@ snapshots:
       '@sentry-internal/browser-utils': 9.42.0
       '@sentry/core': 9.42.0
 
-  '@sentry/astro@9.42.0(astro@5.13.2(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.2)(tsx@4.20.4)(typescript@5.8.3)(yaml@2.7.1))':
+  '@sentry/astro@9.42.0(astro@5.13.3(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.2)(tsx@4.20.4)(typescript@5.8.3)(yaml@2.7.1))':
     dependencies:
       '@sentry/browser': 9.42.0
       '@sentry/core': 9.42.0
       '@sentry/node': 9.42.0
       '@sentry/vite-plugin': 2.23.0
-      astro: 5.13.2(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.2)(tsx@4.20.4)(typescript@5.8.3)(yaml@2.7.1)
+      astro: 5.13.3(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.2)(tsx@4.20.4)(typescript@5.8.3)(yaml@2.7.1)
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -5899,7 +5899,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  astro@5.13.2(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.2)(tsx@4.20.4)(typescript@5.8.3)(yaml@2.7.1):
+  astro@5.13.3(@types/node@22.14.1)(rollup@4.40.0)(sass@1.89.2)(tsx@4.20.4)(typescript@5.8.3)(yaml@2.7.1):
     dependencies:
       '@astrojs/compiler': 2.12.2
       '@astrojs/internal-helpers': 0.7.2
