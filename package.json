@@ -61,7 +61,7 @@
     "globals": "16.4.0",
     "happy-dom": "18.0.1",
     "husky": "9.1.7",
-    "marked": "16.0.0",
+    "marked": "16.4.0",
     "microcms-js-sdk": "3.2.0",
     "postcss-html": "1.8.0",
     "prettier": "3.6.2",
