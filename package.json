@@ -36,7 +36,7 @@
     "@astrojs/rss": "4.0.12",
     "@astrojs/sitemap": "3.6.0",
     "@sentry/astro": "9.46.0",
-    "astro": "5.13.3",
+    "astro": "5.14.3",
     "date-fns": "4.1.0",
     "date-fns-tz": "3.2.0",
     "normalize.css": "8.0.1",
