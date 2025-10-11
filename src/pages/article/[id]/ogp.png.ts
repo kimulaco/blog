@@ -15,7 +15,7 @@ export const GET: APIRoute = async ({ params }) => {
   const article = await getArticleDetail(articleId)
   const png = await generateOgpImage(article.title)
 
-  return new Response(png, {
+  return new Response(new Uint8Array(png), {
     headers: {
       'Content-Type': 'image/png',
     },
