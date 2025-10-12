@@ -77,4 +77,9 @@ document.querySelector('.layer-01').style.fill = '#f00'
     expect(html).toBe(`<p>こんにちは。</p>
 <pre class="language-plain-text"><code>document.querySelector('.layer-01').style.fill = '#f00'</code></pre>`)
   })
+
+  test('should handle empty markdown input', () => {
+    const html = convertMdToHtml('')
+    expect(html).toBe('')
+  })
 })

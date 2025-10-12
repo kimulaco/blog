@@ -1,5 +1,5 @@
 import { APP_CONFIG } from '@@/config/app'
-import type { Breadcrumb } from './types'
+import type { Breadcrumb } from './type'
 
 export const createBreadcrumbList = (
   breadcrumbs: Breadcrumb[]

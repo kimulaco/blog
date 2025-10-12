@@ -1,8 +1,8 @@
 # [@kimulaco/blog](https://blog.kimulaco.dev/)
 
-kimulaco's personal blog. I write articles mainly about web technology.
+[![codecov](https://codecov.io/gh/kimulaco/blog/graph/badge.svg?token=dLhXB5qd1B)](https://codecov.io/gh/kimulaco/blog)
 
-Migration from [kimulaco/kimulaco-blog](https://github.com/kimulaco/kimulaco-blog/tree/master).
+kimulaco's personal blog.
 
 ## Used Technology
 

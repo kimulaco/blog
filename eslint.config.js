@@ -7,7 +7,7 @@ import globals from 'globals'
 
 export default [
   {
-    ignores: ['.astro', 'dist/'],
+    ignores: ['.astro', '.coverage', 'build-cache', 'dist/'],
   },
   {
     languageOptions: {

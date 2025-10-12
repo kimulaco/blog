@@ -33,8 +33,10 @@ export const ArticleOGP: FC<ArticleOGPProps> = ({ title, iconBase64 }) => {
       >
         <img
           src={`data:image/png;base64,${iconBase64}`}
-          width="120"
-          height="120"
+          style={{
+            width: '120px',
+            height: '120px',
+          }}
         />
         <div
           style={{
