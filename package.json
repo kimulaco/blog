@@ -30,7 +30,7 @@
     "lint:style": "stylelint './src/**/*.{css,scss,astro}' --ignore-path .gitignore"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.4",
+    "@astrojs/check": "0.9.5",
     "@astrojs/partytown": "2.1.4",
     "@astrojs/react": "4.4.0",
     "@astrojs/rss": "4.0.12",
