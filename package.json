@@ -32,8 +32,8 @@
   "dependencies": {
     "@astrojs/check": "0.9.5",
     "@astrojs/partytown": "2.1.4",
-    "@astrojs/react": "4.4.0",
-    "@astrojs/rss": "4.0.12",
+    "@astrojs/react": "4.4.2",
+    "@astrojs/rss": "4.0.13",
     "@astrojs/sitemap": "3.6.0",
     "@sentry/astro": "10.23.0",
     "astro": "5.14.3",
