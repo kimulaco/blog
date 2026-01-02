@@ -6,7 +6,7 @@
   "engines": {
     "node": "22.20.0"
   },
-  "packageManager": "pnpm@10.18.2",
+  "packageManager": "pnpm@10.27.0",
   "scripts": {
     "prepare": "husky",
     "start": "astro dev",
