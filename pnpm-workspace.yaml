@@ -1,4 +1,4 @@
-useNodeVersion: 22.20.0
+useNodeVersion: 22.21.1
 ignoredBuiltDependencies:
   - esbuild
 minimumReleaseAge: 1440
