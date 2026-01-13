@@ -152,9 +152,8 @@ describe('article domain', () => {
   describe('generateArticleCache', () => {
     it('should fetch articles and tags, save to cache, and return cache file path', async () => {
       const { generateArticleCache } = await import('./index')
-      const { fetchAllArticles, fetchUsedAllTags } = await import(
-        './repository'
-      )
+      const { fetchAllArticles, fetchUsedAllTags } =
+        await import('./repository')
       const { articleCache } = await import('./cache')
 
       const mockArticles = [mockArticle]
