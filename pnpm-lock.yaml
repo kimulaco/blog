@@ -106,8 +106,8 @@ importers:
         specifier: 3.2.0
         version: 3.2.0
       postcss-html:
-        specifier: 1.8.0
-        version: 1.8.0
+        specifier: 1.8.1
+        version: 1.8.1
       prettier:
         specifier: 3.7.4
         version: 3.7.4
@@ -128,7 +128,7 @@ importers:
         version: 16.26.1(typescript@5.9.3)
       stylelint-config-html:
         specifier: 1.1.0
-        version: 1.1.0(postcss-html@1.8.0)(stylelint@16.26.1(typescript@5.9.3))
+        version: 1.1.0(postcss-html@1.8.1)(stylelint@16.26.1(typescript@5.9.3))
       stylelint-config-standard-scss:
         specifier: 16.0.0
         version: 16.0.0(postcss@8.5.6)(stylelint@16.26.1(typescript@5.9.3))
@@ -3335,8 +3335,8 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  postcss-html@1.8.0:
-    resolution: {integrity: sha512-5mMeb1TgLWoRKxZ0Xh9RZDfwUUIqRrcxO2uXO+Ezl1N5lqpCiSU5Gk6+1kZediBfBHFtPCdopr2UZ2SgUsKcgQ==}
+  postcss-html@1.8.1:
+    resolution: {integrity: sha512-OLF6P7qctfAWayOhLpcVnTGqVeJzu2W3WpIYelfz2+JV5oGxfkcEvweN9U4XpeqE0P98dcD9ssusGwlF0TK0uQ==}
     engines: {node: ^12 || >=14}
 
   postcss-media-query-parser@0.2.3:
@@ -3373,10 +3373,6 @@ packages:
 
   postcss-value-parser@4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
-
-  postcss@8.5.3:
-    resolution: {integrity: sha512-dle9A3yYxlBSrt8Fu+IpjGT8SY8hN0mlaA6GY8t0P5PjIOZemULz/E2Bnm/2dcUOena75OTNkHI76uZBNUUq3A==}
-    engines: {node: ^10 || ^12 || >=14}
 
   postcss@8.5.6:
     resolution: {integrity: sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==}
@@ -7928,20 +7924,20 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.2
 
-  postcss-html@1.8.0:
+  postcss-html@1.8.1:
     dependencies:
       htmlparser2: 8.0.2
       js-tokens: 9.0.1
-      postcss: 8.5.3
-      postcss-safe-parser: 6.0.0(postcss@8.5.3)
+      postcss: 8.5.6
+      postcss-safe-parser: 6.0.0(postcss@8.5.6)
 
   postcss-media-query-parser@0.2.3: {}
 
   postcss-resolve-nested-selector@0.1.6: {}
 
-  postcss-safe-parser@6.0.0(postcss@8.5.3):
+  postcss-safe-parser@6.0.0(postcss@8.5.6):
     dependencies:
-      postcss: 8.5.3
+      postcss: 8.5.6
 
   postcss-safe-parser@7.0.1(postcss@8.5.6):
     dependencies:
@@ -7962,12 +7958,6 @@ snapshots:
       util-deprecate: 1.0.2
 
   postcss-value-parser@4.2.0: {}
-
-  postcss@8.5.3:
-    dependencies:
-      nanoid: 3.3.11
-      picocolors: 1.1.1
-      source-map-js: 1.2.1
 
   postcss@8.5.6:
     dependencies:
@@ -8365,9 +8355,9 @@ snapshots:
 
   strnum@2.1.1: {}
 
-  stylelint-config-html@1.1.0(postcss-html@1.8.0)(stylelint@16.26.1(typescript@5.9.3)):
+  stylelint-config-html@1.1.0(postcss-html@1.8.1)(stylelint@16.26.1(typescript@5.9.3)):
     dependencies:
-      postcss-html: 1.8.0
+      postcss-html: 1.8.1
       stylelint: 16.26.1(typescript@5.9.3)
 
   stylelint-config-recommended-scss@16.0.2(postcss@8.5.6)(stylelint@16.26.1(typescript@5.9.3)):

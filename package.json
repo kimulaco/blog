@@ -63,7 +63,7 @@
     "husky": "9.1.7",
     "marked": "16.4.2",
     "microcms-js-sdk": "3.2.0",
-    "postcss-html": "1.8.0",
+    "postcss-html": "1.8.1",
     "prettier": "3.7.4",
     "prettier-plugin-astro": "0.14.1",
     "prismjs": "1.30.0",
