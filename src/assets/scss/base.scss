@@ -9,6 +9,9 @@
   --app-color-quotegray: #f1f1f1;
   --app-color-red: #e64e33;
   --app-color-blue: #0476c9;
+  --app-color-table-header: #f7fafc;
+  --app-color-x-icon: #000;
+  --app-color-github-icon: #181717;
   --app-font-family:
     'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ', 'Meiryo',
     sans-serif;
@@ -16,6 +19,24 @@
   --app-content-min-width: 320px;
   --app-aside-width: 320px;
   --app-main-width: calc(100% - var(--app-aside-width));
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --app-color-black: #e0e0e0;
+    --app-color-shadowblack: rgb(255 255 255 / 10%);
+    --app-color-white: #1a1a1a;
+    --app-color-gray: #a0a0a0;
+    --app-color-lightgray: #444;
+    --app-color-darkgray: #ccc;
+    --app-color-blockgray: #fcfcfc;
+    --app-color-quotegray: #333;
+    --app-color-red: #ff6b5a;
+    --app-color-blue: #4da6ff;
+    --app-color-table-header: #2a2a2a;
+    --app-color-x-icon: #fff;
+    --app-color-github-icon: #fff;
+  }
 }
 
 * {
