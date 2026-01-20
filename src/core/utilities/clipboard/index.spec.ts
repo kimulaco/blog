@@ -17,7 +17,7 @@ describe('copyToClipboard', () => {
       writable: true,
     })
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // oxlint-disable-next-line typescript/no-explicit-any
     global.ClipboardItem = mockClipboardItem as any
 
     global.Blob = vi.fn().mockImplementation((content, options) => ({
