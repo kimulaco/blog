@@ -49,7 +49,7 @@
     "@playwright/test": "1.57.0",
     "@resvg/resvg-js": "2.6.2",
     "@types/prismjs": "1.26.5",
-    "@types/react": "19.2.8",
+    "@types/react": "19.2.9",
     "@types/react-dom": "19.2.3",
     "@typescript-eslint/eslint-plugin": "8.46.4",
     "@typescript-eslint/parser": "8.46.4",
