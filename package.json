@@ -1,12 +1,8 @@
 {
   "name": "kimulaco-blog",
-  "type": "module",
-  "private": true,
   "version": "2.6.0",
-  "engines": {
-    "node": "24.13.0"
-  },
-  "packageManager": "pnpm@10.28.0",
+  "private": true,
+  "type": "module",
   "scripts": {
     "prepare": "husky",
     "start": "astro dev",
@@ -25,9 +21,12 @@
     "lint": "pnpm lint:ls && pnpm lint:format && pnpm lint:script && pnpm lint:style && pnpm lint:astro",
     "lint:astro": "astro check",
     "lint:ls": "ls-lint",
-    "lint:format": "prettier --check '**/*.{js,ts,astro,json,md}'",
     "lint:script": "oxlint .",
-    "lint:style": "stylelint './src/**/*.{css,scss,astro}' --ignore-path .gitignore"
+    "lint:style": "stylelint './src/**/*.{css,scss,astro}' --ignore-path .gitignore",
+    "lint:format": "oxfmt --check . && prettier --check '**/*.astro'",
+    "format": "oxfmt --write . && prettier --write '**/*.astro'",
+    "format:oxfmt": "oxfmt --write .",
+    "format:prettier": "prettier --write '**/*.astro'"
   },
   "dependencies": {
     "@astrojs/check": "0.9.6",
@@ -56,6 +55,7 @@
     "husky": "9.1.7",
     "marked": "16.4.2",
     "microcms-js-sdk": "3.2.0",
+    "oxfmt": "0.26.0",
     "oxlint": "1.40.0",
     "postcss-html": "1.8.1",
     "prettier": "3.7.4",
@@ -74,6 +74,10 @@
     "vitest": "3.2.4",
     "zx": "8.8.5"
   },
+  "engines": {
+    "node": "24.13.0"
+  },
+  "packageManager": "pnpm@10.28.0",
   "pnpm": {
     "overrides": {
       "vite": "6.4.1"
