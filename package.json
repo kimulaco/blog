@@ -44,7 +44,7 @@
   },
   "devDependencies": {
     "@ls-lint/ls-lint": "2.3.1",
-    "@playwright/test": "1.58.1",
+    "@playwright/test": "1.58.2",
     "@resvg/resvg-js": "2.6.2",
     "@types/prismjs": "1.26.5",
     "@types/react": "19.2.13",
