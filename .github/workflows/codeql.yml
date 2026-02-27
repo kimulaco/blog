@@ -23,10 +23,10 @@ jobs:
         language: ['javascript-typescript']
     steps:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.3.1
-      - uses: github/codeql-action/init@4bdb89f48054571735e3792627da6195c57459e2 # v3.31.10
+      - uses: github/codeql-action/init@45580472a5bb82c4681c4ac726cfdb60060c2ee1 # v3.32.4
         with:
           languages: ${{ matrix.language }}
-      - uses: github/codeql-action/autobuild@4bdb89f48054571735e3792627da6195c57459e2 # v3.31.10
-      - uses: github/codeql-action/analyze@4bdb89f48054571735e3792627da6195c57459e2 # v3.31.10
+      - uses: github/codeql-action/autobuild@45580472a5bb82c4681c4ac726cfdb60060c2ee1 # v3.32.4
+      - uses: github/codeql-action/analyze@45580472a5bb82c4681c4ac726cfdb60060c2ee1 # v3.32.4
         with:
           category: '/language:${{matrix.language}}'
