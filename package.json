@@ -54,7 +54,7 @@
     "happy-dom": "20.1.0",
     "husky": "9.1.7",
     "marked": "16.4.2",
-    "microcms-js-sdk": "3.2.0",
+    "microcms-js-sdk": "3.3.0",
     "oxfmt": "0.26.0",
     "oxlint": "1.40.0",
     "postcss-html": "1.8.1",
