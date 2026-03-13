@@ -130,8 +130,8 @@ importers:
         specifier: 5.9.3
         version: 5.9.3
       vite-svg-loader:
-        specifier: 5.1.0
-        version: 5.1.0(vue@3.5.13(typescript@5.9.3))
+        specifier: 5.1.1
+        version: 5.1.1(vue@3.5.13(typescript@5.9.3))
       vitest:
         specifier: 3.2.4
         version: 3.2.4(@types/debug@4.1.12)(@types/node@22.14.1)(happy-dom@20.1.0)(jsdom@26.1.0)(sass@1.97.3)(tsx@4.21.0)(yaml@2.7.1)
@@ -1800,10 +1800,6 @@ packages:
 
   '@swc/helpers@0.5.17':
     resolution: {integrity: sha512-5IKx/Y13RsYd+sauPb2x+U/xZikHjolzfuDgTAl/Tdf3Q8rslRvC19NKDLgAJQ6wsqADk10ntlv08nPFw/gO/A==}
-
-  '@trysound/sax@0.2.0':
-    resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
-    engines: {node: '>=10.13.0'}
 
   '@types/babel__core@7.20.5':
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
@@ -3546,6 +3542,10 @@ packages:
   sax@1.4.1:
     resolution: {integrity: sha512-+aWOz7yVScEGoKNd4PA10LZ8sk0A/z5+nXQG5giUO5rprX9jgYsTdov9qCchZiPIZezbZH+jRut8nPodFAX4Jg==}
 
+  sax@1.5.0:
+    resolution: {integrity: sha512-21IYA3Q5cQf089Z6tgaUTr7lDAyzoTPx5HRtbhsME8Udispad8dC/+sziTNugOEx54ilvatQ9YCzl4KQLPcRHA==}
+    engines: {node: '>=11.0.0'}
+
   saxes@6.0.0:
     resolution: {integrity: sha512-xAg7SOnEhrm5zI3puOOKyy1OMcMlIJZYNJY7xLBwSze0UjhPLnWfj2GF2EpT0jmzaJKIWKHLsaSSajf35bcYnA==}
     engines: {node: '>=v12.22.7'}
@@ -3723,8 +3723,8 @@ packages:
   svg-tags@1.0.0:
     resolution: {integrity: sha512-ovssysQTa+luh7A5Weu3Rta6FJlFBBbInjOh722LIt6klpU2/HtdUbszju/G4devcvk8PGt7FCLv5wftu3THUA==}
 
-  svgo@3.3.2:
-    resolution: {integrity: sha512-OoohrmuUlBs8B8o6MB2Aevn+pRIH9zDALSR+6hhqVfa6fRwG/Qw9VUMSMW9VNg2CFc/MTIfabtdOVl9ODIJjpw==}
+  svgo@3.3.3:
+    resolution: {integrity: sha512-+wn7I4p7YgJhHs38k2TNjy1vCfPIfLIJWR5MnCStsN8WuuTcBnRKcMHQLMM2ijxGZmDoZwNv8ipl5aTTen62ng==}
     engines: {node: '>=14.0.0'}
     hasBin: true
 
@@ -3971,8 +3971,8 @@ packages:
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
 
-  vite-svg-loader@5.1.0:
-    resolution: {integrity: sha512-M/wqwtOEjgb956/+m5ZrYT/Iq6Hax0OakWbokj8+9PXOnB7b/4AxESHieEtnNEy7ZpjsjYW1/5nK8fATQMmRxw==}
+  vite-svg-loader@5.1.1:
+    resolution: {integrity: sha512-RPzcXA/EpKJA0585x58DBgs7my2VfeJ+j2j1EoHY4Zh82Y7hV4cR1fElgy2aZi85+QSrcLLoTStQ5uZjD68u+Q==}
     peerDependencies:
       vue: '>=3.2.13'
 
@@ -5753,8 +5753,6 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@trysound/sax@0.2.0': {}
-
   '@types/babel__core@7.20.5':
     dependencies:
       '@babel/parser': 7.28.4
@@ -6990,7 +6988,7 @@ snapshots:
   istanbul-lib-source-maps@5.0.6:
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
-      debug: 4.4.1
+      debug: 4.4.3
       istanbul-lib-coverage: 3.2.2
     transitivePeerDependencies:
       - supports-color
@@ -7966,6 +7964,8 @@ snapshots:
 
   sax@1.4.1: {}
 
+  sax@1.5.0: {}
+
   saxes@6.0.0:
     dependencies:
       xmlchars: 2.2.0
@@ -8205,15 +8205,15 @@ snapshots:
 
   svg-tags@1.0.0: {}
 
-  svgo@3.3.2:
+  svgo@3.3.3:
     dependencies:
-      '@trysound/sax': 0.2.0
       commander: 7.2.0
       css-select: 5.1.0
       css-tree: 2.3.1
       css-what: 6.1.0
       csso: 5.0.5
       picocolors: 1.1.1
+      sax: 1.5.0
 
   symbol-tree@3.2.4:
     optional: true
@@ -8442,10 +8442,13 @@ snapshots:
       - tsx
       - yaml
 
-  vite-svg-loader@5.1.0(vue@3.5.13(typescript@5.9.3)):
+  vite-svg-loader@5.1.1(vue@3.5.13(typescript@5.9.3)):
     dependencies:
-      svgo: 3.3.2
+      debug: 4.4.3
+      svgo: 3.3.3
       vue: 3.5.13(typescript@5.9.3)
+    transitivePeerDependencies:
+      - supports-color
 
   vite@6.4.1(@types/node@22.14.1)(sass@1.97.3)(tsx@4.21.0)(yaml@2.7.1):
     dependencies:
