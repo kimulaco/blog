@@ -29,11 +29,11 @@
     "format:prettier": "prettier --write '**/*.astro'"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.6",
-    "@astrojs/partytown": "2.1.4",
+    "@astrojs/check": "0.9.7",
+    "@astrojs/partytown": "2.1.5",
     "@astrojs/react": "4.4.2",
-    "@astrojs/rss": "4.0.15",
-    "@astrojs/sitemap": "3.7.0",
+    "@astrojs/rss": "4.0.17",
+    "@astrojs/sitemap": "3.7.1",
     "@sentry/astro": "10.32.1",
     "astro": "5.14.3",
     "date-fns": "4.1.0",
