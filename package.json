@@ -29,7 +29,7 @@
     "format:prettier": "prettier --write '**/*.astro'"
   },
   "dependencies": {
-    "@astrojs/check": "0.9.7",
+    "@astrojs/check": "0.9.8",
     "@astrojs/partytown": "2.1.5",
     "@astrojs/react": "4.4.2",
     "@astrojs/rss": "4.0.17",
