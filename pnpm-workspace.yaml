@@ -5,3 +5,5 @@ minimumReleaseAge: 1440
 minimumReleaseAgeExclude:
   # Renovate security update: vite@6.4.2
   - vite@6.4.2
+  # Renovate security update: happy-dom@20.8.9
+  - happy-dom@20.8.9
