@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro'
 import { generateOgpImage } from '@/core/domains/ogp'
-import { getArticleDetail, getAllArticles } from '@/core/domains/article'
+import { getArticleDetail, getContentArticles } from '@/core/domains/article'
 
 export const GET: APIRoute = async ({ params }) => {
   const articleId = params.id
@@ -23,6 +23,6 @@ export const GET: APIRoute = async ({ params }) => {
 }
 
 export const getStaticPaths = async () => {
-  const articles = await getAllArticles()
+  const articles = await getContentArticles()
   return articles.map((article) => ({ params: { id: article.id } }))
 }

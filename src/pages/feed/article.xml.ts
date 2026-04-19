@@ -1,9 +1,9 @@
 import rss, { type RSSFeedItem } from '@astrojs/rss'
 import { APP_CONFIG } from '@@/config'
-import { getAllArticles } from '@/core/domains/article'
+import { getContentArticles } from '@/core/domains/article'
 
 export const GET = async () => {
-  const articles = await getAllArticles()
+  const articles = await getContentArticles()
 
   return rss({
     title: APP_CONFIG.META.TITLE,

@@ -1,5 +1,11 @@
+export type ArticleType = 'content' | 'zenn'
+
+export const getArticleType = (article: Article): ArticleType =>
+  article.type?.[0] ?? 'content'
+
 export type Article = {
   id: string
+  type?: ArticleType[]
   created_at: string
   updated_at?: string
   publish: boolean

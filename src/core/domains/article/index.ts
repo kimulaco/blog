@@ -1,4 +1,5 @@
 import type { Article, ArticleTag, GetArticleListParams } from './type'
+import { getArticleType } from './type'
 import { isEnableDraft } from '@@/config/build'
 import {
   articleCache,
@@ -32,6 +33,13 @@ export const getArticleDetail = async (id: string): Promise<Article> => {
     return getCachedArticleDetail(id)
   }
   return fetchArticleDetail(id)
+}
+
+export const getContentArticles = async (
+  params?: GetArticleListParams
+): Promise<Article[]> => {
+  const articles = await getAllArticles(params)
+  return articles.filter((a) => getArticleType(a) === 'content')
 }
 
 export const getAllArticleTags = async (): Promise<ArticleTag[]> => {

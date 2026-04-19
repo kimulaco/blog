@@ -8,7 +8,7 @@ import ArticleTimestamp from '@/components/modules/ArticleTimestamp/index.astro'
 import JsonldBlogPosting from '@/components/jsonld/JsonldBlogPosting/index.astro'
 import JsonldBreadcrumbList from '@/components/jsonld/JsonldBreadcrumbList/index.astro'
 import { createBreadcrumbList } from '@/core/domains/breadcrumb'
-import { getArticleDetail, getAllArticles } from '@/core/domains/article'
+import { getArticleDetail, getContentArticles } from '@/core/domains/article'
 import { APP_CONFIG } from '@@/config/app'
 
 const { id } = Astro.params
@@ -24,7 +24,7 @@ const breadcrumbs = createBreadcrumbList([
 ])
 
 export const getStaticPaths = async () => {
-  const articles = await getAllArticles()
+  const articles = await getContentArticles()
   return articles.map((article) => ({ params: { id: article.id } }))
 }
 ---
