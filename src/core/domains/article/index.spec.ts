@@ -36,6 +36,18 @@ describe('article domain', () => {
     related_posts: [],
   }
 
+  const mockZennArticle: Article = {
+    id: '2',
+    type: ['zenn'],
+    created_at: '2023-01-01T00:00:00.000Z',
+    publish: true,
+    title: 'Zenn Article',
+    description: 'Zenn Description',
+    tag: [{ id: 'tag1', name: 'Test Tag' }],
+    content: 'https://zenn.dev/example',
+    related_posts: [],
+  }
+
   const mockArticleTag: ArticleTag = {
     id: 'tag1',
     name: 'Test Tag',
@@ -146,6 +158,39 @@ describe('article domain', () => {
       await getAllArticles({ tagId: 'test-tag' })
 
       expect(getCachedAllArticles).toHaveBeenCalledWith({ tagId: 'test-tag' })
+    })
+  })
+
+  describe('getContentArticles', () => {
+    it('should return only content type articles', async () => {
+      mockBuildConfig.isEnableDraft = false
+      vi.resetModules()
+
+      const { getContentArticles } = await import('./index')
+      const { getCachedAllArticles } = await import('./cache')
+
+      vi.mocked(getCachedAllArticles).mockResolvedValue([
+        mockArticle,
+        mockZennArticle,
+      ])
+
+      const result = await getContentArticles()
+
+      expect(result).toEqual([mockArticle])
+    })
+
+    it('should pass params to getAllArticles', async () => {
+      mockBuildConfig.isEnableDraft = false
+      vi.resetModules()
+
+      const { getContentArticles } = await import('./index')
+      const { getCachedAllArticles } = await import('./cache')
+
+      vi.mocked(getCachedAllArticles).mockResolvedValue([mockArticle])
+
+      await getContentArticles({ tagId: 'tag1' })
+
+      expect(getCachedAllArticles).toHaveBeenCalledWith({ tagId: 'tag1' })
     })
   })
 
