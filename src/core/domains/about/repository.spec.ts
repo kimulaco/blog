@@ -23,7 +23,7 @@ describe('about repository', () => {
       const { fetchAbout } = await import('./repository')
       const { microcms } = await import('@/core/repositories/microcms')
 
-      vi.mocked(microcms.getObject).mockResolvedValue(mockAbout as any)
+      vi.mocked(microcms.getObject).mockResolvedValue(mockAbout as any) // oxlint-disable-line typescript/no-explicit-any
 
       const result = await fetchAbout()
 

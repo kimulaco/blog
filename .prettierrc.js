@@ -6,6 +6,14 @@ const config = {
   semi: false,
   singleQuote: true,
   endOfLine: 'lf',
+  overrides: [
+    {
+      files: '*.astro',
+      options: {
+        parser: 'astro',
+      },
+    },
+  ],
 }
 
 export default config

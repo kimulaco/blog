@@ -32,6 +32,6 @@ describe('LayoutFooter', () => {
     const copyrightElement = document.querySelector('.copyright')
 
     expect(copyrightElement).toBeTruthy()
-    expect(copyrightElement?.textContent).toBe('&copy; 2025 kimulaco.')
+    expect(copyrightElement?.textContent).toBe('© 2025 kimulaco.')
   })
 })
