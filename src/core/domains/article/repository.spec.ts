@@ -53,7 +53,7 @@ describe('article repository', () => {
         totalCount: 1,
         offset: 0,
         limit: 20,
-      } as any) // eslint-disable-line @typescript-eslint/no-explicit-any
+      } as any) // oxlint-disable-line typescript/no-explicit-any
 
       const result = await fetchAllArticles()
 
@@ -78,7 +78,7 @@ describe('article repository', () => {
         totalCount: 1,
         offset: 0,
         limit: 20,
-      } as any) // eslint-disable-line @typescript-eslint/no-explicit-any
+      } as any) // oxlint-disable-line typescript/no-explicit-any
 
       await fetchAllArticles({ tagId: 'test-tag' })
 
@@ -105,7 +105,7 @@ describe('article repository', () => {
         totalCount: 1,
         offset: 0,
         limit: 20,
-      } as any) // eslint-disable-line @typescript-eslint/no-explicit-any
+      } as any) // oxlint-disable-line typescript/no-explicit-any
 
       await fetchAllArticles()
 
@@ -130,13 +130,13 @@ describe('article repository', () => {
           totalCount: 2,
           offset: 0,
           limit: 20,
-        } as any)
+        } as any) // oxlint-disable-line typescript/no-explicit-any
         .mockResolvedValueOnce({
           contents: [{ ...mockArticle, id: '2' }],
           totalCount: 2,
           offset: 1,
           limit: 20,
-        } as any) // eslint-disable-line @typescript-eslint/no-explicit-any
+        } as any) // oxlint-disable-line typescript/no-explicit-any
 
       const result = await fetchAllArticles()
 
@@ -153,7 +153,7 @@ describe('article repository', () => {
         totalCount: 1000,
         offset: 0,
         limit: 20,
-      } as any) // eslint-disable-line @typescript-eslint/no-explicit-any
+      } as any) // oxlint-disable-line typescript/no-explicit-any
 
       await expect(fetchAllArticles()).rejects.toThrow(
         'getAllArticles loop max count'
@@ -166,7 +166,7 @@ describe('article repository', () => {
       const { fetchArticleDetail } = await import('./repository')
       const { microcms } = await import('@/core/repositories/microcms')
 
-      vi.mocked(microcms.getListDetail).mockResolvedValue(mockArticle as any)
+      vi.mocked(microcms.getListDetail).mockResolvedValue(mockArticle as any) // oxlint-disable-line typescript/no-explicit-any
 
       const result = await fetchArticleDetail('1')
 
@@ -188,7 +188,7 @@ describe('article repository', () => {
       const { fetchArticleDetail } = await import('./repository')
       const { microcms } = await import('@/core/repositories/microcms')
 
-      vi.mocked(microcms.getListDetail).mockResolvedValue(mockArticle as any)
+      vi.mocked(microcms.getListDetail).mockResolvedValue(mockArticle as any) // oxlint-disable-line typescript/no-explicit-any
 
       await fetchArticleDetail('1')
 
@@ -211,7 +211,7 @@ describe('article repository', () => {
 
       const unpublishedArticle = { ...mockArticle, publish: false }
       vi.mocked(microcms.getListDetail).mockResolvedValue(
-        unpublishedArticle as any
+        unpublishedArticle as any // oxlint-disable-line typescript/no-explicit-any
       )
 
       await expect(fetchArticleDetail('1')).rejects.toThrow(
@@ -234,7 +234,7 @@ describe('article repository', () => {
         totalCount: 2,
         offset: 0,
         limit: 20,
-      } as any) // eslint-disable-line @typescript-eslint/no-explicit-any
+      } as any) // oxlint-disable-line typescript/no-explicit-any
 
       const result = await fetchUsedAllTags()
 
@@ -249,7 +249,7 @@ describe('article repository', () => {
       const { fetchTagDetail } = await import('./repository')
       const { microcms } = await import('@/core/repositories/microcms')
 
-      vi.mocked(microcms.getListDetail).mockResolvedValue(mockArticleTag as any)
+      vi.mocked(microcms.getListDetail).mockResolvedValue(mockArticleTag as any) // oxlint-disable-line typescript/no-explicit-any
 
       const result = await fetchTagDetail('tag1')
 
