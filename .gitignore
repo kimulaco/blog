@@ -31,6 +31,3 @@ build-cache
 # Claude
 .claude/settings.local.json
 .claude/worktree
-
-# MCP
-.mcp.json
