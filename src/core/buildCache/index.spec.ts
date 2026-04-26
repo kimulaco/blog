@@ -132,6 +132,13 @@ describe('useBuildCache', () => {
     })
   })
 
+  describe('getCacheFilePath()', () => {
+    test('should return the cache file path', async () => {
+      const cache = useBuildCache(testKey, { dir: testDir })
+      expect(cache.getCacheFilePath()).toBe(testCacheFilePath)
+    })
+  })
+
   describe('default options', () => {
     test('should use default directory when dir option is not specified', async () => {
       const defaultDir = path.resolve(process.cwd(), 'build-cache')

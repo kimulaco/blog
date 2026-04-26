@@ -20,16 +20,17 @@ describe('copyToClipboard', () => {
     // oxlint-disable-next-line typescript/no-explicit-any
     global.ClipboardItem = mockClipboardItem as any
 
-    global.Blob = vi.fn().mockImplementation((content, options) => ({
-      content,
-      type: options.type,
-    }))
+    global.Blob = vi.fn().mockImplementation(function (content, options) {
+      return { content, type: options.type }
+    })
   })
 
   it('should copy text to clipboard successfully', async () => {
     const testText = 'Hello, World!'
     mockWrite.mockResolvedValue(undefined)
-    mockClipboardItem.mockImplementation((data) => ({ data }))
+    mockClipboardItem.mockImplementation(function (data) {
+      return { data }
+    })
 
     await copyToClipboard(testText)
 
@@ -48,7 +49,9 @@ describe('copyToClipboard', () => {
   it('should handle empty string', async () => {
     const testText = ''
     mockWrite.mockResolvedValue(undefined)
-    mockClipboardItem.mockImplementation((data) => ({ data }))
+    mockClipboardItem.mockImplementation(function (data) {
+      return { data }
+    })
 
     await copyToClipboard(testText)
 
@@ -60,7 +63,9 @@ describe('copyToClipboard', () => {
     const testText = 'Test text'
     const error = new Error('Clipboard write failed')
     mockWrite.mockRejectedValue(error)
-    mockClipboardItem.mockImplementation((data) => ({ data }))
+    mockClipboardItem.mockImplementation(function (data) {
+      return { data }
+    })
 
     await expect(copyToClipboard(testText)).rejects.toThrow(
       'Clipboard write failed'
@@ -70,7 +75,9 @@ describe('copyToClipboard', () => {
   it('should handle special characters', async () => {
     const testText = '特殊文字 & symbols! 🎉'
     mockWrite.mockResolvedValue(undefined)
-    mockClipboardItem.mockImplementation((data) => ({ data }))
+    mockClipboardItem.mockImplementation(function (data) {
+      return { data }
+    })
 
     await copyToClipboard(testText)
 

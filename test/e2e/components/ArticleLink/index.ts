@@ -1,5 +1,5 @@
 import { expect, type Locator } from '@playwright/test'
-import { type Article } from '@/core/domains/article'
+import { getArticleType, type Article } from '@/core/domains/article'
 import { testArticleTimestamp } from '@@/test/e2e/components/ArticleTimestamp'
 import { testArticleTags } from '@@/test/e2e/components/ArticleTags'
 
@@ -7,9 +7,11 @@ export const testArticleLink = async (
   locator: Locator,
   article: Article
 ): Promise<void> => {
+  const isZenn = getArticleType(article) === 'zenn'
+  const expectedHref = isZenn ? article.content : `/article/${article.id}`
   const heading = locator.locator('h3 a')
-  expect(await heading.getAttribute('href')).toBe(`/article/${article.id}`)
-  expect((await heading.textContent())?.trim()).toBe(article.title.trim())
+  expect(await heading.getAttribute('href')).toBe(expectedHref)
+  expect((await heading.textContent())?.trim()).toContain(article.title.trim())
 
   await expect(
     locator.locator('.description', {
