@@ -5,6 +5,11 @@ import partytown from '@astrojs/partytown'
 import sentry from '@sentry/astro'
 import svgLoader from 'vite-svg-loader'
 import { APP_CONFIG, BUILD_CONFIG } from './config'
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const srcDir = path.resolve(__dirname, 'src')
 
 const SENTRY_DSN = process.env.SENTRY_DSN ?? ''
 const SENTRY_AUTH_TOKEN = process.env.SENTRY_AUTH_TOKEN ?? ''
@@ -35,7 +40,14 @@ export default defineConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          api: 'modern-compiler',
+          importers: [
+            {
+              findFileUrl(url) {
+                if (!url.startsWith('@/')) return null
+                return new URL('file://' + path.resolve(srcDir, url.slice(2)))
+              },
+            },
+          ],
         },
       },
     },

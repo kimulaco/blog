@@ -1,10 +1,10 @@
 import { test, expect, type Page } from '@playwright/test'
-import { getAllArticles, type Article } from '@/core/domains/article'
+import { getContentArticles, type Article } from '@/core/domains/article'
 import { testArticleTags } from '@@/test/e2e/components/ArticleTags'
 import { testArticleTimestamp } from '@@/test/e2e/components/ArticleTimestamp'
 
 test('article detail page', async ({ page }) => {
-  const articles = await getAllArticles()
+  const articles = await getContentArticles()
 
   if (articles.length <= 0) {
     throw new Error('articles is empty')

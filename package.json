@@ -31,11 +31,11 @@
   "dependencies": {
     "@astrojs/check": "0.9.8",
     "@astrojs/partytown": "2.1.7",
-    "@astrojs/react": "4.4.2",
+    "@astrojs/react": "5.0.4",
     "@astrojs/rss": "4.0.18",
     "@astrojs/sitemap": "3.7.2",
-    "@sentry/astro": "10.32.1",
-    "astro": "5.14.3",
+    "@sentry/astro": "10.50.0",
+    "astro": "6.1.9",
     "date-fns": "4.1.0",
     "date-fns-tz": "3.2.0",
     "normalize.css": "8.0.1",
@@ -51,17 +51,17 @@
     "@types/react-dom": "19.2.3",
     "@vitest/coverage-v8": "3.2.4",
     "dotenv": "17.4.2",
-    "happy-dom": "20.8.9",
+    "happy-dom": "20.9.0",
     "husky": "9.1.7",
     "marked": "16.4.2",
     "microcms-js-sdk": "3.4.0",
-    "oxfmt": "0.45.0",
-    "oxlint": "1.58.0",
+    "oxfmt": "0.46.0",
+    "oxlint": "1.61.0",
     "postcss-html": "1.8.1",
     "prettier": "3.8.3",
     "prettier-plugin-astro": "0.14.1",
     "prismjs": "1.30.0",
-    "sass": "1.98.0",
+    "sass": "1.99.0",
     "satori": "0.26.0",
     "stylelint": "16.26.1",
     "stylelint-config-html": "1.1.0",
@@ -77,10 +77,5 @@
   "engines": {
     "node": "24.15.0"
   },
-  "packageManager": "pnpm@10.28.2",
-  "pnpm": {
-    "overrides": {
-      "vite": "6.4.2"
-    }
-  }
+  "packageManager": "pnpm@10.28.2"
 }
