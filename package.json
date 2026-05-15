@@ -31,11 +31,11 @@
   "dependencies": {
     "@astrojs/check": "0.9.9",
     "@astrojs/partytown": "2.1.7",
-    "@astrojs/react": "5.0.4",
+    "@astrojs/react": "5.0.5",
     "@astrojs/rss": "4.0.18",
     "@astrojs/sitemap": "3.7.2",
     "@sentry/astro": "10.50.0",
-    "astro": "6.3.1",
+    "astro": "6.3.3",
     "date-fns": "4.1.0",
     "date-fns-tz": "3.2.0",
     "normalize.css": "8.0.1",
