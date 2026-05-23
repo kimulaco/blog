@@ -1,7 +1,7 @@
+engineStrict: true
+minimumReleaseAge: 1440
 allowBuilds:
   '@parcel/watcher': false
   '@sentry/cli': false
   esbuild: false
   sharp: false
-minimumReleaseAge: 1440
-useNodeVersion: 24.15.0
