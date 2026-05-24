@@ -5,3 +5,5 @@ allowBuilds:
   '@sentry/cli': false
   esbuild: false
   sharp: false
+configDependencies:
+  '@pnpm/pacquet': 0.2.6
