@@ -39,15 +39,15 @@
     "date-fns": "4.1.0",
     "date-fns-tz": "3.2.0",
     "normalize.css": "8.0.1",
-    "react": "19.2.6",
-    "react-dom": "19.2.6"
+    "react": "19.2.7",
+    "react-dom": "19.2.7"
   },
   "devDependencies": {
     "@ls-lint/ls-lint": "2.3.1",
     "@playwright/test": "1.60.0",
     "@resvg/resvg-js": "2.6.2",
     "@types/prismjs": "1.26.6",
-    "@types/react": "19.2.15",
+    "@types/react": "19.2.16",
     "@types/react-dom": "19.2.3",
     "@vitest/coverage-v8": "4.1.8",
     "dotenv": "17.4.2",
