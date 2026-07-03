@@ -32,7 +32,7 @@
     "@astrojs/check": "0.9.9",
     "@astrojs/partytown": "2.1.7",
     "@astrojs/react": "5.0.7",
-    "@astrojs/rss": "4.0.18",
+    "@astrojs/rss": "4.0.19",
     "@astrojs/sitemap": "3.7.3",
     "@sentry/astro": "10.50.0",
     "astro": "6.4.8",
