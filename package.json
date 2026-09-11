@@ -33,7 +33,7 @@
     "@astrojs/partytown": "2.1.7",
     "@astrojs/react": "5.0.7",
     "@astrojs/rss": "4.0.19",
-    "@astrojs/sitemap": "3.7.3",
+    "@astrojs/sitemap": "3.7.4",
     "@sentry/astro": "10.50.0",
     "astro": "6.4.8",
     "date-fns": "4.1.0",
