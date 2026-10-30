@@ -51,7 +51,7 @@
     "@types/react-dom": "19.2.7",
     "@vitest/coverage-v8": "4.1.12",
     "dotenv": "17.4.2",
-    "happy-dom": "20.14.6",
+    "happy-dom": "21.0.4",
     "husky": "9.1.7",
     "marked": "18.1.2",
     "microcms-js-sdk": "3.6.0",
