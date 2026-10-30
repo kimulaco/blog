@@ -7,3 +7,6 @@ allowBuilds:
   sharp: false
 configDependencies:
   '@pnpm/pacquet': 0.2.6
+minimumReleaseAgeExclude:
+  # Renovate security update: satori@0.33.5
+  - satori@0.33.5
