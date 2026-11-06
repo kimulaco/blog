@@ -10,3 +10,5 @@ configDependencies:
 minimumReleaseAgeExclude:
   # Renovate security update: satori@0.33.5
   - satori@0.33.5
+  # Renovate security update: astro@7.3.2
+  - astro@7.3.2
