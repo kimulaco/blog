@@ -56,7 +56,7 @@
     "marked": "18.3.0",
     "microcms-js-sdk": "3.6.0",
     "oxfmt": "0.80.0",
-    "oxlint": "1.86.0",
+    "oxlint": "1.95.0",
     "postcss-html": "1.8.1",
     "prettier": "3.8.4",
     "prettier-plugin-astro": "0.14.1",
