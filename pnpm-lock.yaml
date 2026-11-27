@@ -152,8 +152,8 @@ importers:
         specifier: 9.1.7
         version: 9.1.7
       marked:
-        specifier: 18.2.1
-        version: 18.2.1
+        specifier: 18.3.0
+        version: 18.3.0
       microcms-js-sdk:
         specifier: 3.6.0
         version: 3.6.0
@@ -2914,8 +2914,8 @@ packages:
   markdown-table@3.0.4:
     resolution: {integrity: sha512-wiYz4+JrLyb/DqW2hkFJxP7Vd7JuTDm77fvbM8VfEQdmSMqcImWeeRbHwZjBjIFki/VaMK2BhFi7oUUZeM5bqw==}
 
-  marked@18.2.1:
-    resolution: {integrity: sha512-ii4bxCTCqqwpT86XZWgJNs+ZnAIZksmLGYMViWA7PDIXYIeNo1x6cDdX3JOip9NM/cI6p8z57FxliACboTruMA==}
+  marked@18.3.0:
+    resolution: {integrity: sha512-ed8zmPXlBb3UfGXN5iHMQyMhFpdqLgoV5umUXx/Q1R+FW3q8VpqpyoKUwlENL9appo2UMvNLURDVaT3AMOryGA==}
     engines: {node: '>= 20'}
     hasBin: true
 
@@ -6937,7 +6937,7 @@ snapshots:
 
   markdown-table@3.0.4: {}
 
-  marked@18.2.1: {}
+  marked@18.3.0: {}
 
   mathml-tag-names@4.0.0: {}
 
